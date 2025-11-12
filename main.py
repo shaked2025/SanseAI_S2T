@@ -21,6 +21,7 @@ from video_capture import VideoCapture
 from speech_to_text import SpeechToText, TranscriptManager
 from speaker_diarization import SimpleSpeakerDiarization, SpeakerManager
 from speaker_diarization_production import ProductionSpeakerDiarization
+from speaker_diarization_robust import RobustSpeakerDiarization
 from gui_application import SpeechToTextGUI
 
 
@@ -70,11 +71,17 @@ class SpeechToTextApplication:
         # Speaker diarization
         diarization_config = self.config.get('diarization', {})
         self.diarization_enabled = diarization_config.get('enabled', True)
-        self.diarization_mode = diarization_config.get('mode', 'production')
+        self.diarization_mode = diarization_config.get('mode', 'robust')
         
         if self.diarization_enabled:
-            if self.diarization_mode == 'production':
-                print("🎯 Using PRODUCTION speaker diarization (robust, deep learning)")
+            if self.diarization_mode == 'robust':
+                print("🎯 Using ROBUST speaker diarization (Resemblyzer, PRODUCTION-READY!)")
+                self.speaker_diarization = RobustSpeakerDiarization(
+                    max_speakers=diarization_config.get('max_speakers', 5),
+                    similarity_threshold=diarization_config.get('similarity_threshold', 0.75)
+                )
+            elif self.diarization_mode == 'production':
+                print("🎯 Using PRODUCTION speaker diarization (SpeechBrain, may have Windows issues)")
                 self.speaker_diarization = ProductionSpeakerDiarization(
                     max_speakers=diarization_config.get('max_speakers', 5),
                     similarity_threshold=diarization_config.get('similarity_threshold', 0.75)
@@ -402,18 +409,22 @@ class SpeechToTextApplication:
         if self.is_running:
             self.stop_capture()
             
-        # Save speaker database if using production mode
+        # Save speaker database if using production or robust mode
         if (self.diarization_enabled and 
-            self.diarization_mode == 'production' and 
+            self.diarization_mode in ['production', 'robust'] and 
             self.speaker_diarization and
             self.config.get('diarization', {}).get('save_speaker_profiles', True)):
             try:
                 self.speaker_diarization.save_database()
                 stats = self.speaker_diarization.get_statistics()
-                print(f"📊 Speaker identification stats:")
-                print(f"   Total: {stats['total_identifications']}")
+                print(f"\n📊 Speaker Identification Statistics:")
+                print(f"   Total identifications: {stats['total_identifications']}")
+                print(f"   Successful matches: {stats['successful_matches']}")
                 print(f"   Accuracy: {stats['accuracy']:.1f}%")
-                print(f"   Speakers: {stats['num_speakers']}")
+                print(f"   Total speakers: {stats['num_speakers']}")
+                if 'enrolled_speakers' in stats:
+                    print(f"   Enrolled speakers: {stats['enrolled_speakers']}")
+                    print(f"   New speakers created: {stats.get('new_speakers_created', 0)}")
             except Exception as e:
                 print(f"Warning: Could not save speaker database: {e}")
             

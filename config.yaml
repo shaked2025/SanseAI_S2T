@@ -23,10 +23,10 @@ speech:
 # Speaker diarization settings
 diarization:
   enabled: true
-  mode: "simple"  # Options: "simple" (works on Windows) or "production" (better but has Windows symlink issues)
+  mode: "robust"  # Options: "simple" (basic), "robust" (PRODUCTION-READY!), "production" (SpeechBrain, Windows issues)
   min_speakers: 1
   max_speakers: 5
-  similarity_threshold: 0.82  # 0.6-0.9, higher = more likely to group as same speaker (0.82 balanced)
+  similarity_threshold: 0.75  # Base threshold (dynamic per speaker in robust mode)
   save_speaker_profiles: true  # Save speaker profiles between sessions
   
 # Real-time processing settings

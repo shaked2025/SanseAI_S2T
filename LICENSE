@@ -1,0 +1,113 @@
+MIT License
+
+Copyright (c) 2025 SanseAI Speech-to-Text Project
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+THIRD-PARTY COMPONENTS
+================================================================================
+
+This software incorporates several open-source components, each with their own
+licenses:
+
+1. OpenAI Whisper
+   - License: MIT License
+   - Copyright: OpenAI
+   - URL: https://github.com/openai/whisper
+
+2. PyTorch
+   - License: BSD-style License
+   - Copyright: PyTorch Contributors
+   - URL: https://pytorch.org/
+
+3. OpenCV (opencv-python)
+   - License: Apache License 2.0
+   - Copyright: OpenCV Team
+   - URL: https://opencv.org/
+
+4. PyAudio
+   - License: MIT License
+   - Copyright: Hubert Pham
+   - URL: http://people.csail.mit.edu/hubert/pyaudio/
+
+5. NumPy
+   - License: BSD License
+   - Copyright: NumPy Developers
+   - URL: https://numpy.org/
+
+6. Librosa
+   - License: ISC License
+   - Copyright: Brian McFee
+   - URL: https://librosa.org/
+
+7. Pillow (PIL)
+   - License: HPND License
+   - Copyright: Jeffrey A. Clark (Alex) and contributors
+   - URL: https://python-pillow.org/
+
+8. PyYAML
+   - License: MIT License
+   - Copyright: Kirill Simonov
+   - URL: https://pyyaml.org/
+
+9. SciPy
+   - License: BSD License
+   - Copyright: SciPy Developers
+   - URL: https://scipy.org/
+
+Users of this software must comply with all licenses of incorporated components.
+
+For commercial use, please review the licenses of all third-party components to
+ensure compliance with your use case.
+
+================================================================================
+DISCLAIMER
+================================================================================
+
+This software is provided for general use. The accuracy of transcriptions
+depends on various factors including audio quality, speaker clarity, background
+noise, and the chosen model size.
+
+The speaker diarization feature uses a simplified algorithm and may not always
+accurately identify speakers, especially when:
+- Multiple speakers sound similar
+- Audio quality is poor
+- Multiple people speak simultaneously
+
+For mission-critical applications, please verify transcriptions and consider
+using professional-grade speaker diarization solutions.
+
+================================================================================
+PRIVACY NOTICE
+================================================================================
+
+This software is designed to operate entirely offline and does not transmit
+any data to external servers (except for the initial download of AI models
+during installation).
+
+All processing occurs locally on your machine. However, users are responsible
+for:
+- Ensuring compliance with local laws regarding recording conversations
+- Obtaining necessary consents when recording others
+- Securing exported transcripts and snapshots appropriately
+- Understanding that snapshots and transcripts are saved locally
+
+================================================================================
+

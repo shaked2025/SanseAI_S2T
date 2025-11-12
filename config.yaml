@@ -1,0 +1,41 @@
+# Configuration for Speech-to-Text System
+
+# Audio settings
+audio:
+  sample_rate: 16000
+  channels: 1
+  chunk_size: 1024
+  format: paInt16
+  
+# Video settings
+video:
+  width: 640
+  height: 480
+  fps: 30
+  camera_index: 0
+
+# Speech recognition settings
+speech:
+  model_size: "base"  # Options: tiny, base, small, medium, large
+  language: "en"
+  compute_type: "float32"  # Options: float32, float16, int8
+  
+# Speaker diarization settings
+diarization:
+  enabled: true
+  min_speakers: 1
+  max_speakers: 5
+  
+# Real-time processing settings
+processing:
+  vad_aggressiveness: 3  # 0-3, higher = more aggressive voice detection
+  buffer_duration: 3.0  # seconds of audio to buffer before processing
+  overlap_duration: 0.5  # seconds of overlap between chunks
+  
+# Display settings
+display:
+  window_width: 1200
+  window_height: 800
+  max_transcript_lines: 20
+  font_size: 12
+

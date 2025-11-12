@@ -1,0 +1,143 @@
+Real-Time Speech-to-Text System
+Version 1.0.0
+Release Date: November 12, 2025
+
+================================
+CHANGELOG
+================================
+
+Version 1.0.0 (Initial Release)
+--------------------------------
+Release Date: November 12, 2025
+
+Features:
+- Real-time speech-to-text transcription using OpenAI Whisper
+- Multi-speaker identification and diarization
+- Live video capture with snapshot capability
+- Modern GUI with tkinter
+- Audio level monitoring
+- Export transcripts to text files
+- Configurable settings via YAML
+- Complete offline operation (no third-party APIs)
+- Support for 5 Whisper model sizes (tiny, base, small, medium, large)
+- Color-coded speaker identification
+- Cross-platform support (Windows, macOS, Linux)
+
+Components:
+- Audio capture module with voice activity detection
+- Video capture module with OpenCV
+- Speech-to-text engine with Whisper integration
+- Simplified speaker diarization
+- Full-featured GUI application
+- Configuration management
+- Installation helper
+- Component testing suite
+
+Documentation:
+- Comprehensive README
+- Quick start guide
+- Detailed usage guide
+- Troubleshooting guide
+- Inline code documentation
+
+System Requirements:
+- Python 3.8 or higher
+- 4GB RAM minimum (8GB recommended)
+- Webcam and microphone
+- ~2GB disk space for models and dependencies
+
+Supported Platforms:
+- Windows 10/11
+- macOS 10.14+
+- Linux (Ubuntu 18.04+, Debian, Fedora, etc.)
+
+Known Limitations:
+- Speaker diarization uses simplified algorithm (for advanced, use pyannote.audio)
+- Best performance with one speaker at a time
+- Requires initial internet connection to download models
+- GPU acceleration not implemented in this version
+
+================================
+FUTURE ENHANCEMENTS
+================================
+
+Planned for Future Versions:
+- Integration with pyannote.audio for advanced diarization
+- GPU acceleration support
+- Real-time translation
+- Punctuation restoration
+- Noise reduction preprocessing
+- Batch processing of audio files
+- Keyboard shortcuts
+- Dark/light theme options
+- Custom speaker naming
+- Session history
+- Audio recording option
+- Multiple language support UI
+- Plugin system for extensions
+
+================================
+DEPENDENCIES
+================================
+
+Core:
+- openai-whisper >= 20230314
+- torch >= 2.0.0
+- torchaudio >= 2.0.0
+- opencv-python >= 4.8.0
+- pyaudio >= 0.2.13
+- numpy >= 1.24.0
+
+Audio Processing:
+- librosa >= 0.10.0
+- soundfile >= 0.12.0
+- scipy >= 1.11.0
+
+Speaker Diarization:
+- pyannote.audio >= 3.0.0 (optional)
+- pyannote.core >= 5.0.0 (optional)
+
+GUI & Utilities:
+- pillow >= 10.0.0
+- PyYAML >= 6.0
+- python-dotenv >= 1.0.0
+- webrtcvad >= 2.0.10
+
+================================
+LICENSE
+================================
+
+This project uses several open-source components:
+- OpenAI Whisper: MIT License
+- PyTorch: BSD-style License
+- OpenCV: Apache 2.0 License
+
+Please review individual component licenses for commercial use.
+
+================================
+CREDITS
+================================
+
+Built with:
+- OpenAI Whisper for speech recognition
+- PyTorch for deep learning
+- OpenCV for computer vision
+- PyAudio for audio I/O
+- Tkinter for GUI
+
+Developed for users who prioritize privacy and want a completely
+local, offline-capable speech-to-text solution.
+
+================================
+CONTACT & SUPPORT
+================================
+
+For issues, suggestions, or contributions:
+- Check TROUBLESHOOTING.md
+- Review README.md for documentation
+- Run test_components.py for diagnostics
+
+================================
+
+Made with ❤️ for privacy-conscious users
+

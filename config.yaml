@@ -29,8 +29,9 @@ diarization:
 # Real-time processing settings
 processing:
   vad_aggressiveness: 3  # 0-3, higher = more aggressive voice detection
-  buffer_duration: 3.0  # seconds of audio to buffer before processing
-  overlap_duration: 0.5  # seconds of overlap between chunks
+  buffer_duration: 1.5  # seconds of audio to buffer before processing (reduced for faster response)
+  overlap_duration: 0.3  # seconds of overlap between chunks
+  process_interval: 0.5  # seconds between processing checks (for continuous streaming)
   
 # Display settings
 display:

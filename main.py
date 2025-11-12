@@ -159,7 +159,9 @@ class SpeechToTextApplication:
             self.audio_level_thread = threading.Thread(target=self.audio_level_loop, daemon=True)
             self.audio_level_thread.start()
             
-            print("Capture started successfully!")
+            print("✅ Capture started successfully!")
+            print("🔴 LIVE - Continuous streaming mode activated")
+            print("💬 Speak naturally - transcription will appear in real-time")
             print("Speak into your microphone to see transcription...")
             
         except Exception as e:
@@ -193,21 +195,25 @@ class SpeechToTextApplication:
         print("Capture stopped")
         
     def video_update_loop(self):
-        """Update video display"""
+        """Update video display - optimized for smooth streaming"""
         try:
+            frame_count = 0
             while self.is_running:
                 try:
                     frame = self.video_capture.get_frame()
                     if frame is not None:
-                        self.gui.queue_update({'type': 'video', 'frame': frame})
+                        # Only update every 2nd frame to reduce GUI load (15fps instead of 30fps)
+                        if frame_count % 2 == 0:
+                            self.gui.queue_update({'type': 'video', 'frame': frame})
+                        frame_count += 1
                 except Exception as e:
                     print(f"Video update error: {e}")
-                time.sleep(0.033)  # ~30 fps
+                time.sleep(0.033)  # ~30 fps capture, but display at 15fps
         except Exception as e:
             print(f"Video loop error: {e}")
             
     def audio_level_loop(self):
-        """Update audio level display"""
+        """Update audio level display - faster for live feel"""
         try:
             while self.is_running:
                 try:
@@ -215,84 +221,104 @@ class SpeechToTextApplication:
                     self.gui.queue_update({'type': 'audio_level', 'level': level})
                 except Exception as e:
                     print(f"Audio level error: {e}")
-                time.sleep(0.1)
+                time.sleep(0.05)  # Update every 50ms for smoother visual feedback
         except Exception as e:
             print(f"Audio loop error: {e}")
             
     def processing_loop(self):
         """Main processing loop for speech recognition"""
-        print("Processing loop started")
+        print("Processing loop started - Continuous streaming mode")
         
         last_process_time = time.time()
-        process_interval = 2.0  # Process every 2 seconds
+        process_interval = self.config.get('processing', {}).get('process_interval', 0.5)
+        
+        print(f"Processing interval: {process_interval}s for continuous streaming")
         
         while self.is_running:
             try:
                 current_time = time.time()
                 
-                # Check if it's time to process
+                # Check if it's time to process (more frequent for streaming)
                 if current_time - last_process_time < process_interval:
-                    time.sleep(0.1)
+                    time.sleep(0.05)  # Shorter sleep for faster response
                     continue
                     
                 # Get audio buffer
                 audio_data = self.audio_capture.get_buffer(duration=self.buffer_duration)
                 
-                if len(audio_data) < self.sample_rate * 0.5:  # At least 0.5 seconds
-                    time.sleep(0.1)
+                if len(audio_data) < self.sample_rate * 0.3:  # At least 0.3 seconds
+                    time.sleep(0.05)
                     continue
                     
                 # Check if speech is present
                 if not self.vad.is_speech(audio_data):
-                    time.sleep(0.1)
+                    time.sleep(0.05)
                     continue
                     
-                print(f"Processing {len(audio_data)/self.sample_rate:.2f}s of audio...")
+                print(f"🎤 Processing {len(audio_data)/self.sample_rate:.2f}s of audio...")
                 
-                # Identify speaker if diarization is enabled
-                speaker_id = 0
-                if self.diarization_enabled and self.speaker_diarization:
-                    speaker_id = self.speaker_diarization.identify_speaker(audio_data, self.sample_rate)
-                    print(f"Speaker identified: {speaker_id}")
-                    
-                # Get speaker info
-                speaker_info = self.speaker_manager.get_speaker_info(speaker_id)
+                # Process in a separate thread to avoid blocking
+                # This prevents UI freezing
+                def process_audio():
+                    try:
+                        # Identify speaker if diarization is enabled
+                        speaker_id = 0
+                        if self.diarization_enabled and self.speaker_diarization:
+                            speaker_id = self.speaker_diarization.identify_speaker(audio_data, self.sample_rate)
+                            print(f"👤 Speaker identified: Speaker {speaker_id + 1}")
+                            
+                        # Get speaker info
+                        speaker_info = self.speaker_manager.get_speaker_info(speaker_id)
+                        
+                        # Update speakers display immediately (live)
+                        all_speakers = self.speaker_manager.get_all_speakers()
+                        self.gui.queue_update({'type': 'speakers', 'speakers': all_speakers})
+                        
+                        # Transcribe
+                        result = self.speech_to_text.transcribe(audio_data, self.sample_rate)
+                        
+                        if result['text']:
+                            print(f"📝 Transcript: [{speaker_info['name']}] {result['text']}")
+                            
+                            # Add to transcript manager
+                            self.transcript_manager.add_transcript(
+                                result['text'],
+                                speaker_id=speaker_id,
+                                timestamp=result['timestamp']
+                            )
+                            
+                            # Update GUI immediately
+                            self.gui.queue_update({
+                                'type': 'transcript',
+                                'text': result['text'],
+                                'speaker_id': speaker_id,
+                                'speaker_name': speaker_info['name'],
+                                'color': speaker_info['color']
+                            })
+                            
+                            # Update status to show it's live
+                            self.gui.queue_update({
+                                'type': 'status',
+                                'message': f'🔴 LIVE - {speaker_info["name"]} speaking...'
+                            })
+                        else:
+                            print("⚠️ No speech detected in audio segment")
+                    except Exception as e:
+                        print(f"❌ Error in audio processing: {e}")
+                        import traceback
+                        traceback.print_exc()
                 
-                # Update speakers display
-                all_speakers = self.speaker_manager.get_all_speakers()
-                self.gui.queue_update({'type': 'speakers', 'speakers': all_speakers})
-                
-                # Transcribe
-                result = self.speech_to_text.transcribe(audio_data, self.sample_rate)
-                
-                if result['text']:
-                    print(f"Transcript: [{speaker_info['name']}] {result['text']}")
-                    
-                    # Add to transcript manager
-                    self.transcript_manager.add_transcript(
-                        result['text'],
-                        speaker_id=speaker_id,
-                        timestamp=result['timestamp']
-                    )
-                    
-                    # Update GUI
-                    self.gui.queue_update({
-                        'type': 'transcript',
-                        'text': result['text'],
-                        'speaker_id': speaker_id,
-                        'speaker_name': speaker_info['name'],
-                        'color': speaker_info['color']
-                    })
-                else:
-                    print("No speech detected in audio")
+                # Run transcription in background to keep UI responsive
+                transcribe_thread = threading.Thread(target=process_audio, daemon=True)
+                transcribe_thread.start()
                     
                 last_process_time = current_time
                 
             except Exception as e:
-                print(f"Error in processing loop: {e}")
+                print(f"❌ Error in processing loop: {e}")
                 import traceback
                 traceback.print_exc()
-                time.sleep(1)
+                time.sleep(0.5)  # Shorter sleep to recover faster
                 
         print("Processing loop ended")
         

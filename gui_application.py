@@ -79,13 +79,26 @@ class SpeechToTextGUI:
         main_frame = ttk.Frame(self.root)
         main_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
         
-        # Title
+        # Title with live indicator
+        title_frame = ttk.Frame(main_frame)
+        title_frame.pack(pady=(0, 10))
+        
         title_label = ttk.Label(
-            main_frame,
+            title_frame,
             text="🎤 Real-Time Speech-to-Text System",
             style='Title.TLabel'
         )
-        title_label.pack(pady=(0, 10))
+        title_label.pack(side=tk.LEFT)
+        
+        # Live indicator (will show when running)
+        self.live_indicator = tk.Label(
+            title_frame,
+            text="",
+            font=('Arial', 12, 'bold'),
+            fg='#E74C3C',
+            bg=self.bg_color
+        )
+        self.live_indicator.pack(side=tk.LEFT, padx=10)
         
         # Content area (split into left and right)
         content_frame = ttk.Frame(main_frame)
@@ -379,41 +392,67 @@ class SpeechToTextGUI:
             self.start_button.configure(state=tk.DISABLED)
             self.stop_button.configure(state=tk.NORMAL)
             self.snapshot_button.configure(state=tk.NORMAL)
+            # Show LIVE indicator
+            self.live_indicator.configure(text="🔴 LIVE")
+            self.blink_live_indicator()
         else:
             self.start_button.configure(state=tk.NORMAL)
             self.stop_button.configure(state=tk.DISABLED)
             self.snapshot_button.configure(state=tk.DISABLED)
+            # Hide LIVE indicator
+            self.live_indicator.configure(text="")
+            
+    def blink_live_indicator(self):
+        """Make the live indicator blink for attention"""
+        if self.is_running:
+            current_text = self.live_indicator.cget("text")
+            if current_text == "🔴 LIVE":
+                self.live_indicator.configure(text="⚪ LIVE")
+            else:
+                self.live_indicator.configure(text="🔴 LIVE")
+            # Blink every 800ms
+            self.root.after(800, self.blink_live_indicator)
             
     def schedule_updates(self):
-        """Process queued updates"""
+        """Process queued updates - optimized for continuous streaming"""
         try:
-            while True:
-                update = self.update_queue.get_nowait()
-                update_type = update.get('type')
-                
-                if update_type == 'video':
-                    self.update_video_frame(update['frame'])
-                elif update_type == 'transcript':
-                    self.update_transcript(
-                        update['text'],
-                        update.get('speaker_id', 0),
-                        update.get('speaker_name'),
-                        update.get('color')
-                    )
-                elif update_type == 'speakers':
-                    self.update_speakers(update['speakers'])
-                elif update_type == 'audio_level':
-                    self.update_audio_level(update['level'])
-                elif update_type == 'status':
-                    self.update_status(update['message'])
-                elif update_type == 'state':
-                    self.set_running_state(update['is_running'])
-                    
-        except queue.Empty:
-            pass
+            # Process multiple updates per cycle for smoother streaming
+            updates_processed = 0
+            max_updates_per_cycle = 5  # Process up to 5 updates at once
             
-        # Schedule next update
-        self.root.after(50, self.schedule_updates)
+            while updates_processed < max_updates_per_cycle:
+                try:
+                    update = self.update_queue.get_nowait()
+                    update_type = update.get('type')
+                    
+                    if update_type == 'video':
+                        self.update_video_frame(update['frame'])
+                    elif update_type == 'transcript':
+                        self.update_transcript(
+                            update['text'],
+                            update.get('speaker_id', 0),
+                            update.get('speaker_name'),
+                            update.get('color')
+                        )
+                    elif update_type == 'speakers':
+                        self.update_speakers(update['speakers'])
+                    elif update_type == 'audio_level':
+                        self.update_audio_level(update['level'])
+                    elif update_type == 'status':
+                        self.update_status(update['message'])
+                    elif update_type == 'state':
+                        self.set_running_state(update['is_running'])
+                    
+                    updates_processed += 1
+                    
+                except queue.Empty:
+                    break
+                    
+        except Exception as e:
+            print(f"Error in schedule_updates: {e}")
+            
+        # Schedule next update - faster for streaming (20ms instead of 50ms)
+        self.root.after(20, self.schedule_updates)
         
     def queue_update(self, update):
         """Queue a GUI update"""

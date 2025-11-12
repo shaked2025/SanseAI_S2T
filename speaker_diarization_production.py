@@ -196,7 +196,7 @@ class SpeakerDatabase:
                 speaker['embeddings'].pop(0)
                 
             # Update mean embedding (moving average)
-            alpha = 0.3  # Learning rate
+            alpha = 0.2  # Learning rate - lower = more stable, less sensitive to variations
             speaker['mean_embedding'] = (
                 alpha * embedding + (1 - alpha) * speaker['mean_embedding']
             )
@@ -284,7 +284,7 @@ class SpeakerDatabase:
 class TemporalSmoother:
     """Smooth speaker assignments over time to prevent flickering"""
     
-    def __init__(self, window_size=5):
+    def __init__(self, window_size=7):
         self.window_size = window_size
         self.history = deque(maxlen=window_size)
         
@@ -349,7 +349,7 @@ class ProductionSpeakerDiarization:
         # Initialize components
         self.embedding_extractor = EmbeddingExtractor(device=device)
         self.speaker_db = SpeakerDatabase(max_speakers=max_speakers)
-        self.temporal_smoother = TemporalSmoother(window_size=5)
+        self.temporal_smoother = TemporalSmoother(window_size=7)  # Larger window for more stability
         
         # Statistics
         self.total_identifications = 0

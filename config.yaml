@@ -26,7 +26,7 @@ diarization:
   mode: "production"  # Options: "simple" (fast) or "production" (ROBUST - distinguishes speakers!)
   min_speakers: 1
   max_speakers: 5
-  similarity_threshold: 0.70  # 0.6-0.9, lower = more likely to create new speakers
+  similarity_threshold: 0.82  # 0.6-0.9, higher = more likely to group as same speaker (0.82 balanced)
   save_speaker_profiles: true  # Save speaker profiles between sessions
   
 # Real-time processing settings

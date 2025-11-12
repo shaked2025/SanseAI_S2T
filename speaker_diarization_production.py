@@ -33,7 +33,11 @@ class EmbeddingExtractor:
     def _load_model(self):
         """Load SpeechBrain speaker recognition model"""
         try:
-            from speechbrain.pretrained import EncoderClassifier
+            import os
+            # Force copy strategy on Windows to avoid symlink permission issues
+            os.environ['SPEECHBRAIN_LOCAL_STRATEGY'] = 'copy'
+            
+            from speechbrain.inference.speaker import EncoderClassifier
             
             # Use ECAPA-TDNN model trained on VoxCeleb
             with self.lock:

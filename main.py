@@ -12,6 +12,9 @@ from datetime import datetime
 import os
 import sys
 
+# Fix for Windows symlink permission issues with SpeechBrain
+os.environ['SPEECHBRAIN_LOCAL_STRATEGY'] = 'copy'
+
 # Import our modules
 from audio_capture import AudioCapture, VoiceActivityDetector
 from video_capture import VideoCapture

@@ -23,7 +23,7 @@ speech:
 # Speaker diarization settings
 diarization:
   enabled: true
-  mode: "production"  # Options: "simple" (fast but less accurate) or "production" (robust, recommended)
+  mode: "simple"  # Options: "simple" (works now) or "production" (better but needs fix)
   min_speakers: 1
   max_speakers: 5
   similarity_threshold: 0.75  # 0.6-0.9, higher = stricter matching (production mode only)

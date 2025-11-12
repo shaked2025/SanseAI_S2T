@@ -33,51 +33,46 @@ class EmbeddingExtractor:
     def _load_model(self):
         """Load SpeechBrain speaker recognition model"""
         try:
-            import shutil
             from pathlib import Path
-            
-            # Work around Windows symlink issues by copying files directly
-            cache_dir = Path.home() / ".cache" / "huggingface" / "hub"
-            model_pattern = "models--speechbrain--spkrec-ecapa-voxceleb"
-            
-            # Find the cached model
-            model_cache = None
-            if cache_dir.exists():
-                for item in cache_dir.iterdir():
-                    if model_pattern in item.name:
-                        snapshots = item / "snapshots"
-                        if snapshots.exists():
-                            # Get the first (should be only) snapshot
-                            for snapshot in snapshots.iterdir():
-                                model_cache = snapshot
-                                break
-                        break
-            
             from speechbrain.inference.speaker import EncoderClassifier
             
-            # Use ECAPA-TDNN model trained on VoxCeleb
+            # Find cached model to avoid Windows symlink issues
+            cache_dir = Path.home() / ".cache" / "huggingface" / "hub" / "models--speechbrain--spkrec-ecapa-voxceleb" / "snapshots"
+            
+            model_path = None
+            if cache_dir.exists():
+                # Get the snapshot directory (there should be only one)
+                snapshots = list(cache_dir.iterdir())
+                if snapshots:
+                    model_path = snapshots[0]
+                    print(f"📂 Found cached model at: {model_path.name}")
+            
             with self.lock:
-                # If model is already cached, use it directly from cache
-                if model_cache and model_cache.exists():
-                    print(f"📂 Using cached model from {model_cache}")
+                if model_path and model_path.exists():
+                    # Load directly from cache - no symlink creation needed!
+                    print("✅ Loading model directly from HuggingFace cache...")
                     self.model = EncoderClassifier.from_hparams(
-                        source=str(model_cache),
-                        savedir="models/spkrec-ecapa-voxceleb",
+                        source=str(model_path),
+                        savedir=str(model_path),  # Use same dir to avoid copying
                         run_opts={"device": self.device}
                     )
+                    print("✅ Speaker embedding model loaded successfully!")
                 else:
-                    # Download fresh (will cache automatically)
+                    # Model not cached, need to download
+                    # This will fail on Windows due to symlinks, but we'll try
                     print("📥 Downloading SpeechBrain model (one-time, ~80MB)...")
+                    print("⚠️  Note: May require admin privileges on Windows")
                     self.model = EncoderClassifier.from_hparams(
                         source="speechbrain/spkrec-ecapa-voxceleb",
                         savedir="models/spkrec-ecapa-voxceleb",
                         run_opts={"device": self.device}
                     )
-            print("✅ Speaker embedding model loaded successfully")
+                    print("✅ Model downloaded and loaded successfully!")
             
         except Exception as e:
             print(f"❌ Error loading SpeechBrain model: {e}")
             print("⚠️  Falling back to simple speaker diarization...")
+            print("💡 To use production mode: Run as administrator or pre-download the model")
             # Don't raise - let the app continue with fallback
             self.model = None
             

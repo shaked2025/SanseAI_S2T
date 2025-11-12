@@ -23,7 +23,7 @@ speech:
 # Speaker diarization settings
 diarization:
   enabled: true
-  mode: "production"  # Options: "simple" (fast) or "production" (ROBUST - distinguishes speakers!)
+  mode: "simple"  # Options: "simple" (works on Windows) or "production" (better but has Windows symlink issues)
   min_speakers: 1
   max_speakers: 5
   similarity_threshold: 0.82  # 0.6-0.9, higher = more likely to group as same speaker (0.82 balanced)

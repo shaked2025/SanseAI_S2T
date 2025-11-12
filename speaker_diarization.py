@@ -27,8 +27,8 @@ class SimpleSpeakerDiarization:
         self.speaker_profiles = []
         self.speaker_history = []
         
-        # Similarity threshold for speaker matching
-        self.similarity_threshold = 0.7
+        # Similarity threshold for speaker matching  
+        self.similarity_threshold = 0.82  # Raised for better consistency
         
     def extract_features(self, audio_data, sample_rate=16000):
         """

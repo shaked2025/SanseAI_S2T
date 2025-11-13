@@ -353,26 +353,37 @@ class EnrollmentWizard:
         """Start continuous recording for auto-chunking"""
         if self.is_recording:
             return
-            
-        self.is_recording = True
-        self.record_button.config(
-            text="⬛ Stop Recording",
-            bg='#95A5A6',
-            command=self.stop_continuous_recording
-        )
         
+        print("🎙️ Starting continuous enrollment recording...")
+            
         # Start audio capture if not already
         if not self.audio_capture.is_recording:
+            print("   Starting audio capture...")
             self.audio_capture.start()
-            
-        # Clear buffer
+            time.sleep(0.5)  # Wait for audio to initialize
+        
+        # Clear buffer to start fresh
+        print("   Clearing audio buffer...")
         self.audio_capture.clear_queue()
-        time.sleep(0.2)
+        time.sleep(0.3)
+        
+        # NOW start recording
+        self.is_recording = True
+        self.recording_start_time = time.time()
+        
+        print(f"✅ Recording started at {self.recording_start_time}")
+        
+        # Update UI
+        self.record_button.config(
+            text="⬛ Stop Recording (or wait for auto-stop at 30s)",
+            bg='#95A5A6',
+            command=self.stop_continuous_recording,
+            font=('Arial', 11, 'bold')
+        )
         
         # Visual feedback
-        self.recording_label.config(text="🔴 RECORDING... Speak naturally!")
-        self.progress_label.config(text="Target: 20-30 seconds of speech")
-        self.recording_start_time = time.time()
+        self.recording_label.config(text="🔴 RECORDING... 0.0s", font=('Arial', 14, 'bold'))
+        self.progress_label.config(text="Speak naturally - will auto-stop at 30 seconds")
         
         # Update timer
         self.update_recording_timer()
@@ -383,10 +394,19 @@ class EnrollmentWizard:
             elapsed = time.time() - self.recording_start_time
             self.recording_label.config(text=f"🔴 RECORDING... {elapsed:.1f}s")
             
-            if elapsed >= 20:
-                self.progress_label.config(text=f"✅ Good! You can stop now (or continue up to 60s)", fg='#27AE60')
+            if elapsed >= 30:
+                # Auto-stop after 30 seconds
+                self.progress_label.config(text=f"✅ 30 seconds reached - auto-stopping!", fg='#27AE60')
+                self.window.update()
+                time.sleep(0.5)
+                self.stop_continuous_recording()
+                return
+            elif elapsed >= 20:
+                self.progress_label.config(text=f"✅ Good! Will auto-stop at 30s (or click Stop now)", fg='#27AE60')
             elif elapsed >= 10:
-                self.progress_label.config(text=f"Keep going... (target: 20-30s)")
+                self.progress_label.config(text=f"Keep going... (will auto-stop at 30s)")
+            else:
+                self.progress_label.config(text=f"Keep speaking... (target: 20-30s)")
             
             self.window.after(100, self.update_recording_timer)
             

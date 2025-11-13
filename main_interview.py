@@ -11,6 +11,7 @@ import numpy as np
 from datetime import datetime
 import os
 import sys
+from logger import log, log_info, log_debug, log_critical, log_error, set_verbosity, Logger
 
 # Import modules
 from audio_capture import AudioCapture, VoiceActivityDetector
@@ -31,15 +32,18 @@ class InterviewTranscriptionApp:
         # Load configuration
         self.config = self.load_config(config_file)
         
-        print("="*60)
-        print(" "*10 + "Interview Transcription System")
-        print(" "*12 + "with Speaker Enrollment")
-        print("="*60)
-        print()
-        print("✅ Enrollment-based speaker verification")
-        print("✅ 95-99% accuracy for known speakers")
-        print("✅ Optimized for interview/interrogation scenarios")
-        print()
+        # Set logging to NORMAL (reduce verbosity)
+        set_verbosity(Logger.NORMAL)
+        
+        log_critical("="*60)
+        log_critical(" "*10 + "Interview Transcription System")
+        log_critical(" "*12 + "with Speaker Enrollment")
+        log_critical("="*60)
+        log("")
+        log("✅ Enrollment-based speaker verification")
+        log("✅ 95-99% accuracy for known speakers")
+        log("✅ Optimized for interview/interrogation scenarios")
+        log("")
         
         # Initialize audio/video
         audio_config = self.config.get('audio', {})
@@ -62,25 +66,25 @@ class InterviewTranscriptionApp:
         
         # Initialize speech recognition
         speech_config = self.config.get('speech', {})
-        print("Loading speech recognition model...")
+        log("Loading speech recognition model...")
         self.speech_to_text = SpeechToText(
             model_size=speech_config.get('model_size', 'base'),
             language=speech_config.get('language', 'en')
         )
         
         # Initialize speaker enrollment system
-        print("Loading speaker verification system...")
+        log("Loading speaker verification system...")
         self.embedding_extractor = ResemblyzerEmbeddings()
         self.enrollment_system = SpeakerEnrollment(self.embedding_extractor)
         self.verification_engine = None  # Will be created after enrollment
         
         # Initialize overlap detection
-        print("Loading overlapping speech detector...")
+        log_info("Loading overlapping speech detector...")
         self.overlap_detector = OverlappingSpeechDetector(sample_rate=audio_config.get('sample_rate', 16000))
         self.multi_speaker_identifier = None  # Will be created after enrollment
         
         # Initialize noise filtering (prevents background speakers)
-        print("Loading background speaker filter...")
+        log_info("Loading background speaker filter...")
         self.background_filter = BackgroundSpeakerFilter(
             min_confidence=0.75,  # Must be confident match
             min_energy=1000,      # Must be close/loud enough
@@ -326,7 +330,7 @@ class InterviewTranscriptionApp:
         
     def processing_loop(self):
         """Main processing loop"""
-        print("🎙️ Interview processing started")
+        log("🎙️ Interview processing started - Logging reduced for clarity")
         
         last_process_time = time.time()
         process_interval = 0.5
@@ -351,7 +355,7 @@ class InterviewTranscriptionApp:
                     time.sleep(0.05)
                     continue
                     
-                print(f"🎤 Processing {len(audio_data)/self.sample_rate:.2f}s of audio...")
+                log_debug(f"🎤 Processing {len(audio_data)/self.sample_rate:.2f}s of audio...")
                 
                 # First, verify this is an enrolled speaker (not background noise)
                 accept, speaker_key_filtered, speaker_name_filtered, conf_filtered, filter_reason = self.enrolled_only_verifier.verify_with_filtering(
@@ -361,7 +365,7 @@ class InterviewTranscriptionApp:
                 
                 if not accept:
                     # Rejected as background/noise/unknown speaker
-                    print(f"🚫 FILTERED: {filter_reason}")
+                    log_debug(f"🚫 FILTERED: {filter_reason}")
                     time.sleep(0.05)
                     continue
                 
@@ -379,10 +383,10 @@ class InterviewTranscriptionApp:
                     if spk_key in enrolled and spk_conf >= 0.70:
                         filtered_speakers.append((spk_key, spk_name, spk_conf, is_overlap))
                     else:
-                        print(f"🚫 Filtered out: {spk_name} (conf: {spk_conf:.2f}) - not enrolled or low confidence")
+                        log_debug(f"🚫 Filtered out: {spk_name} (conf: {spk_conf:.2f}) - not enrolled or low confidence")
                 
                 if not filtered_speakers:
-                    print(f"🚫 No enrolled speakers identified - skipping segment")
+                    log_debug(f"🚫 No enrolled speakers identified - skipping segment")
                     time.sleep(0.05)
                     continue
                 
@@ -401,8 +405,8 @@ class InterviewTranscriptionApp:
                         enrolled = self.enrollment_system.get_enrolled_speakers()
                         role = enrolled.get(speaker_key, {}).get('role', 'Unknown')
                         
-                        print(f"👤 {role}: {speaker_name} (conf: {confidence:.2f})")
-                        print(f"📝 [{role}] {speaker_name}: {result['text']}")
+                        log(f"👤 {role}: {speaker_name}")
+                        log_critical(f"📝 [{role}] {speaker_name}: {result['text']}")
                         
                         # Update GUI
                         self.gui.queue_update({
@@ -423,12 +427,12 @@ class InterviewTranscriptionApp:
                             role = enrolled.get(speaker_key, {}).get('role', 'Unknown')
                             speaker_names.append(speaker_name)
                             roles.append(role)
-                            print(f"👥 {role}: {speaker_name} (conf: {confidence:.2f}) [OVERLAPPING]")
+                            log_info(f"👥 {role}: {speaker_name} [OVERLAPPING]")
                         
                         # Combine speaker names
                         combined_name = " + ".join([f"{roles[i]}: {speaker_names[i]}" for i in range(len(speaker_names))])
                         
-                        print(f"📝 [{combined_name}]: {result['text']}")
+                        log_critical(f"📝 [{combined_name}]: {result['text']}")
                         
                         # Update GUI with combined speakers
                         self.gui.queue_update({

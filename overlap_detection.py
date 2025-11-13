@@ -167,7 +167,8 @@ class MultiSpeakerIdentifier:
             return [(speaker_key, speaker_name, confidence, False)]
         else:
             # Overlapping speech detected!
-            print(f"👥 OVERLAP DETECTED (score: {overlap_info['overlap_score']:.2f})")
+            # Overlap detected - reduced logging
+            pass  # Will be shown in main app if needed
             
             # Try to identify multiple speakers
             speakers = self._identify_multiple_speakers(audio_data, sample_rate, overlap_info)

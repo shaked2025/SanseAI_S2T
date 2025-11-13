@@ -21,6 +21,7 @@ from speaker_enrollment import SpeakerEnrollment, SpeakerVerificationEngine
 from enrollment_ui import EnrollmentWizard
 from gui_application import SpeechToTextGUI
 from overlap_detection import OverlappingSpeechDetector, MultiSpeakerIdentifier
+from noise_filtering import BackgroundSpeakerFilter, ProximityBasedFilter, EnrolledSpeakerOnlyVerifier
 
 
 class InterviewTranscriptionApp:
@@ -77,6 +78,16 @@ class InterviewTranscriptionApp:
         print("Loading overlapping speech detector...")
         self.overlap_detector = OverlappingSpeechDetector(sample_rate=audio_config.get('sample_rate', 16000))
         self.multi_speaker_identifier = None  # Will be created after enrollment
+        
+        # Initialize noise filtering (prevents background speakers)
+        print("Loading background speaker filter...")
+        self.background_filter = BackgroundSpeakerFilter(
+            min_confidence=0.75,  # Must be confident match
+            min_energy=1000,      # Must be close/loud enough
+            max_distance_ratio=2.5
+        )
+        self.proximity_filter = ProximityBasedFilter(min_snr=10.0)
+        self.enrolled_only_verifier = None  # Will be created after enrollment
         
         # Transcript manager
         self.transcript_manager = TranscriptManager(max_entries=200)
@@ -174,6 +185,16 @@ class InterviewTranscriptionApp:
             self.verification_engine,
             self.overlap_detector
         )
+        
+        # Create enrolled-speaker-only verifier (filters background speakers)
+        self.enrolled_only_verifier = EnrolledSpeakerOnlyVerifier(
+            self.verification_engine,
+            self.background_filter,
+            self.proximity_filter
+        )
+        
+        print("✅ Background speaker filtering enabled")
+        print("   Only enrolled participants will be identified")
         
         # Set interview roles
         interviewer = next((p for p in participants if 'interviewer' in p['role'].lower()), None)
@@ -291,6 +312,18 @@ class InterviewTranscriptionApp:
         print(f"   Accuracy: {stats['accuracy']:.1f}%")
         print(f"   Enrolled speakers: {stats['enrolled_speakers']}")
         
+        # Show filtering statistics
+        if self.enrolled_only_verifier:
+            filter_stats = self.enrolled_only_verifier.get_filtering_statistics()
+            print(f"\n🛡️ Background Filtering Statistics:")
+            print(f"   Total segments: {filter_stats['total_segments']}")
+            print(f"   Accepted (enrolled speakers): {filter_stats['accepted']}")
+            print(f"   Rejected (background/unknown): {filter_stats['rejected_total']}")
+            print(f"   - Low energy: {filter_stats['rejected_low_energy']}")
+            print(f"   - Low confidence: {filter_stats['rejected_low_confidence']}")
+            print(f"   - Unknown speaker: {filter_stats['rejected_unknown']}")
+            print(f"   Acceptance rate: {filter_stats['acceptance_rate']:.1f}%")
+        
     def processing_loop(self):
         """Main processing loop"""
         print("🎙️ Interview processing started")
@@ -320,11 +353,40 @@ class InterviewTranscriptionApp:
                     
                 print(f"🎤 Processing {len(audio_data)/self.sample_rate:.2f}s of audio...")
                 
-                # Identify speakers (handles both single and overlapping)
+                # First, verify this is an enrolled speaker (not background noise)
+                accept, speaker_key_filtered, speaker_name_filtered, conf_filtered, filter_reason = self.enrolled_only_verifier.verify_with_filtering(
+                    audio_data,
+                    self.sample_rate
+                )
+                
+                if not accept:
+                    # Rejected as background/noise/unknown speaker
+                    print(f"🚫 FILTERED: {filter_reason}")
+                    time.sleep(0.05)
+                    continue
+                
+                # Accepted - now identify speakers (handles both single and overlapping)
                 speakers_identified = self.multi_speaker_identifier.identify_speakers(
                     audio_data,
                     self.sample_rate
                 )
+                
+                # Filter speakers to only enrolled ones
+                filtered_speakers = []
+                for spk_key, spk_name, spk_conf, is_overlap in speakers_identified:
+                    # Double-check each identified speaker
+                    enrolled = self.enrollment_system.get_enrolled_speakers()
+                    if spk_key in enrolled and spk_conf >= 0.70:
+                        filtered_speakers.append((spk_key, spk_name, spk_conf, is_overlap))
+                    else:
+                        print(f"🚫 Filtered out: {spk_name} (conf: {spk_conf:.2f}) - not enrolled or low confidence")
+                
+                if not filtered_speakers:
+                    print(f"🚫 No enrolled speakers identified - skipping segment")
+                    time.sleep(0.05)
+                    continue
+                
+                speakers_identified = filtered_speakers
                 
                 # Transcribe once
                 result = self.speech_to_text.transcribe(audio_data, self.sample_rate)

@@ -20,6 +20,7 @@ from speaker_diarization_robust import ResemblyzerEmbeddings
 from speaker_enrollment import SpeakerEnrollment, SpeakerVerificationEngine
 from enrollment_ui import EnrollmentWizard
 from gui_application import SpeechToTextGUI
+from overlap_detection import OverlappingSpeechDetector, MultiSpeakerIdentifier
 
 
 class InterviewTranscriptionApp:
@@ -71,6 +72,11 @@ class InterviewTranscriptionApp:
         self.embedding_extractor = ResemblyzerEmbeddings()
         self.enrollment_system = SpeakerEnrollment(self.embedding_extractor)
         self.verification_engine = None  # Will be created after enrollment
+        
+        # Initialize overlap detection
+        print("Loading overlapping speech detector...")
+        self.overlap_detector = OverlappingSpeechDetector(sample_rate=audio_config.get('sample_rate', 16000))
+        self.multi_speaker_identifier = None  # Will be created after enrollment
         
         # Transcript manager
         self.transcript_manager = TranscriptManager(max_entries=200)
@@ -162,6 +168,12 @@ class InterviewTranscriptionApp:
         
         # Create verification engine
         self.verification_engine = SpeakerVerificationEngine(self.enrollment_system)
+        
+        # Create multi-speaker identifier for overlap handling
+        self.multi_speaker_identifier = MultiSpeakerIdentifier(
+            self.verification_engine,
+            self.overlap_detector
+        )
         
         # Set interview roles
         interviewer = next((p for p in participants if 'interviewer' in p['role'].lower()), None)
@@ -308,33 +320,62 @@ class InterviewTranscriptionApp:
                     
                 print(f"🎤 Processing {len(audio_data)/self.sample_rate:.2f}s of audio...")
                 
-                # Verify speaker (1:N matching with enrolled speakers)
-                speaker_key, speaker_name, confidence, metadata = self.verification_engine.verify_speaker(
+                # Identify speakers (handles both single and overlapping)
+                speakers_identified = self.multi_speaker_identifier.identify_speakers(
                     audio_data,
-                    self.sample_rate,
-                    use_context=True
+                    self.sample_rate
                 )
                 
-                role = metadata.get('role', 'Unknown')
-                match_quality = metadata.get('match_quality', 'UNKNOWN')
-                accuracy = metadata.get('accuracy', 0)
-                
-                print(f"👤 {role}: {speaker_name} (conf: {confidence:.2f}, quality: {match_quality}, acc: {accuracy:.1f}%)")
-                
-                # Transcribe
+                # Transcribe once
                 result = self.speech_to_text.transcribe(audio_data, self.sample_rate)
                 
                 if result['text']:
-                    print(f"📝 [{role}] {speaker_name}: {result['text']}")
-                    
-                    # Update GUI
-                    self.gui.queue_update({
-                        'type': 'transcript',
-                        'text': result['text'],
-                        'speaker_id': hash(speaker_key) % 10,  # For color
-                        'speaker_name': f"{role}: {speaker_name}",
-                        'color': self.get_role_color(role)
-                    })
+                    # Handle single or multiple speakers
+                    if len(speakers_identified) == 1:
+                        # Single speaker
+                        speaker_key, speaker_name, confidence, is_overlap = speakers_identified[0]
+                        
+                        # Get role
+                        enrolled = self.enrollment_system.get_enrolled_speakers()
+                        role = enrolled.get(speaker_key, {}).get('role', 'Unknown')
+                        
+                        print(f"👤 {role}: {speaker_name} (conf: {confidence:.2f})")
+                        print(f"📝 [{role}] {speaker_name}: {result['text']}")
+                        
+                        # Update GUI
+                        self.gui.queue_update({
+                            'type': 'transcript',
+                            'text': result['text'],
+                            'speaker_id': hash(speaker_key) % 10,
+                            'speaker_name': f"{role}: {speaker_name}",
+                            'color': self.get_role_color(role)
+                        })
+                        
+                    else:
+                        # Multiple speakers (overlapping speech!)
+                        speaker_names = []
+                        roles = []
+                        enrolled = self.enrollment_system.get_enrolled_speakers()
+                        
+                        for speaker_key, speaker_name, confidence, is_overlap in speakers_identified:
+                            role = enrolled.get(speaker_key, {}).get('role', 'Unknown')
+                            speaker_names.append(speaker_name)
+                            roles.append(role)
+                            print(f"👥 {role}: {speaker_name} (conf: {confidence:.2f}) [OVERLAPPING]")
+                        
+                        # Combine speaker names
+                        combined_name = " + ".join([f"{roles[i]}: {speaker_names[i]}" for i in range(len(speaker_names))])
+                        
+                        print(f"📝 [{combined_name}]: {result['text']}")
+                        
+                        # Update GUI with combined speakers
+                        self.gui.queue_update({
+                            'type': 'transcript',
+                            'text': result['text'],
+                            'speaker_id': 0,
+                            'speaker_name': combined_name,
+                            'color': '#FF9500'  # Orange for overlap
+                        })
                     
                 last_process_time = current_time
                 

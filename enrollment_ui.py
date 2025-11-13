@@ -9,6 +9,7 @@ from PIL import Image, ImageTk
 import threading
 import time
 import numpy as np
+from auto_enrollment import ContinuousEnrollmentRecorder
 
 
 class EnrollmentWizard:
@@ -265,7 +266,7 @@ class EnrollmentWizard:
         self.show_enrollment_screen()
         
     def show_enrollment_screen(self):
-        """Show voice sample recording screen"""
+        """Show CONTINUOUS voice sample recording screen"""
         self.clear_content()
         
         participant = self.participants[self.current_participant_idx]
@@ -294,54 +295,36 @@ class EnrollmentWizard:
             fg='#7F8C8D'
         ).pack()
         
-        # Instructions
-        instructions_frame = ttk.LabelFrame(self.content_frame, text="Instructions", padding=15)
+        # Instructions - SIMPLIFIED for continuous recording
+        instructions_frame = ttk.LabelFrame(self.content_frame, text="📝 Simple Instructions", padding=15)
         instructions_frame.pack(fill=tk.X, pady=20, padx=20)
         
         tk.Label(
             instructions_frame,
-            text=f"Please record 5 voice samples.\n"
-                 f"Read each sentence clearly and naturally.\n"
-                 f"Each sample should be 3-5 seconds long.",
+            text=f"SIMPLIFIED ENROLLMENT:\n\n"
+                 f"1. Click 'Start Recording' button\n"
+                 f"2. Speak naturally for 20-30 seconds\n"
+                 f"3. Click 'Stop Recording' when done\n\n"
+                 f"You can:\n"
+                 f"• Introduce yourself\n"
+                 f"• Describe your role\n"
+                 f"• Talk about the interview\n"
+                 f"• Speak naturally (pauses are OK)\n\n"
+                 f"The system will AUTOMATICALLY extract 5 voice samples\n"
+                 f"from your recording!",
             font=('Arial', 11),
-            justify=tk.LEFT
+            justify=tk.LEFT,
+            fg='#2C3E50'
         ).pack()
         
-        # Sample prompts
-        prompts = [
-            "My name is {name}, and I am the {role}.",
-            "I am participating in this interview session.",
-            "This is my voice sample for speaker identification.",
-            "The quick brown fox jumps over the lazy dog.",
-            "Thank you for your patience during this enrollment."
-        ]
-        
-        # Current sample
-        sample_frame = ttk.LabelFrame(self.content_frame, text=f"Sample {self.current_sample_idx + 1} of 5", padding=15)
-        sample_frame.pack(fill=tk.BOTH, expand=True, pady=10, padx=20)
-        
-        prompt = prompts[self.current_sample_idx].format(
-            name=participant['name'],
-            role=participant['role']
-        )
-        
-        self.prompt_label = tk.Label(
-            sample_frame,
-            text=f'"{prompt}"',
-            font=('Arial', 13, 'italic'),
-            wraplength=600,
-            fg='#34495E'
-        )
-        self.prompt_label.pack(pady=20)
-        
         # Recording controls
-        controls_frame = ttk.Frame(sample_frame)
+        controls_frame = ttk.Frame(self.content_frame)
         controls_frame.pack(pady=20)
         
         self.record_button = tk.Button(
             controls_frame,
-            text="🔴 Start Recording",
-            command=self.start_recording_sample,
+            text="🔴 Start Continuous Recording",
+            command=self.start_continuous_recording,
             bg='#E74C3C',
             fg='white',
             font=('Arial', 14, 'bold'),
@@ -351,18 +334,23 @@ class EnrollmentWizard:
         self.record_button.pack()
         
         self.recording_label = tk.Label(
-            sample_frame,
+            self.content_frame,
             text="",
             font=('Arial', 11, 'bold'),
             fg='#E74C3C'
         )
         self.recording_label.pack(pady=10)
         
-        # Disable next until sample recorded
-        self.next_button.config(state=tk.DISABLED)
+        self.progress_label = tk.Label(
+            self.content_frame,
+            text="",
+            font=('Arial', 10),
+            fg='#7F8C8D'
+        )
+        self.progress_label.pack(pady=5)
         
-    def start_recording_sample(self):
-        """Start recording a voice sample"""
+    def start_continuous_recording(self):
+        """Start continuous recording for auto-chunking"""
         if self.is_recording:
             return
             
@@ -370,7 +358,7 @@ class EnrollmentWizard:
         self.record_button.config(
             text="⬛ Stop Recording",
             bg='#95A5A6',
-            command=self.stop_recording_sample
+            command=self.stop_continuous_recording
         )
         
         # Start audio capture if not already
@@ -379,9 +367,11 @@ class EnrollmentWizard:
             
         # Clear buffer
         self.audio_capture.clear_queue()
+        time.sleep(0.2)
         
         # Visual feedback
-        self.recording_label.config(text="🔴 RECORDING... Speak now!")
+        self.recording_label.config(text="🔴 RECORDING... Speak naturally!")
+        self.progress_label.config(text="Target: 20-30 seconds of speech")
         self.recording_start_time = time.time()
         
         # Update timer
@@ -392,73 +382,108 @@ class EnrollmentWizard:
         if self.is_recording:
             elapsed = time.time() - self.recording_start_time
             self.recording_label.config(text=f"🔴 RECORDING... {elapsed:.1f}s")
+            
+            if elapsed >= 20:
+                self.progress_label.config(text=f"✅ Good! You can stop now (or continue up to 60s)", fg='#27AE60')
+            elif elapsed >= 10:
+                self.progress_label.config(text=f"Keep going... (target: 20-30s)")
+            
             self.window.after(100, self.update_recording_timer)
             
-    def stop_recording_sample(self):
-        """Stop recording and save sample"""
+    def stop_continuous_recording(self):
+        """Stop continuous recording and auto-chunk into samples"""
         if not self.is_recording:
             return
             
         self.is_recording = False
         self.record_button.config(
-            text="🔴 Start Recording",
+            text="🔴 Start Continuous Recording",
             bg='#E74C3C',
-            command=self.start_recording_sample
+            command=self.start_continuous_recording,
+            state=tk.DISABLED
         )
         
-        # Get recorded audio (last 5 seconds)
-        duration = min(5.0, time.time() - self.recording_start_time)
-        audio_data = self.audio_capture.get_buffer(duration=duration)
+        # Get total recording duration
+        duration = time.time() - self.recording_start_time
         
-        if len(audio_data) < self.audio_capture.sample_rate * 2:  # Minimum 2 seconds
-            messagebox.showwarning("Recording Too Short", "Please record for at least 2-3 seconds.")
+        if duration < 10:
+            messagebox.showwarning("Recording Too Short", "Please record for at least 20 seconds.\nTry again.")
+            self.record_button.config(state=tk.NORMAL)
             self.recording_label.config(text="")
+            self.progress_label.config(text="")
             return
             
-        # Process sample
-        self.recording_label.config(text="⏳ Processing sample...")
+        # Get full recording
+        self.recording_label.config(text="⏳ Processing recording and extracting samples...")
+        self.progress_label.config(text="This may take a moment...")
         self.window.update()
         
-        # Extract embedding
+        audio_data = self.audio_capture.get_buffer(duration=min(duration, 60))
+        
+        print(f"Processing {len(audio_data)/self.audio_capture.sample_rate:.1f}s of audio...")
+        
+        # Auto-chunk into 5 samples
         try:
-            embedding = self.embedding_extractor.extract_embedding(audio_data, self.audio_capture.sample_rate)
+            from auto_enrollment import AutoEnrollmentChunker
+            chunker = AutoEnrollmentChunker(
+                sample_rate=self.audio_capture.sample_rate,
+                target_samples=5,
+                min_duration=3.0,
+                max_duration=7.0
+            )
             
-            if np.allclose(embedding, 0):
-                messagebox.showerror("Error", "Failed to extract voice features. Please try again.")
+            chunks = chunker.chunk_recording(audio_data, self.audio_capture.sample_rate)
+            
+            if len(chunks) < 5:
+                messagebox.showerror(
+                    "Insufficient Speech",
+                    f"Only detected {len(chunks)} speech segments.\n"
+                    f"Please speak more (20-30 seconds) and try again."
+                )
+                self.record_button.config(state=tk.NORMAL)
                 self.recording_label.config(text="")
+                self.progress_label.config(text="")
                 return
                 
-            # Save sample
+            # Extract embeddings from each chunk
             participant = self.participants[self.current_participant_idx]
-            participant['samples'].append({
-                'audio': audio_data,
-                'embedding': embedding,
-                'duration': duration
-            })
             
-            self.recording_label.config(text=f"✅ Sample {self.current_sample_idx + 1} recorded successfully!", fg='#27AE60')
-            
-            # Move to next sample
-            self.current_sample_idx += 1
-            
-            if self.current_sample_idx >= 5:
-                # All samples for this participant collected
-                self.recording_label.config(
-                    text=f"✅ ALL 5 SAMPLES COMPLETE FOR {participant['name']}!",
-                    fg='#27AE60',
-                    font=('Arial', 12, 'bold')
-                )
+            for i, chunk in enumerate(chunks):
+                embedding = self.embedding_extractor.extract_embedding(chunk, self.audio_capture.sample_rate)
                 
-                # Auto-advance to next participant or completion
-                self.window.after(1500, self.auto_advance_after_enrollment)
-            else:
-                # Show next sample
-                time.sleep(0.5)
-                self.show_enrollment_screen()
+                participant['samples'].append({
+                    'audio': chunk,
+                    'embedding': embedding,
+                    'duration': len(chunk) / self.audio_capture.sample_rate
+                })
+                
+                self.recording_label.config(
+                    text=f"✅ Extracted sample {i+1}/5...",
+                    fg='#27AE60'
+                )
+                self.window.update()
+                
+            # All samples extracted!
+            self.recording_label.config(
+                text=f"✅ ALL 5 SAMPLES AUTO-EXTRACTED FOR {participant['name']}!",
+                fg='#27AE60',
+                font=('Arial', 12, 'bold')
+            )
+            self.progress_label.config(
+                text=f"Moving to next participant in 2 seconds...",
+                fg='#27AE60'
+            )
+            
+            # Auto-advance to next participant
+            self.window.after(2000, self.auto_advance_after_enrollment)
                 
         except Exception as e:
-            messagebox.showerror("Error", f"Failed to process sample: {str(e)}")
+            messagebox.showerror("Error", f"Failed to process recording: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            self.record_button.config(state=tk.NORMAL)
             self.recording_label.config(text="")
+            self.progress_label.config(text="")
             
     def auto_advance_after_enrollment(self):
         """Auto-advance after completing samples for a participant"""

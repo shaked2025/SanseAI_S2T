@@ -4,7 +4,7 @@ Uses camera microphone, fast and easy
 """
 
 import tkinter as tk
-from tkinter import scrolledtext
+from tkinter import ttk, scrolledtext
 import whisper
 import numpy as np
 from audio_capture import AudioCapture
@@ -12,6 +12,8 @@ from video_capture import VideoCapture
 from datetime import datetime
 import threading
 import time
+from PIL import Image, ImageTk
+import cv2
 
 
 class SimpleTranscriber:
@@ -53,7 +55,7 @@ class SimpleTranscriber:
         self.video_label.pack(pady=10)
         
         # Transcript
-        transcript_frame = tk.LabelFrame(self.root, text="Transcript", padding=10)
+        transcript_frame = ttk.LabelFrame(self.root, text="Transcript", padding=10)
         transcript_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
         
         self.transcript = scrolledtext.ScrolledText(

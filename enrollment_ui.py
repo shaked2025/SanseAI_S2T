@@ -8,6 +8,7 @@ from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
 import threading
 import time
+import numpy as np
 
 
 class EnrollmentWizard:

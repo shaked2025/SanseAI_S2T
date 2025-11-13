@@ -443,17 +443,14 @@ class EnrollmentWizard:
             
             if self.current_sample_idx >= 5:
                 # All samples for this participant collected
-                self.next_button.config(state=tk.NORMAL)
                 self.recording_label.config(
-                    text=f"✅ ALL SAMPLES COMPLETE! Click 'Next' button at bottom →",
+                    text=f"✅ ALL 5 SAMPLES COMPLETE FOR {participant['name']}!",
                     fg='#27AE60',
                     font=('Arial', 12, 'bold')
                 )
-                messagebox.showinfo(
-                    "Enrollment Complete",
-                    f"All voice samples collected for {participant['name']}!\n\n"
-                    f"Click the 'Next' button at the bottom of the window to continue."
-                )
+                
+                # Auto-advance to next participant or completion
+                self.window.after(1500, self.auto_advance_after_enrollment)
             else:
                 # Show next sample
                 time.sleep(0.5)
@@ -463,17 +460,30 @@ class EnrollmentWizard:
             messagebox.showerror("Error", f"Failed to process sample: {str(e)}")
             self.recording_label.config(text="")
             
-    def go_next(self):
-        """Go to next participant or finish"""
+    def auto_advance_after_enrollment(self):
+        """Auto-advance after completing samples for a participant"""
         self.current_participant_idx += 1
         
         if self.current_participant_idx < len(self.participants):
             # Next participant
             self.current_sample_idx = 0
+            messagebox.showinfo(
+                "Next Participant",
+                f"Moving to next participant:\n{self.participants[self.current_participant_idx]['name']}"
+            )
             self.show_enrollment_screen()
         else:
             # All participants enrolled
+            messagebox.showinfo(
+                "All Enrolled!",
+                f"All {len(self.participants)} participants have been enrolled!\n\n"
+                f"The system will now validate and start the interview."
+            )
             self.show_completion_screen()
+    
+    def go_next(self):
+        """Go to next participant or finish"""
+        self.auto_advance_after_enrollment()
             
     def go_back(self):
         """Go back to previous step"""
@@ -511,17 +521,14 @@ class EnrollmentWizard:
         tk.Label(
             self.content_frame,
             text="\nThe system is now ready to accurately identify speakers\n"
-                 "during the interview with 95%+ accuracy.",
+                 "during the interview with 95%+ accuracy.\n\n"
+                 "Starting interview interface in 3 seconds...",
             font=('Arial', 11),
             fg='#7F8C8D'
         ).pack(pady=20)
         
-        # Update button
-        self.next_button.config(
-            text="Start Interview →",
-            command=self.finish_enrollment,
-            bg='#27AE60'
-        )
+        # Auto-start interview after 3 seconds
+        self.window.after(3000, self.finish_enrollment)
         
     def finish_enrollment(self):
         """Complete enrollment and start main app"""

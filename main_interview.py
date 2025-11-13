@@ -50,7 +50,8 @@ class InterviewTranscriptionApp:
         self.audio_capture = AudioCapture(
             sample_rate=audio_config.get('sample_rate', 16000),
             channels=audio_config.get('channels', 1),
-            chunk_size=audio_config.get('chunk_size', 1024)
+            chunk_size=audio_config.get('chunk_size', 1024),
+            device_index=audio_config.get('device_index', None)  # Use specified device or default
         )
         
         self.vad = VoiceActivityDetector(

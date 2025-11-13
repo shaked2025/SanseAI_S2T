@@ -6,6 +6,7 @@ audio:
   channels: 1
   chunk_size: 1024
   format: paInt16
+  device_index: 14  # Use FrontMic (your external microphone) - Change this number to select different mic
   
 # Video settings
 video:

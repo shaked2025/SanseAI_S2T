@@ -15,11 +15,12 @@ import time
 class AudioCapture:
     """Real-time audio capture with buffering"""
     
-    def __init__(self, sample_rate=16000, channels=1, chunk_size=1024):
+    def __init__(self, sample_rate=16000, channels=1, chunk_size=1024, device_index=None):
         self.sample_rate = sample_rate
         self.channels = channels
         self.chunk_size = chunk_size
         self.format = pyaudio.paInt16
+        self.device_index = device_index  # None = use default, or specify device number
         
         self.audio = pyaudio.PyAudio()
         self.stream = None
@@ -40,18 +41,28 @@ class AudioCapture:
             return
             
         try:
+            # Show which device we're using
+            if self.device_index is not None:
+                device_info = self.audio.get_device_info_by_index(self.device_index)
+                print(f"🎤 Using microphone: {device_info['name']} (index {self.device_index})")
+            else:
+                default_device = self.audio.get_default_input_device_info()
+                print(f"🎤 Using default microphone: {default_device['name']}")
+                self.device_index = default_device['index']
+            
             self.stream = self.audio.open(
                 format=self.format,
                 channels=self.channels,
                 rate=self.sample_rate,
                 input=True,
+                input_device_index=self.device_index,
                 frames_per_buffer=self.chunk_size,
                 stream_callback=self._audio_callback
             )
             
             self.is_recording = True
             self.stream.start_stream()
-            print(f"Audio capture started: {self.sample_rate}Hz, {self.channels} channel(s)")
+            print(f"✅ Audio capture started: {self.sample_rate}Hz, {self.channels} channel(s)")
             
         except Exception as e:
             print(f"Error starting audio capture: {e}")

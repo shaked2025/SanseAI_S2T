@@ -443,12 +443,17 @@ class EnrollmentWizard:
             
             if self.current_sample_idx >= 5:
                 # All samples for this participant collected
+                self.next_button.config(state=tk.NORMAL)
+                self.recording_label.config(
+                    text=f"✅ ALL SAMPLES COMPLETE! Click 'Next' button at bottom →",
+                    fg='#27AE60',
+                    font=('Arial', 12, 'bold')
+                )
                 messagebox.showinfo(
                     "Enrollment Complete",
                     f"All voice samples collected for {participant['name']}!\n\n"
-                    f"Click Next to continue."
+                    f"Click the 'Next' button at the bottom of the window to continue."
                 )
-                self.next_button.config(state=tk.NORMAL)
             else:
                 # Show next sample
                 time.sleep(0.5)

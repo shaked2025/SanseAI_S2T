@@ -45,13 +45,13 @@ class InterviewTranscriptionApp:
         log("✅ Optimized for interview/interrogation scenarios")
         log("")
         
-        # Initialize audio/video
+        # Initialize audio/video - FORCE camera microphone (device 1)
         audio_config = self.config.get('audio', {})
         self.audio_capture = AudioCapture(
             sample_rate=audio_config.get('sample_rate', 16000),
             channels=audio_config.get('channels', 1),
             chunk_size=audio_config.get('chunk_size', 1024),
-            device_index=audio_config.get('device_index', None)  # Use specified device or default
+            device_index=1  # ALWAYS use camera microphone (Logitech BRIO)
         )
         
         self.vad = VoiceActivityDetector(

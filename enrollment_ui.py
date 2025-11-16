@@ -473,17 +473,27 @@ class EnrollmentWizard:
                 'duration': duration
             })
             
-            self.recording_label.config(text=f"✅ Sample {self.current_sample_idx + 1} saved!", fg='#27AE60')
+            self.recording_label.config(
+                text=f"✅ Sample {self.current_sample_idx + 1}/5 saved! Moving to next...",
+                fg='#27AE60',
+                font=('Arial', 12, 'bold')
+            )
             self.current_sample_idx += 1
             
             # Move to next sample or finish
             if self.current_sample_idx >= 5:
                 # All 5 samples done
-                time.sleep(1)
+                self.recording_label.config(
+                    text=f"✅ ALL 5 SAMPLES COMPLETE!",
+                    fg='#27AE60'
+                )
+                self.window.update()
+                time.sleep(1.5)
                 self.auto_advance_after_enrollment()
             else:
-                # Next sample
-                time.sleep(0.8)
+                # Auto-advance to next sample
+                self.window.update()
+                time.sleep(1.2)
                 self.show_enrollment_screen()
                 
         except Exception as e:

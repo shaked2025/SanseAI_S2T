@@ -443,7 +443,7 @@ class EnrollmentWizard:
         
         # Get 5-second recording
         duration = min(5.5, time.time() - self.recording_start_time)
-        audio_data = self.audio.get_buffer(duration=duration)
+        audio_data = self.audio_capture.get_buffer(duration=duration)
         
         if len(audio_data) < self.audio_capture.sample_rate * 3:
             messagebox.showwarning("Too Short", "Recording too short. Try again.")

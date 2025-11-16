@@ -368,6 +368,18 @@ class InterviewSystem:
                 # Extract test embedding
                 test_embedding = self.embedder.extract_embedding(audio_data, 16000)
                 
+                # DEBUG: Check if embedding is valid
+                if np.allclose(test_embedding, 0):
+                    print("⚠️ WARNING: Zero embedding extracted - skipping")
+                    last_time = time.time()
+                    continue
+                    
+                # DEBUG: Check similarity with ALL enrolled speakers directly
+                print(f"\n   Direct similarity check:")
+                for check_key, check_profile in enrolled.items():
+                    direct_sim = np.dot(test_embedding, check_profile['mean_embedding'])
+                    print(f"      vs {check_profile['name']}: {direct_sim:.3f}")
+                
                 # ADVANCED REJECTION CHECK
                 accept, final_score, reason, details = self.rejector.verify_and_reject(
                     test_embedding,

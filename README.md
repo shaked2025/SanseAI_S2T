@@ -2,27 +2,78 @@
 
 Production-ready speech-to-text system for interview/interrogation scenarios.
 
-## Quick Start
+## ✅ Microphone Confirmed Working!
 
+**Device 6 (Logitech BRIO)** - Audio level: 11,893 ✅ EXCELLENT
+
+---
+
+## 🚀 Quick Start - TWO OPTIONS:
+
+### Option 1: SIMPLE (No Enrollment, Just Transcribe)
+```bash
+python simple_transcribe.py
+```
+- Click Start → Speak → See transcript
+- NO speaker identification
+- FAST and easy
+
+### Option 2: INTERVIEW MODE (With Speaker Enrollment)
 ```bash
 python main_interview.py
 ```
+- Enroll speakers first (5 recordings × 5 seconds each)
+- Then interview with 98% speaker accuracy
+- Identifies WHO said WHAT
 
-## How It Works
+## 📝 SIMPLE MODE (Recommended to Start)
 
-### 1. Enrollment Wizard (5 minutes)
-- Select number of participants (interviewer + interviewees)
-- Enter names and roles for each person
-- Each person records ONE 30-second voice sample
-- System automatically extracts 5 enrollment samples
-- Validates and tests speaker separation
+**File:** `simple_transcribe.py`
 
-### 2. Interview Recording
+**What it does:**
+- Real-time speech-to-text
+- NO enrollment needed
+- Just click Start and speak
+- Fast (uses tiny Whisper model)
+
+**How to use:**
+1. Run: `python simple_transcribe.py`
+2. Window appears → Click "▶ START"
+3. Speak
+4. See transcript appear
+5. Click "⬛ STOP" when done
+
+---
+
+## 👥 INTERVIEW MODE (Advanced - With Speaker ID)
+
+**File:** `main_interview.py`
+
+**What it does:**
+- Enrollment wizard (5 recordings per person)
+- Identifies WHO said WHAT
+- 98% accuracy for enrolled speakers
+- Background speaker filtering
+
+**How to use:**
+
+### Enrollment (First Time):
+1. Run: `python main_interview.py`
+2. Select number of participants
+3. Enter names and roles
+4. **For each person - record 5 samples:**
+   - Click "🔴 START RECORDING" button
+   - Read the sentence shown
+   - Wait 5 seconds (auto-stops)
+   - Automatically shows next sample
+   - Repeat 5 times
+5. Interview starts automatically
+
+### Live Interview:
 - Click "Start Interview"
-- Real-time transcription with speaker names
-- 98-99% accuracy for enrolled speakers
-- Handles overlapping speech
-- Filters background speakers
+- Speak normally
+- See transcript with speaker names
+- Export when done
 
 ## Features
 

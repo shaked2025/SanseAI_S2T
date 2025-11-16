@@ -17,6 +17,10 @@ import time
 from audio_capture import AudioCapture
 from speaker_diarization_robust import ResemblyzerEmbeddings
 from speaker_enrollment import SpeakerEnrollment, SpeakerVerificationEngine
+from unknown_speaker_rejection import AdvancedSpeakerRejection, calculate_audio_quality, MultiMetricVerifier
+
+# NO VIDEO/CAMERA IMPORTS - AUDIO ONLY!
+# NO GUI_APPLICATION - Custom lightweight GUI only
 
 
 class InterviewSystem:
@@ -35,6 +39,12 @@ class InterviewSystem:
         self.embedder = ResemblyzerEmbeddings()
         self.enrollment = SpeakerEnrollment(self.embedder)
         self.verifier = None
+        
+        # ADVANCED unknown speaker rejection
+        print("Loading advanced unknown speaker rejection system...")
+        self.rejector = AdvancedSpeakerRejection(nu=0.03)  # Strict: expect only 3% outliers
+        self.multi_metric = MultiMetricVerifier()
+        print("✅ Unknown speaker rejection ready")
         
         self.is_running = False
         self.is_recording_enrollment = False

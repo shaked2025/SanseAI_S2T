@@ -268,9 +268,22 @@ class InterviewTranscriptionApp:
         # Start video
         self.video_capture.start()
         
-        # Start audio
+        # Start audio - ENSURE device 6 is set
+        print("🎤 Configuring camera microphone (device 6)...")
+        self.audio_capture.device_index = 6  # Force camera microphone
+        
         if not self.audio_capture.is_recording:
+            print("   Starting audio capture...")
             self.audio_capture.start()
+            time.sleep(0.5)
+        else:
+            # Already recording from enrollment - restart with correct device
+            print("   Restarting audio with camera microphone...")
+            self.audio_capture.stop()
+            time.sleep(0.3)
+            self.audio_capture.device_index = 6
+            self.audio_capture.start()
+            time.sleep(0.5)
             
         self.is_running = True
         self.gui.queue_update({'type': 'state', 'is_running': True})

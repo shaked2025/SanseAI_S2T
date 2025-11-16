@@ -434,6 +434,63 @@ class EnrollmentWizard:
             
             self.window.after(100, self.update_5s_timer)
             
+    def stop_recording_sample(self):
+        """Stop 5-second recording and save sample"""
+        if not self.is_recording:
+            return
+            
+        self.is_recording = False
+        
+        # Get 5-second recording
+        duration = min(5.5, time.time() - self.recording_start_time)
+        audio_data = self.audio.get_buffer(duration=duration)
+        
+        if len(audio_data) < self.audio_capture.sample_rate * 3:
+            messagebox.showwarning("Too Short", "Recording too short. Try again.")
+            self.recording_label.config(text="")
+            self.record_button.config(state=tk.NORMAL)
+            return
+            
+        # Process sample
+        self.recording_label.config(text="⏳ Processing...")
+        self.window.update()
+        
+        # Extract embedding
+        try:
+            embedding = self.embedding_extractor.extract_embedding(audio_data, self.audio_capture.sample_rate)
+            
+            if np.allclose(embedding, 0):
+                messagebox.showerror("Error", "Failed to extract voice. Try again.")
+                self.recording_label.config(text="")
+                self.record_button.config(state=tk.NORMAL)
+                return
+                
+            # Save sample
+            participant = self.participants[self.current_participant_idx]
+            participant['samples'].append({
+                'audio': audio_data,
+                'embedding': embedding,
+                'duration': duration
+            })
+            
+            self.recording_label.config(text=f"✅ Sample {self.current_sample_idx + 1} saved!", fg='#27AE60')
+            self.current_sample_idx += 1
+            
+            # Move to next sample or finish
+            if self.current_sample_idx >= 5:
+                # All 5 samples done
+                time.sleep(1)
+                self.auto_advance_after_enrollment()
+            else:
+                # Next sample
+                time.sleep(0.8)
+                self.show_enrollment_screen()
+                
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed: {str(e)}")
+            self.record_button.config(state=tk.NORMAL)
+            self.recording_label.config(text="")
+            
     def stop_continuous_recording(self):
         """Stop continuous recording and auto-chunk into samples"""
         if not self.is_recording:

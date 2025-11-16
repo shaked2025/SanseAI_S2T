@@ -372,6 +372,50 @@ class EnrollmentWizard:
         )
         self.timer_label.pack(pady=10)
         
+    def start_recording_sample(self):
+        """Start recording ONE 5-second sample"""
+        if self.is_recording:
+            return
+            
+        print(f"\n🎙️ Starting recording for sample {self.current_sample_idx + 1}/5...")
+        
+        # Start audio if not already
+        if not self.audio_capture.is_recording:
+            print("   Starting camera microphone (device 6)...")
+            self.audio_capture.device_index = 6
+            self.audio_capture.start()
+            time.sleep(1.0)  # Wait for mic to be ready
+            
+        # Clear buffer
+        print("   Clearing buffer...")
+        self.audio_capture.clear_queue()
+        time.sleep(0.3)
+        
+        # Start recording
+        self.is_recording = True
+        self.recording_start_time = time.time()
+        
+        print("✅ Recording started - SPEAK NOW!")
+        
+        # Update button
+        self.record_button.config(
+            text="⏺️ RECORDING...",
+            state=tk.DISABLED,
+            bg='#95A5A6',
+            relief=tk.SUNKEN
+        )
+        
+        # Update labels
+        self.recording_label.config(
+            text="🔴 SPEAK NOW - RECORDING!",
+            font=('Arial', 14, 'bold'),
+            fg='#E74C3C'
+        )
+        self.timer_label.config(text="5.0", font=('Arial', 28, 'bold'), fg='#E74C3C')
+        
+        # Start 5-second countdown timer
+        self.update_5s_timer()
+        
     def start_continuous_recording(self):
         """Start continuous recording for auto-chunking"""
         if self.is_recording:

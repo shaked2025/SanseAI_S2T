@@ -30,7 +30,7 @@ class SimpleTranscriber:
         self.model = whisper.load_model("tiny")
         
         # Audio capture with camera mic
-        self.audio = AudioCapture(sample_rate=16000, channels=1, device_index=6)
+        self.audio = AudioCapture(sample_rate=16000, channels=1, device_index=5)
         
         # Video capture
         self.video = VideoCapture(camera_index=0, width=640, height=480)

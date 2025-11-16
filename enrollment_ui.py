@@ -33,8 +33,11 @@ class EnrollmentWizard:
         # Create new window
         self.window = tk.Toplevel(root)
         self.window.title("Speaker Enrollment - Interview Setup")
-        self.window.geometry("800x600")
+        self.window.geometry("900x700")  # Bigger window to ensure button is visible
         self.window.protocol("WM_DELETE_WINDOW", self.on_cancel)
+        
+        # Make window scrollable if needed
+        self.window.resizable(True, True)
         
         # Force to front
         self.window.lift()
@@ -333,24 +336,25 @@ class EnrollmentWizard:
         )
         self.prompt_label.pack(pady=20)
         
-        # Recording controls
-        controls_frame = ttk.Frame(sample_frame)
-        controls_frame.pack(pady=20)
+        # BIG SPACER to push button down
+        tk.Label(sample_frame, text="").pack(pady=10)
         
+        # Recording controls - DIRECTLY in sample_frame
         self.record_button = tk.Button(
-            controls_frame,
+            sample_frame,  # Put directly in sample_frame, not controls_frame
             text="🔴 PRESS TO START RECORDING",
             command=self.start_recording_sample,
             bg='#E74C3C',
             fg='white',
-            font=('Arial', 16, 'bold'),
-            padx=40,
-            pady=20,
+            font=('Arial', 18, 'bold'),
+            padx=50,
+            pady=25,
             cursor='hand2',
             relief=tk.RAISED,
-            bd=5
+            bd=6,
+            activebackground='#C0392B'
         )
-        self.record_button.pack()
+        self.record_button.pack(pady=20)
         
         self.recording_label = tk.Label(
             sample_frame,

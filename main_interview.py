@@ -268,9 +268,9 @@ class InterviewTranscriptionApp:
         # Start video
         self.video_capture.start()
         
-        # Start audio - ENSURE device 6 is set
-        print("🎤 Configuring camera microphone (device 6)...")
-        self.audio_capture.device_index = 6  # Force camera microphone
+        # Start audio - ENSURE device 5 is set
+        print("🎤 Configuring EXTERNAL microphone (device 5)...")
+        self.audio_capture.device_index = 5  # Force external microphone
         
         if not self.audio_capture.is_recording:
             print("   Starting audio capture...")

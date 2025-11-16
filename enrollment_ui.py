@@ -381,8 +381,8 @@ class EnrollmentWizard:
         
         # Start audio if not already
         if not self.audio_capture.is_recording:
-            print("   Starting camera microphone (device 6)...")
-            self.audio_capture.device_index = 6
+            print("   Starting EXTERNAL microphone (device 5)...")
+            self.audio_capture.device_index = 5
             self.audio_capture.start()
             time.sleep(1.0)  # Wait for mic to be ready
             

@@ -281,8 +281,21 @@ class InterviewSystem:
         # Create verifier
         self.verifier = SpeakerVerificationEngine(self.enrollment)
         
+        # TRAIN unknown speaker rejection model
+        print("\n" + "="*60)
+        print("TRAINING UNKNOWN SPEAKER REJECTION")
+        print("="*60)
+        
+        success = self.rejector.fit_enrolled_speakers(self.enrollment)
+        
+        if not success:
+            print("⚠️ Warning: Rejection model not trained - will use basic filtering")
+        
         print("\n" + "="*60)
         print("STARTING LIVE INTERVIEW")
+        print("="*60)
+        print("🛡️ Advanced unknown speaker rejection: ACTIVE")
+        print("   Only enrolled speakers will be transcribed")
         print("="*60)
         
         self.is_running = True
@@ -336,10 +349,47 @@ class InterviewSystem:
                     
                 print(f"🎤 Processing speech (level: {int(rms)})...")
                 
-                # Identify speaker
-                speaker_key, speaker_name, confidence, metadata = self.verifier.verify_speaker(audio_data, 16000)
+                # Calculate audio quality
+                audio_quality = calculate_audio_quality(audio_data, 16000)
+                print(f"   Audio quality: {audio_quality:.2f}")
                 
-                print(f"👤 Identified: {speaker_name} (confidence: {confidence:.2f})")
+                # Identify speaker with basic verifier
+                speaker_key, speaker_name, raw_confidence, metadata = self.verifier.verify_speaker(audio_data, 16000, use_context=False)
+                
+                # Get enrolled profile
+                enrolled = self.enrollment.get_enrolled_speakers()
+                if speaker_key not in enrolled:
+                    print(f"🚫 REJECTED: Speaker not in enrolled set")
+                    last_time = time.time()
+                    continue
+                    
+                enrolled_profile = enrolled[speaker_key]
+                
+                # Extract test embedding
+                test_embedding = self.embedder.extract_embedding(audio_data, 16000)
+                
+                # ADVANCED REJECTION CHECK
+                accept, final_score, reason, details = self.rejector.verify_and_reject(
+                    test_embedding,
+                    speaker_key,
+                    raw_confidence,
+                    enrolled_profile,
+                    audio_quality
+                )
+                
+                if not accept:
+                    # REJECTED as unknown/impostor speaker
+                    print(f"🚫 REJECTED: {reason}")
+                    print(f"   Scores: cosine={details.get('cosine', 0):.3f}, "
+                          f"fused={details.get('fused_score', 0):.3f}, "
+                          f"z-score={details.get('z_score', 0):.2f}")
+                    print(f"   Votes: {details.get('votes', {})}")
+                    last_time = time.time()
+                    continue
+                    
+                # ACCEPTED - proceed with transcription
+                print(f"✅ ACCEPTED: {speaker_name} (score: {final_score:.3f}, quality: {audio_quality:.2f})")
+                print(f"   Z-score: {details.get('z_score', 0):.2f}, SVM: {details.get('ocsvm_inlier', False)}")
                 
                 # Transcribe
                 audio_float = audio_data.astype(np.float32) / 32768.0
@@ -353,9 +403,9 @@ class InterviewSystem:
                     self.transcript.see(tk.END)
                     self.root.update()  # Force GUI update
                     
-                    print(f"📝 DISPLAYED: [{timestamp}] {speaker_name}: {result['text'].strip()}")
+                    print(f"📝 [{timestamp}] {speaker_name}: {result['text'].strip()}")
                 else:
-                    print("   (No speech detected by Whisper)")
+                    print("   (No speech in transcript)")
                     
                 last_time = time.time()
                 

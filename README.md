@@ -1,30 +1,28 @@
 # Interview Transcription System
 
-Production-ready speech-to-text system for interview/interrogation scenarios.
+**MICROPHONE ONLY - No Camera**
 
-## ✅ Microphone Confirmed Working!
+**External Microphone:** Device 5 (Primary Sound Capture Driver) ✅ Confirmed Working
 
-**Device 6 (Logitech BRIO)** - Audio level: 11,893 ✅ EXCELLENT
+## 🚀 Run the System
 
----
-
-## 🚀 Quick Start - TWO OPTIONS:
-
-### Option 1: SIMPLE (No Enrollment, Just Transcribe)
 ```bash
-python simple_transcribe.py
+python main.py
 ```
-- Click Start → Speak → See transcript
-- NO speaker identification
-- FAST and easy
 
-### Option 2: INTERVIEW MODE (With Speaker Enrollment)
-```bash
-python main_interview.py
-```
-- Enroll speakers first (5 recordings × 5 seconds each)
-- Then interview with 98% speaker accuracy
-- Identifies WHO said WHAT
+## How It Works
+
+**STEP 1: Enroll Speakers**
+- Enter Speaker 1 name (e.g., "Interviewer")  
+- Click "🔴 RECORD 6 SAMPLES" button
+- **Speak into your EXTERNAL MICROPHONE 6 times** (5 seconds each)
+- Repeat for Speaker 2
+
+**STEP 2: Live Interview**
+- Click "▶ START INTERVIEW"
+- Speak normally into your microphone
+- See real-time transcript with speaker names
+- Shows WHO said WHAT
 
 ## 📝 SIMPLE MODE (Recommended to Start)
 

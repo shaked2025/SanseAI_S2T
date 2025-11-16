@@ -51,7 +51,7 @@ class InterviewTranscriptionApp:
             sample_rate=audio_config.get('sample_rate', 16000),
             channels=audio_config.get('channels', 1),
             chunk_size=audio_config.get('chunk_size', 1024),
-            device_index=1  # ALWAYS use camera microphone (Logitech BRIO)
+            device_index=6  # ALWAYS use camera microphone (Logitech BRIO - working device)
         )
         
         self.vad = VoiceActivityDetector(

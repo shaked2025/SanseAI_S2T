@@ -6,7 +6,7 @@ audio:
   channels: 1
   chunk_size: 1024
   format: paInt16
-  device_index: 1  # Use Logitech BRIO camera microphone
+  device_index: 6  # Use Logitech BRIO camera microphone (WORKING device)
   
 # Video settings
 video:

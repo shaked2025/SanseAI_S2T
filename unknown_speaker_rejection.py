@@ -214,8 +214,11 @@ class AdvancedSpeakerRejection:
             details['impostor_std'] = impostor_std
             
             # Requirement: must be at least 2 std dev above impostor mean
-            if z_score < 2.0:
-                return False, fused_score, f"Low Z-score ({z_score:.2f} < 2.0) - likely impostor", details
+            # BUT: if only 2 speakers, impostor stats are not reliable, so be lenient
+            min_z_score = 1.5 if len(self.impostor_stats) <= 2 else 2.0
+            
+            if z_score < min_z_score and len(self.impostor_stats) > 2:
+                return False, fused_score, f"Low Z-score ({z_score:.2f} < {min_z_score}) - likely impostor", details
         else:
             z_score = 0.0
             details['z_score'] = z_score
@@ -280,12 +283,16 @@ class AdvancedSpeakerRejection:
         # Vote 4: Quality check
         votes.append(audio_quality >= 0.5)
         
-        # Strict decision: Need ALL votes to pass (for forensic grade)
+        # Decision strategy depends on number of enrolled speakers
         all_pass = all(votes)
-        majority_pass = sum(votes) >= 3  # Or use majority
+        majority_pass = sum(votes) >= 3  # 3 out of 4
         
-        # For interrogation: use strict (all must pass)
-        accept = all_pass
+        # For 2 speakers: use majority (less strict, SVM less reliable)
+        # For 3+ speakers: use all (more strict, SVM more reliable)
+        if len(self.impostor_stats) <= 2:
+            accept = majority_pass  # More lenient for 2-speaker case
+        else:
+            accept = all_pass  # Strict for multi-speaker case
         
         details['votes'] = {
             'multi_metric': votes[0],

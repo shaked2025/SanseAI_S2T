@@ -339,23 +339,34 @@ class EnrollmentWizard:
         
         self.record_button = tk.Button(
             controls_frame,
-            text="🔴 Start Recording (5 seconds)",
+            text="🔴 PRESS TO START RECORDING",
             command=self.start_recording_sample,
             bg='#E74C3C',
             fg='white',
-            font=('Arial', 14, 'bold'),
-            padx=30,
-            pady=15
+            font=('Arial', 16, 'bold'),
+            padx=40,
+            pady=20,
+            cursor='hand2',
+            relief=tk.RAISED,
+            bd=5
         )
         self.record_button.pack()
         
         self.recording_label = tk.Label(
             sample_frame,
+            text="Click the button above to start",
+            font=('Arial', 12),
+            fg='#7F8C8D'
+        )
+        self.recording_label.pack(pady=15)
+        
+        self.timer_label = tk.Label(
+            sample_frame,
             text="",
-            font=('Arial', 11, 'bold'),
+            font=('Arial', 20, 'bold'),
             fg='#E74C3C'
         )
-        self.recording_label.pack(pady=10)
+        self.timer_label.pack(pady=10)
         
     def start_continuous_recording(self):
         """Start continuous recording for auto-chunking"""
@@ -422,11 +433,15 @@ class EnrollmentWizard:
         """Update timer for 5-second recording with auto-stop"""
         if self.is_recording:
             elapsed = time.time() - self.recording_start_time
-            self.recording_label.config(text=f"🔴 RECORDING... {elapsed:.1f}s / 5.0s")
+            remaining = 5.0 - elapsed
+            
+            self.recording_label.config(text=f"🔴 RECORDING - KEEP SPEAKING!")
+            self.timer_label.config(text=f"{remaining:.1f}s")
             
             if elapsed >= 5.0:
                 # Auto-stop at 5 seconds
-                self.recording_label.config(text=f"✅ 5 seconds complete!")
+                self.recording_label.config(text=f"✅ Processing sample...")
+                self.timer_label.config(text="DONE!", fg='#27AE60')
                 self.window.update()
                 time.sleep(0.3)
                 self.stop_recording_sample()

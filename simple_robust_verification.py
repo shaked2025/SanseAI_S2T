@@ -21,10 +21,10 @@ class SimpleRobustVerifier:
     PROVEN to work based on console logs
     """
     
-    def __init__(self, base_threshold=0.66):
+    def __init__(self, base_threshold=0.64):
         """
         Args:
-            base_threshold: Base similarity threshold (0.66 optimized from WAV testing)
+            base_threshold: Base similarity threshold (0.64 - middle of 0.60-0.70 perfect range)
         """
         self.base_threshold = base_threshold
         self.rejection_stats = {
@@ -101,7 +101,7 @@ class SimpleRobustVerifier:
         # High similarity (>=0.68) bypasses margin check (clearly enrolled speaker)
             
         # Rule 3: Absolute minimum threshold (even with good quality)
-        absolute_min = 0.60  # Never accept below this (unknown speakers score 0.59-0.63)
+        absolute_min = 0.58  # Slightly lower to account for gender/voice differences
         
         if best_similarity < absolute_min:
             reason = f"Below absolute minimum ({best_similarity:.3f} < {absolute_min:.3f})"
@@ -121,14 +121,15 @@ class SimpleRobustVerifier:
         """Calculate adaptive threshold based on quality and speaker consistency"""
         
         # Base threshold adjusted for quality
+        # Use CONSERVATIVE adjustments to ensure robustness
         if audio_quality >= 0.8:
-            quality_threshold = self.base_threshold - 0.04  # 0.62 - lenient for good quality
+            quality_threshold = self.base_threshold - 0.02  # 0.62 - slightly lenient for good quality
         elif audio_quality >= 0.6:
-            quality_threshold = self.base_threshold  # 0.66 - optimal
+            quality_threshold = self.base_threshold  # 0.64 - optimal base
         elif audio_quality >= 0.4:
-            quality_threshold = self.base_threshold + 0.02  # 0.68 - slightly stricter
+            quality_threshold = self.base_threshold + 0.02  # 0.66 - slightly stricter
         else:
-            quality_threshold = self.base_threshold + 0.04  # 0.70 - stricter for bad quality
+            quality_threshold = self.base_threshold + 0.04  # 0.68 - stricter for bad quality
             
         # Adjust for speaker consistency (if available)
         speaker_std = speaker_profile.get('std', 0.10)

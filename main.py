@@ -18,6 +18,7 @@ from audio_capture import AudioCapture
 from speaker_diarization_robust import ResemblyzerEmbeddings
 from speaker_enrollment import SpeakerEnrollment, SpeakerVerificationEngine
 from simple_robust_verification import SimpleRobustVerifier  # PROVEN 100% accuracy on test data
+from spatial_location_features import LocationAwareVerifier  # Location-aware enhancement
 
 # NO VIDEO/CAMERA IMPORTS - AUDIO ONLY!
 # NO GUI_APPLICATION - Custom lightweight GUI only
@@ -43,7 +44,11 @@ class InterviewSystem:
         # SIMPLE ROBUST unknown speaker rejection (TESTED: 100% on all permutations!)
         print("Loading simple robust verifier (cross-validated: 100% across 36 configurations)...")
         self.simple_verifier = SimpleRobustVerifier(base_threshold=0.64)
-        print("✅ Speaker verification ready")
+        
+        # LOCATION-AWARE enhancement (uses spatial audio features)
+        print("Loading location-aware verifier (uses fixed speaker positions)...")
+        self.location_verifier = LocationAwareVerifier(self.simple_verifier, spatial_weight=0.15)
+        print("✅ Speaker verification + spatial location ready")
         
         self.is_running = False
         self.is_recording_enrollment = False
@@ -247,8 +252,11 @@ class InterviewSystem:
         # Complete enrollment
         success, quality, msg = self.enrollment.complete_enrollment(speaker_key)
         
+        # Create spatial location fingerprint
+        self.location_verifier.enroll_spatial_profile(speaker_key, samples)
+        
         print(f"\n✅ {name} enrollment complete!")
-        print(f"   Quality: {quality:.1%}")
+        print(f"   Voice quality: {quality:.1%}")
         
         # Update UI
         status_label = self.status1_label if speaker_num == 0 else self.status2_label
@@ -353,21 +361,21 @@ class InterviewSystem:
                     last_time = time.time()
                     continue
                 
-                # SIMPLE ROBUST VERIFICATION (Tested: 100% accuracy!)
-                accept, speaker_key, speaker_name, similarity, reason = self.simple_verifier.verify_speaker(
+                # LOCATION-AWARE VERIFICATION (Voice + Spatial Position)
+                accept, speaker_key, speaker_name, combined_score, reason = self.location_verifier.verify_with_location(
                     test_embedding,
-                    enrolled,
-                    audio_quality=0.8  # Assume reasonable quality
+                    audio_data,  # Need raw audio for spatial analysis
+                    enrolled
                 )
                 
                 if not accept:
-                    # REJECTED as unknown speaker
-                    print(f"🚫 REJECTED: {speaker_name} (sim: {similarity:.3f}) - {reason}")
+                    # REJECTED - either voice mismatch OR location mismatch
+                    print(f"🚫 REJECTED: {speaker_name} (score: {combined_score:.3f}) - {reason}")
                     last_time = time.time()
                     continue
                     
-                # ACCEPTED - proceed with transcription
-                print(f"✅ ACCEPTED: {speaker_name} (similarity: {similarity:.3f})")
+                # ACCEPTED - both voice and location match
+                print(f"✅ ACCEPTED: {speaker_name} (score: {combined_score:.3f}) - {reason}")
                 
                 # Transcribe
                 audio_float = audio_data.astype(np.float32) / 32768.0

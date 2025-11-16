@@ -1,0 +1,80 @@
+[
+  {
+    "config": {
+      "name": "Conservative",
+      "nu": 0.05,
+      "base_threshold": 0.85,
+      "quality_thresholds": {
+        "0.9": 0.8,
+        "0.7": 0.85,
+        "0.5": 0.88
+      }
+    },
+    "score": 0.5,
+    "results": {
+      "enrolled_correct": 0,
+      "enrolled_total": 6,
+      "unknown_rejected": 3,
+      "unknown_total": 3,
+      "false_accepts": 0,
+      "false_rejects": 6,
+      "true_accept_rate": 0.0,
+      "false_reject_rate": 1.0,
+      "true_reject_rate": 1.0,
+      "false_accept_rate": 0.0,
+      "accuracy": 0.3333333333333333
+    }
+  },
+  {
+    "config": {
+      "name": "Balanced",
+      "nu": 0.1,
+      "base_threshold": 0.8,
+      "quality_thresholds": {
+        "0.9": 0.75,
+        "0.7": 0.8,
+        "0.5": 0.85
+      }
+    },
+    "score": 0.5,
+    "results": {
+      "enrolled_correct": 0,
+      "enrolled_total": 6,
+      "unknown_rejected": 3,
+      "unknown_total": 3,
+      "false_accepts": 0,
+      "false_rejects": 6,
+      "true_accept_rate": 0.0,
+      "false_reject_rate": 1.0,
+      "true_reject_rate": 1.0,
+      "false_accept_rate": 0.0,
+      "accuracy": 0.3333333333333333
+    }
+  },
+  {
+    "config": {
+      "name": "Lenient",
+      "nu": 0.15,
+      "base_threshold": 0.75,
+      "quality_thresholds": {
+        "0.9": 0.7,
+        "0.7": 0.75,
+        "0.5": 0.8
+      }
+    },
+    "score": 0.5,
+    "results": {
+      "enrolled_correct": 0,
+      "enrolled_total": 6,
+      "unknown_rejected": 3,
+      "unknown_total": 3,
+      "false_accepts": 0,
+      "false_rejects": 6,
+      "true_accept_rate": 0.0,
+      "false_reject_rate": 1.0,
+      "true_reject_rate": 1.0,
+      "false_accept_rate": 0.0,
+      "accuracy": 0.3333333333333333
+    }
+  }
+]

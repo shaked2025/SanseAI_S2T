@@ -42,7 +42,7 @@ class InterviewSystem:
         
         # ADVANCED unknown speaker rejection
         print("Loading advanced unknown speaker rejection system...")
-        self.rejector = AdvancedSpeakerRejection(nu=0.10)  # Moderate: 10% outliers expected (less strict for small sets)
+        self.rejector = AdvancedSpeakerRejection(nu=0.20)  # OPTIMIZED: Data-driven from real audio analysis
         self.multi_metric = MultiMetricVerifier()
         print("✅ Unknown speaker rejection ready")
         

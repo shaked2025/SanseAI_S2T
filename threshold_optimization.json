@@ -1,0 +1,78 @@
+{
+  "optimal_threshold": 0.65,
+  "best_f1": 1.0,
+  "all_results": [
+    {
+      "threshold": 0.5,
+      "true_accept_rate": 1.0,
+      "false_accept_rate": 1.0,
+      "f1": 0.8,
+      "metrics": {
+        "TP": 6,
+        "FN": 0,
+        "TN": 0,
+        "FP": 3
+      }
+    },
+    {
+      "threshold": 0.55,
+      "true_accept_rate": 1.0,
+      "false_accept_rate": 1.0,
+      "f1": 0.8,
+      "metrics": {
+        "TP": 6,
+        "FN": 0,
+        "TN": 0,
+        "FP": 3
+      }
+    },
+    {
+      "threshold": 0.6,
+      "true_accept_rate": 1.0,
+      "false_accept_rate": 0.6666666666666666,
+      "f1": 0.8571428571428571,
+      "metrics": {
+        "TP": 6,
+        "FN": 0,
+        "TN": 1,
+        "FP": 2
+      }
+    },
+    {
+      "threshold": 0.65,
+      "true_accept_rate": 1.0,
+      "false_accept_rate": 0.0,
+      "f1": 1.0,
+      "metrics": {
+        "TP": 6,
+        "FN": 0,
+        "TN": 3,
+        "FP": 0
+      }
+    },
+    {
+      "threshold": 0.7,
+      "true_accept_rate": 0.8333333333333334,
+      "false_accept_rate": 0.0,
+      "f1": 0.9090909090909091,
+      "metrics": {
+        "TP": 5,
+        "FN": 1,
+        "TN": 3,
+        "FP": 0
+      }
+    },
+    {
+      "threshold": 0.75,
+      "true_accept_rate": 0.8333333333333334,
+      "false_accept_rate": 0.0,
+      "f1": 0.9090909090909091,
+      "metrics": {
+        "TP": 5,
+        "FN": 1,
+        "TN": 3,
+        "FP": 0
+      }
+    }
+  ]
+}

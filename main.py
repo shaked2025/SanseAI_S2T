@@ -297,16 +297,19 @@ class InterviewSystem:
         
     def transcribe_loop(self):
         """Real-time transcription with speaker ID"""
+        print("🎙️ Transcription loop started")
+        print("   Listening for speech...")
+        
         last_time = time.time()
         
         while self.is_running:
             try:
-                if time.time() - last_time < 2.0:
+                if time.time() - last_time < 1.5:  # Faster processing
                     time.sleep(0.1)
                     continue
                     
                 # Get audio
-                audio_data = self.audio.get_buffer(duration=3.0)
+                audio_data = self.audio.get_buffer(duration=2.5)
                 
                 if len(audio_data) < 16000:
                     time.sleep(0.1)
@@ -314,12 +317,19 @@ class InterviewSystem:
                     
                 # Check if speech
                 rms = np.sqrt(np.mean(audio_data.astype(np.float32) ** 2))
-                if rms < 1000:
+                
+                print(f"   Audio level: {int(rms)}")  # DEBUG
+                
+                if rms < 800:  # Lower threshold
                     time.sleep(0.1)
                     continue
                     
+                print(f"🎤 Processing speech (level: {int(rms)})...")
+                
                 # Identify speaker
                 speaker_key, speaker_name, confidence, metadata = self.verifier.verify_speaker(audio_data, 16000)
+                
+                print(f"👤 Identified: {speaker_name} (confidence: {confidence:.2f})")
                 
                 # Transcribe
                 audio_float = audio_data.astype(np.float32) / 32768.0
@@ -331,13 +341,18 @@ class InterviewSystem:
                     
                     self.transcript.insert(tk.END, text)
                     self.transcript.see(tk.END)
+                    self.root.update()  # Force GUI update
                     
-                    print(f"[{timestamp}] {speaker_name}: {result['text'].strip()}")
+                    print(f"📝 DISPLAYED: [{timestamp}] {speaker_name}: {result['text'].strip()}")
+                else:
+                    print("   (No speech detected by Whisper)")
                     
                 last_time = time.time()
                 
             except Exception as e:
-                print(f"Error: {e}")
+                print(f"❌ Error: {e}")
+                import traceback
+                traceback.print_exc()
                 time.sleep(1)
                 
     def run(self):

@@ -266,7 +266,7 @@ class EnrollmentWizard:
         self.show_enrollment_screen()
         
     def show_enrollment_screen(self):
-        """Show CONTINUOUS voice sample recording screen"""
+        """Show voice sample recording screen - 5 SEPARATE recordings"""
         self.clear_content()
         
         participant = self.participants[self.current_participant_idx]
@@ -295,36 +295,52 @@ class EnrollmentWizard:
             fg='#7F8C8D'
         ).pack()
         
-        # Instructions - SIMPLIFIED for continuous recording
-        instructions_frame = ttk.LabelFrame(self.content_frame, text="📝 Simple Instructions", padding=15)
+        # Instructions
+        instructions_frame = ttk.LabelFrame(self.content_frame, text="📝 Instructions", padding=15)
         instructions_frame.pack(fill=tk.X, pady=20, padx=20)
         
         tk.Label(
             instructions_frame,
-            text=f"SIMPLIFIED ENROLLMENT:\n\n"
-                 f"1. Click 'Start Recording' button\n"
-                 f"2. Speak naturally for 20-30 seconds\n"
-                 f"3. Click 'Stop Recording' when done\n\n"
-                 f"You can:\n"
-                 f"• Introduce yourself\n"
-                 f"• Describe your role\n"
-                 f"• Talk about the interview\n"
-                 f"• Speak naturally (pauses are OK)\n\n"
-                 f"The system will AUTOMATICALLY extract 5 voice samples\n"
-                 f"from your recording!",
+            text=f"Record 5 voice samples (5 seconds each)\n"
+                 f"Read the sentence shown clearly\n"
+                 f"Recording will AUTO-STOP after 5 seconds",
             font=('Arial', 11),
             justify=tk.LEFT,
             fg='#2C3E50'
         ).pack()
         
+        # Sample prompts
+        prompts = [
+            f"My name is {participant['name']}, and I am the {participant['role']}.",
+            "I am participating in this interview session.",
+            "This is my voice sample for speaker identification.",
+            "The quick brown fox jumps over the lazy dog.",
+            "Thank you for your patience during this enrollment."
+        ]
+        
+        # Current sample
+        sample_frame = ttk.LabelFrame(self.content_frame, text=f"Sample {self.current_sample_idx + 1} of 5", padding=15)
+        sample_frame.pack(fill=tk.BOTH, expand=True, pady=10, padx=20)
+        
+        prompt = prompts[self.current_sample_idx]
+        
+        self.prompt_label = tk.Label(
+            sample_frame,
+            text=f'"{prompt}"',
+            font=('Arial', 13, 'italic'),
+            wraplength=600,
+            fg='#34495E'
+        )
+        self.prompt_label.pack(pady=20)
+        
         # Recording controls
-        controls_frame = ttk.Frame(self.content_frame)
+        controls_frame = ttk.Frame(sample_frame)
         controls_frame.pack(pady=20)
         
         self.record_button = tk.Button(
             controls_frame,
-            text="🔴 Start Continuous Recording",
-            command=self.start_continuous_recording,
+            text="🔴 Start Recording (5 seconds)",
+            command=self.start_recording_sample,
             bg='#E74C3C',
             fg='white',
             font=('Arial', 14, 'bold'),
@@ -334,20 +350,12 @@ class EnrollmentWizard:
         self.record_button.pack()
         
         self.recording_label = tk.Label(
-            self.content_frame,
+            sample_frame,
             text="",
             font=('Arial', 11, 'bold'),
             fg='#E74C3C'
         )
         self.recording_label.pack(pady=10)
-        
-        self.progress_label = tk.Label(
-            self.content_frame,
-            text="",
-            font=('Arial', 10),
-            fg='#7F8C8D'
-        )
-        self.progress_label.pack(pady=5)
         
     def start_continuous_recording(self):
         """Start continuous recording for auto-chunking"""
@@ -409,6 +417,22 @@ class EnrollmentWizard:
                 self.progress_label.config(text=f"Keep speaking... (target: 20-30s)")
             
             self.window.after(100, self.update_recording_timer)
+            
+    def update_5s_timer(self):
+        """Update timer for 5-second recording with auto-stop"""
+        if self.is_recording:
+            elapsed = time.time() - self.recording_start_time
+            self.recording_label.config(text=f"🔴 RECORDING... {elapsed:.1f}s / 5.0s")
+            
+            if elapsed >= 5.0:
+                # Auto-stop at 5 seconds
+                self.recording_label.config(text=f"✅ 5 seconds complete!")
+                self.window.update()
+                time.sleep(0.3)
+                self.stop_recording_sample()
+                return
+            
+            self.window.after(100, self.update_5s_timer)
             
     def stop_continuous_recording(self):
         """Stop continuous recording and auto-chunk into samples"""

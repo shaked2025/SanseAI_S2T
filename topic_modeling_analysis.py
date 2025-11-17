@@ -31,7 +31,7 @@ class TopicSegmentationSystem:
     Segment conversation into topics and analyze per-topic patterns
     """
     
-    def __init__(self, similarity_threshold=0.65, min_topic_utterances=2):
+    def __init__(self, similarity_threshold=0.65, min_topic_utterances=1):
         """
         Args:
             similarity_threshold: Similarity to group as same topic (0.65 = moderate)
@@ -120,7 +120,8 @@ class TopicSegmentationSystem:
         """
         Assign utterance to topic (new or existing)
         
-        Uses semantic similarity based on word overlap and keywords
+        FIXED: First check by LABEL, then by word similarity
+        This groups "Alibi", "Alibi", "Alibi" as ONE topic!
         """
         text = utterance['text'].lower()
         words = set(text.split())
@@ -142,7 +143,27 @@ class TopicSegmentationSystem:
                 'similarity': 1.0
             }
             
-        # Check similarity to existing topics
+        # FIRST: Generate label for this utterance
+        proposed_label = self._generate_topic_label(words)
+        
+        # CRITICAL FIX: Check if this label already exists!
+        for topic_id, topic_data in self.topics.items():
+            if topic_data['label'] == proposed_label:
+                # SAME LABEL = SAME TOPIC!
+                last_mention = topic_data['last_mention']
+                time_gap = (utterance['timestamp'] - last_mention).total_seconds()
+                is_topic_return = time_gap > 120
+                
+                return {
+                    'topic_id': topic_id,
+                    'topic_label': proposed_label,
+                    'is_new_topic': False,
+                    'is_topic_return': is_topic_return,
+                    'similarity': 1.0,  # Perfect match by label
+                    'time_since_last_mention': time_gap if is_topic_return else 0
+                }
+            
+        # If no exact label match, check similarity to existing topics
         best_match_id = None
         best_similarity = 0.0
         

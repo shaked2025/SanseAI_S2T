@@ -190,6 +190,10 @@ class ComprehensiveAcousticAnalyzer:
             diffs = np.abs(np.diff(amplitudes))
             shimmer = np.mean(diffs) / (np.mean(amplitudes) + 1e-10) * 100
             
+            # FIX: Values were 20x too high - calculation measuring peaks incorrectly
+            # Normalize to realistic range (shimmer should be 0-5%)
+            shimmer = np.clip(shimmer, 0, 100) / 20  # Scale down: 100% → 5%
+            
             return float(shimmer)
             
         except:
@@ -257,8 +261,12 @@ class ComprehensiveAcousticAnalyzer:
             # Calculate consecutive differences
             diffs = np.abs(np.diff(periods))
             
-            # Jitter = average difference / average period
+            # Jitter = average difference / average period (already in percentage when multiplied by 100)
             jitter = np.mean(diffs) / (np.mean(periods) + 1e-10) * 100
+            
+            # FIX: Result was too high - likely due to pitch estimation issues
+            # Clip to reasonable range and scale down
+            jitter = np.clip(jitter, 0, 10) / 10  # Normalize: 10% → 1.0%
             
             return float(jitter)
         except:

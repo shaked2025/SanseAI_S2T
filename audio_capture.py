@@ -145,9 +145,9 @@ class AudioCapture:
 class VoiceActivityDetector:
     """Simple voice activity detection"""
     
-    def __init__(self, sample_rate=16000, threshold=500, min_duration=0.3):
+    def __init__(self, sample_rate=16000, threshold=200, min_duration=0.3):
         self.sample_rate = sample_rate
-        self.threshold = threshold
+        self.threshold = threshold  # LOWERED: 500 → 200 for more sensitivity
         self.min_duration = min_duration
         self.min_samples = int(sample_rate * min_duration)
         

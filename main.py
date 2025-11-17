@@ -333,12 +333,12 @@ class InterviewSystem:
                     time.sleep(0.1)
                     continue
                     
-                # Check if speech
+                # Check if speech - MUCH MORE SENSITIVE
                 rms = np.sqrt(np.mean(audio_data.astype(np.float32) ** 2))
                 
                 print(f"   Audio level: {int(rms)}")  # DEBUG
                 
-                if rms < 800:  # Lower threshold
+                if rms < 300:  # VERY SENSITIVE - was 800, now 300 (normal speaking, not shouting)
                     time.sleep(0.1)
                     continue
                     

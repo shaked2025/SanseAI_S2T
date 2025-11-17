@@ -23,6 +23,7 @@ Based on research:
 import numpy as np
 from datetime import datetime, timedelta
 from collections import deque
+from scipy import signal as scipy_signal
 
 
 class AdaptiveEnrollmentSystem:

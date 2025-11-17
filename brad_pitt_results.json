@@ -2,22 +2,22 @@
   "file": "Brad Pitt_ Between Two Ferns with Zach Galifianakis.mp4",
   "duration_seconds": 333.87975,
   "chunks_analyzed": 33,
-  "overall_trend": -7.480298367968952e-05,
+  "overall_trend": -0.00010157731908006122,
   "timeline": [
     {
       "chunk_index": 0,
       "timestamp_seconds": 0,
       "text": "I'm just seeing that I interviewed the president last time and now I'm gonna, you know, go back to interviewing dumb actors. But it's all I'm saying. No, it's fine. It's fine. He's a big star.",
-      "acoustic_stress": 0.7,
+      "acoustic_stress": 0.4,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.45999999999999996,
+      "combined_stress": 0.28,
       "topic_id": 0,
       "topic_label": "Alibi",
       "rms": 820,
       "key_acoustic": {
         "f0_mean": 119.59662764413827,
-        "jitter": 5.717999669737609,
-        "shimmer": 59.78725429756141
+        "jitter": 0.5717999669737609,
+        "shimmer": 2.9893627148780704
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -29,16 +29,16 @@
       "chunk_index": 1,
       "timestamp_seconds": 10,
       "text": "Hi, welcome to another edition of Between Two Furns. I'm your host, Zach Alfinakis. My guest today, Bradley Pits. Bradley Pits, thanks for joining me.",
-      "acoustic_stress": 0.6,
+      "acoustic_stress": 0.38,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.4,
+      "combined_stress": 0.268,
       "topic_id": 1,
       "topic_label": "Alfinakis.",
       "rms": 1066,
       "key_acoustic": {
         "f0_mean": 115.48005589912887,
-        "jitter": 6.100972572817344,
-        "shimmer": 60.21183431986743
+        "jitter": 0.6100972572817345,
+        "shimmer": 3.0105917159933715
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -50,16 +50,16 @@
       "chunk_index": 2,
       "timestamp_seconds": 20,
       "text": "It's my pleasure. How old were you when you lost your virginity? Zero? I'll tell you about my when I lost my virginity. I...",
-      "acoustic_stress": 0.6,
+      "acoustic_stress": 0.38,
       "linguistic_stress": 0.0,
-      "combined_stress": 0.36,
-      "topic_id": 2,
+      "combined_stress": 0.22799999999999998,
+      "topic_id": 0,
       "topic_label": "Alibi",
       "rms": 777,
       "key_acoustic": {
         "f0_mean": 105.17615649987023,
-        "jitter": 4.8787028215295525,
-        "shimmer": 60.23213087830101
+        "jitter": 0.48787028215295525,
+        "shimmer": 3.0116065439150503
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -71,16 +71,16 @@
       "chunk_index": 3,
       "timestamp_seconds": 30,
       "text": "Really not like to hear that. Showers. Hmm. Why don't you take them? Sigh. Ah.",
-      "acoustic_stress": 0.7999999999999999,
+      "acoustic_stress": 0.5,
       "linguistic_stress": 0.2,
-      "combined_stress": 0.5599999999999999,
-      "topic_id": 3,
+      "combined_stress": 0.38,
+      "topic_id": 2,
       "topic_label": "Motive",
       "rms": 619,
       "key_acoustic": {
         "f0_mean": 105.85615112929152,
-        "jitter": 6.030898314568018,
-        "shimmer": 46.646835882012915
+        "jitter": 0.6030898314568018,
+        "shimmer": 2.3323417941006457
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -92,16 +92,16 @@
       "chunk_index": 4,
       "timestamp_seconds": 40,
       "text": "You play a lot of people that are kind of Nazi haters, which is weird to me. When do you say that? Because you look like Hitler's dream.",
-      "acoustic_stress": 0.7,
+      "acoustic_stress": 0.4,
       "linguistic_stress": 0.22,
-      "combined_stress": 0.508,
-      "topic_id": 4,
+      "combined_stress": 0.328,
+      "topic_id": 0,
       "topic_label": "Alibi",
       "rms": 658,
       "key_acoustic": {
         "f0_mean": 100.05356826613591,
-        "jitter": 5.469166303124804,
-        "shimmer": 52.982913374174345
+        "jitter": 0.5469166303124804,
+        "shimmer": 2.649145668708717
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -113,16 +113,16 @@
       "chunk_index": 5,
       "timestamp_seconds": 50,
       "text": "Yes, I understand the conundrum of it all. And I could pictures of you were in Playgirl magazine many years ago.",
-      "acoustic_stress": 0.7,
+      "acoustic_stress": 0.48,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.45999999999999996,
-      "topic_id": 5,
+      "combined_stress": 0.32799999999999996,
+      "topic_id": 3,
       "topic_label": "Understand",
       "rms": 975,
       "key_acoustic": {
         "f0_mean": 93.42677135006326,
-        "jitter": 4.230792584779467,
-        "shimmer": 65.57004139962011
+        "jitter": 0.4230792584779467,
+        "shimmer": 3.2785020699810055
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.047619047619047616,
@@ -134,16 +134,16 @@
       "chunk_index": 6,
       "timestamp_seconds": 60,
       "text": "know that because my dad got a subscription for me after I graduated from junior high school and anyway tell us about this movie furry",
-      "acoustic_stress": 0.7,
+      "acoustic_stress": 0.48,
       "linguistic_stress": 0.0,
-      "combined_stress": 0.42,
-      "topic_id": 6,
+      "combined_stress": 0.288,
+      "topic_id": 4,
       "topic_label": "Timeline",
       "rms": 918,
       "key_acoustic": {
         "f0_mean": 120.46119505034248,
-        "jitter": 5.770924086459188,
-        "shimmer": 70.47218693609209
+        "jitter": 0.5770924086459188,
+        "shimmer": 3.523609346804604
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -155,16 +155,16 @@
       "chunk_index": 7,
       "timestamp_seconds": 70,
       "text": "It's fury. It's not furry. No. When does that come out on DVD?",
-      "acoustic_stress": 0.5,
+      "acoustic_stress": 0.2,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.33999999999999997,
-      "topic_id": 7,
+      "combined_stress": 0.16,
+      "topic_id": 0,
       "topic_label": "Alibi",
       "rms": 569,
       "key_acoustic": {
         "f0_mean": 87.67274577271435,
-        "jitter": 7.533592985206776,
-        "shimmer": 44.67768436224252
+        "jitter": 0.7533592985206776,
+        "shimmer": 2.2338842181121263
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -176,16 +176,16 @@
       "chunk_index": 8,
       "timestamp_seconds": 80,
       "text": "I got you a gift and it's... Do we have a gift? Oh it's right behind the firm there.",
-      "acoustic_stress": 0.7,
+      "acoustic_stress": 0.48,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.45999999999999996,
-      "topic_id": 8,
+      "combined_stress": 0.32799999999999996,
+      "topic_id": 5,
       "topic_label": "It's...",
       "rms": 639,
       "key_acoustic": {
         "f0_mean": 99.87670801994966,
-        "jitter": 6.217001706345704,
-        "shimmer": 62.36578977084209
+        "jitter": 0.6217001706345704,
+        "shimmer": 3.1182894885421044
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -197,16 +197,16 @@
       "chunk_index": 9,
       "timestamp_seconds": 90,
       "text": "I wonder what that is. It's a bassoon. I thought it was a bowling ball. It's a bassoon. I thought it was a bowling ball.",
-      "acoustic_stress": 0.6,
+      "acoustic_stress": 0.30000000000000004,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.4,
-      "topic_id": 9,
+      "combined_stress": 0.22000000000000003,
+      "topic_id": 6,
       "topic_label": "Bassoon.",
       "rms": 870,
       "key_acoustic": {
         "f0_mean": 92.153687340131,
-        "jitter": 6.5520044841434535,
-        "shimmer": 49.40152910702578
+        "jitter": 0.6552004484143453,
+        "shimmer": 2.470076455351289
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -218,16 +218,16 @@
       "chunk_index": 10,
       "timestamp_seconds": 100,
       "text": "You know I'm a... Thank you. You know I'm a dad now. That's a bad soon you can play them for your kids. Yeah, we don't... Best soon in my house, anyway.",
-      "acoustic_stress": 0.5,
+      "acoustic_stress": 0.2,
       "linguistic_stress": 0.0,
-      "combined_stress": 0.3,
-      "topic_id": 10,
+      "combined_stress": 0.12,
+      "topic_id": 7,
       "topic_label": "Relationship",
       "rms": 704,
       "key_acoustic": {
         "f0_mean": 92.41301798923668,
-        "jitter": 6.526870409645198,
-        "shimmer": 56.274881390189016
+        "jitter": 0.6526870409645198,
+        "shimmer": 2.813744069509451
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -239,16 +239,16 @@
       "chunk_index": 11,
       "timestamp_seconds": 110,
       "text": "more. This is off topic just a bit but do you mind if I borrow one or two of your sperms?",
-      "acoustic_stress": 0.7999999999999999,
+      "acoustic_stress": 0.58,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.5199999999999999,
-      "topic_id": 11,
+      "combined_stress": 0.388,
+      "topic_id": 8,
       "topic_label": "Sperms?",
       "rms": 862,
       "key_acoustic": {
         "f0_mean": 116.95545086758264,
-        "jitter": 6.352299822702142,
-        "shimmer": 60.77661240558279
+        "jitter": 0.6352299822702142,
+        "shimmer": 3.0388306202791395
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -260,16 +260,16 @@
       "chunk_index": 12,
       "timestamp_seconds": 120,
       "text": "Uh, no, I think that would be inappropriate. Okay, it's just written down here, I have to ask. I understand. After a big meal on Thanksgiving, do you ever like unbutton your pants and just sit back and go?",
-      "acoustic_stress": 0.7999999999999999,
+      "acoustic_stress": 0.5,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.5199999999999999,
-      "topic_id": 12,
+      "combined_stress": 0.33999999999999997,
+      "topic_id": 4,
       "topic_label": "Timeline",
       "rms": 1025,
       "key_acoustic": {
         "f0_mean": 106.73309302774845,
-        "jitter": 5.8513897750847015,
-        "shimmer": 51.64162863397978
+        "jitter": 0.5851389775084701,
+        "shimmer": 2.582081431698989
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -281,16 +281,16 @@
       "chunk_index": 13,
       "timestamp_seconds": 130,
       "text": "Oh boy. Don't recall doing that. You do a lot of charity work and I think that it's a-",
-      "acoustic_stress": 0.7999999999999999,
+      "acoustic_stress": 0.5,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.5199999999999999,
-      "topic_id": 13,
+      "combined_stress": 0.33999999999999997,
+      "topic_id": 9,
       "topic_label": "Charity",
       "rms": 1131,
       "key_acoustic": {
         "f0_mean": 99.9371769878496,
-        "jitter": 6.299370505196393,
-        "shimmer": 51.51928641165707
+        "jitter": 0.6299370505196393,
+        "shimmer": 2.5759643205828535
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -302,16 +302,16 @@
       "chunk_index": 14,
       "timestamp_seconds": 140,
       "text": "really great thing you do and if I was wondering if you could maybe tell us about some of your charity work. Because I also am involved in a lot of charity work myself. Like what? I work with this one group called Dr.",
-      "acoustic_stress": 0.6,
+      "acoustic_stress": 0.30000000000000004,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.4,
-      "topic_id": 14,
+      "combined_stress": 0.22000000000000003,
+      "topic_id": 2,
       "topic_label": "Motive",
       "rms": 1300,
       "key_acoustic": {
         "f0_mean": 88.26931467294372,
-        "jitter": 4.623755478047819,
-        "shimmer": 55.95753961570454
+        "jitter": 0.4623755478047819,
+        "shimmer": 2.797876980785227
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.045454545454545456,
@@ -323,16 +323,16 @@
       "chunk_index": 15,
       "timestamp_seconds": 150,
       "text": "without diplomas. So Brad, tell us about your charity work. Yeah, it's something I'm very proud of. It's called the Make Your Right Organization. We...",
-      "acoustic_stress": 0.7999999999999999,
+      "acoustic_stress": 0.58,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.5199999999999999,
-      "topic_id": 15,
+      "combined_stress": 0.388,
+      "topic_id": 10,
       "topic_label": "Organization.",
       "rms": 856,
       "key_acoustic": {
         "f0_mean": 105.3674323590902,
-        "jitter": 4.0863027406569925,
-        "shimmer": 89.09668928323401
+        "jitter": 0.40863027406569924,
+        "shimmer": 4.454834464161701
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -344,16 +344,16 @@
       "chunk_index": 16,
       "timestamp_seconds": 160,
       "text": "We started building in the lower ninth after her kick and trena. I'm on my second life in the sub. Ladies and gentlemen, Louis C. Peck. Doing stand up.",
-      "acoustic_stress": 0.7,
+      "acoustic_stress": 0.4,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.45999999999999996,
-      "topic_id": 16,
+      "combined_stress": 0.28,
+      "topic_id": 4,
       "topic_label": "Timeline",
       "rms": 1027,
       "key_acoustic": {
         "f0_mean": 97.59672355307463,
-        "jitter": 5.697467848234586,
-        "shimmer": 47.81607790899858
+        "jitter": 0.5697467848234586,
+        "shimmer": 2.390803895449929
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -365,16 +365,16 @@
       "chunk_index": 17,
       "timestamp_seconds": 170,
       "text": "Hey, how's it going everybody? Great to be here. In New York and it's a crazy town. There was a couple of rats on the subway and I thought they...",
-      "acoustic_stress": 0.7,
+      "acoustic_stress": 0.4,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.45999999999999996,
-      "topic_id": 17,
+      "combined_stress": 0.28,
+      "topic_id": 11,
       "topic_label": "Everybody?",
       "rms": 1277,
       "key_acoustic": {
         "f0_mean": 117.66386679497354,
-        "jitter": 4.842133288836762,
-        "shimmer": 55.515893890526556
+        "jitter": 0.4842133288836762,
+        "shimmer": 2.775794694526328
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -386,16 +386,16 @@
       "chunk_index": 18,
       "timestamp_seconds": 180,
       "text": "were either Ebola or ISIS. I was like, get out of here, rats. Thank you.",
-      "acoustic_stress": 0.6,
+      "acoustic_stress": 0.30000000000000004,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.4,
-      "topic_id": 18,
+      "combined_stress": 0.22000000000000003,
+      "topic_id": 12,
       "topic_label": "Either",
       "rms": 858,
       "key_acoustic": {
         "f0_mean": 94.68960513980035,
-        "jitter": 5.237778847722873,
-        "shimmer": 55.7778871588964
+        "jitter": 0.5237778847722873,
+        "shimmer": 2.78889435794482
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -407,16 +407,16 @@
       "chunk_index": 19,
       "timestamp_seconds": 190,
       "text": "He looks like the reverse Benjamin Buttons does any because he gets an older and better. I played him playing you. Who are you talking to? I was talking to a magnet.",
-      "acoustic_stress": 0.6,
+      "acoustic_stress": 0.38,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.4,
-      "topic_id": 19,
+      "combined_stress": 0.268,
+      "topic_id": 2,
       "topic_label": "Motive",
       "rms": 620,
       "key_acoustic": {
         "f0_mean": 96.56641824953863,
-        "jitter": 5.070286930651844,
-        "shimmer": 61.49058218840659
+        "jitter": 0.5070286930651844,
+        "shimmer": 3.0745291094203298
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -428,16 +428,16 @@
       "chunk_index": 20,
       "timestamp_seconds": 200,
       "text": "friend and then about you. But he was in Benjamin Buttons. He was in it. That's why I said it. He's in that movie. Yeah. Who'd you play in Benjamin Buttons? He's Benjamin Buttons. Buttons.",
-      "acoustic_stress": 0.7999999999999999,
+      "acoustic_stress": 0.5,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.5199999999999999,
-      "topic_id": 20,
+      "combined_stress": 0.33999999999999997,
+      "topic_id": 4,
       "topic_label": "Timeline",
       "rms": 1623,
       "key_acoustic": {
         "f0_mean": 139.23562262314195,
-        "jitter": 6.284602060406026,
-        "shimmer": 40.50465376436322
+        "jitter": 0.6284602060406026,
+        "shimmer": 2.025232688218161
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -449,16 +449,16 @@
       "chunk_index": 21,
       "timestamp_seconds": 210,
       "text": "That's the guy you can't recognize him because yeah because of the makeup stuff",
-      "acoustic_stress": 0.6,
+      "acoustic_stress": 0.30000000000000004,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.4,
-      "topic_id": 21,
+      "combined_stress": 0.22000000000000003,
+      "topic_id": 2,
       "topic_label": "Motive",
       "rms": 1056,
       "key_acoustic": {
         "f0_mean": 100.74300144696299,
-        "jitter": 7.670294512739689,
-        "shimmer": 31.907305323602458
+        "jitter": 0.7670294512739689,
+        "shimmer": 1.595365266180123
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -470,16 +470,16 @@
       "chunk_index": 22,
       "timestamp_seconds": 220,
       "text": "When you and Clooney get dressed up and in your tuxes together, do you ever...",
-      "acoustic_stress": 0.5,
+      "acoustic_stress": 0.2,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.33999999999999997,
-      "topic_id": 22,
+      "combined_stress": 0.16,
+      "topic_id": 0,
       "topic_label": "Alibi",
       "rms": 868,
       "key_acoustic": {
         "f0_mean": 95.31570649067847,
-        "jitter": 4.904871154213691,
-        "shimmer": 43.983625651196505
+        "jitter": 0.4904871154213691,
+        "shimmer": 2.199181282559825
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -491,16 +491,16 @@
       "chunk_index": 23,
       "timestamp_seconds": 230,
       "text": "kind of look at each other and go, aren't we a couple of dapper dans? Never happened to my recollection.",
-      "acoustic_stress": 0.5,
+      "acoustic_stress": 0.2,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.33999999999999997,
-      "topic_id": 23,
+      "combined_stress": 0.16,
+      "topic_id": 13,
       "topic_label": "Denial",
       "rms": 985,
       "key_acoustic": {
         "f0_mean": 91.9091531875185,
-        "jitter": 4.747936064896167,
-        "shimmer": 43.90726474668861
+        "jitter": 0.47479360648961666,
+        "shimmer": 2.1953632373344307
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -512,16 +512,16 @@
       "chunk_index": 24,
       "timestamp_seconds": 240,
       "text": "Is it hard for you to maintain a suntan?",
-      "acoustic_stress": 0.7,
+      "acoustic_stress": 0.48,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.45999999999999996,
-      "topic_id": 24,
+      "combined_stress": 0.32799999999999996,
+      "topic_id": 14,
       "topic_label": "Maintain",
       "rms": 498,
       "key_acoustic": {
         "f0_mean": 126.26434406250479,
-        "jitter": 3.912738175120207,
-        "shimmer": 71.86018178912812
+        "jitter": 0.39127381751202067,
+        "shimmer": 3.593009089456406
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -533,16 +533,16 @@
       "chunk_index": 25,
       "timestamp_seconds": 250,
       "text": "Because you live in your wife's shadow. Because I, too, I had a romantic theme, more someone.",
-      "acoustic_stress": 0.6,
+      "acoustic_stress": 0.38,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.4,
-      "topic_id": 25,
+      "combined_stress": 0.268,
+      "topic_id": 2,
       "topic_label": "Motive",
       "rms": 806,
       "key_acoustic": {
         "f0_mean": 96.88428288142838,
-        "jitter": 4.166086093589265,
-        "shimmer": 61.79196992891812
+        "jitter": 0.4166086093589265,
+        "shimmer": 3.0895984964459062
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -554,16 +554,16 @@
       "chunk_index": 26,
       "timestamp_seconds": 260,
       "text": "that was a romantic feeling that was public and it got on my nerves and because she kind of",
-      "acoustic_stress": 0.6,
+      "acoustic_stress": 0.30000000000000004,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.4,
-      "topic_id": 26,
+      "combined_stress": 0.22000000000000003,
+      "topic_id": 2,
       "topic_label": "Motive",
       "rms": 1156,
       "key_acoustic": {
         "f0_mean": 100.02734619808851,
-        "jitter": 4.772531417333341,
-        "shimmer": 47.41378211394054
+        "jitter": 0.4772531417333341,
+        "shimmer": 2.370689105697027
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -575,16 +575,16 @@
       "chunk_index": 27,
       "timestamp_seconds": 270,
       "text": "There was my last piece. It's um, I had the same thing with Condi rice. Oh really?",
-      "acoustic_stress": 0.6,
+      "acoustic_stress": 0.30000000000000004,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.4,
-      "topic_id": 27,
+      "combined_stress": 0.22000000000000003,
+      "topic_id": 15,
       "topic_label": "Really?",
       "rms": 729,
       "key_acoustic": {
         "f0_mean": 85.42994223894215,
-        "jitter": 5.787522809116054,
-        "shimmer": 42.22108907911232
+        "jitter": 0.5787522809116055,
+        "shimmer": 2.111054453955616
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -596,16 +596,16 @@
       "chunk_index": 28,
       "timestamp_seconds": 280,
       "text": "Tell me what it was like the first time that you laid eyes on Angelina. Was it like one of those classical love stories like when I don't know and Ross first",
-      "acoustic_stress": 0.7,
+      "acoustic_stress": 0.48,
       "linguistic_stress": 0.08,
-      "combined_stress": 0.45199999999999996,
-      "topic_id": 28,
+      "combined_stress": 0.31999999999999995,
+      "topic_id": 0,
       "topic_label": "Alibi",
       "rms": 1131,
       "key_acoustic": {
         "f0_mean": 107.45924129704127,
-        "jitter": 3.9917044008868996,
-        "shimmer": 66.96167805088231
+        "jitter": 0.39917044008868996,
+        "shimmer": 3.348083902544116
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.03125,
@@ -617,16 +617,16 @@
       "chunk_index": 29,
       "timestamp_seconds": 290,
       "text": "I saw Rachel, you know that show for Antivisina.",
-      "acoustic_stress": 0.5,
+      "acoustic_stress": 0.2,
       "linguistic_stress": 0.0,
-      "combined_stress": 0.3,
-      "topic_id": 29,
+      "combined_stress": 0.12,
+      "topic_id": 7,
       "topic_label": "Relationship",
       "rms": 530,
       "key_acoustic": {
         "f0_mean": 86.16960446880893,
-        "jitter": 4.902790118463255,
-        "shimmer": 44.625083321885114
+        "jitter": 0.4902790118463255,
+        "shimmer": 2.2312541660942555
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -638,16 +638,16 @@
       "chunk_index": 30,
       "timestamp_seconds": 300,
       "text": "I'll be there for you I like that some do you think people focus maybe too much on",
-      "acoustic_stress": 0.7,
+      "acoustic_stress": 0.4,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.45999999999999996,
-      "topic_id": 30,
+      "combined_stress": 0.28,
+      "topic_id": 16,
       "topic_label": "People",
       "rms": 920,
       "key_acoustic": {
         "f0_mean": 104.52545963001768,
-        "jitter": 5.505784294817378,
-        "shimmer": 41.845191119067124
+        "jitter": 0.5505784294817377,
+        "shimmer": 2.092259555953356
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.05555555555555555,
@@ -659,16 +659,16 @@
       "chunk_index": 31,
       "timestamp_seconds": 310,
       "text": "your looks and don't even realize that you're just a shitty actor.",
-      "acoustic_stress": 0.6,
+      "acoustic_stress": 0.30000000000000004,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.4,
-      "topic_id": 31,
+      "combined_stress": 0.22000000000000003,
+      "topic_id": 17,
       "topic_label": "Realize",
       "rms": 463,
       "key_acoustic": {
         "f0_mean": 83.30224119575381,
-        "jitter": 6.21863803987519,
-        "shimmer": 41.416252112852426
+        "jitter": 0.621863803987519,
+        "shimmer": 2.0708126056426215
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -680,16 +680,16 @@
       "chunk_index": 32,
       "timestamp_seconds": 320,
       "text": "Next question.",
-      "acoustic_stress": 0.7,
+      "acoustic_stress": 0.4,
       "linguistic_stress": 0.1,
-      "combined_stress": 0.45999999999999996,
-      "topic_id": 32,
+      "combined_stress": 0.28,
+      "topic_id": 4,
       "topic_label": "Timeline",
       "rms": 3065,
       "key_acoustic": {
         "f0_mean": 282.471115905716,
-        "jitter": 6.199268129009934,
-        "shimmer": 41.516040417395836
+        "jitter": 0.6199268129009934,
+        "shimmer": 2.0758020208697916
       },
       "key_linguistic": {
         "uncertainty_ratio": 0.0,
@@ -698,6 +698,421 @@
       }
     }
   ],
-  "topics": [],
+  "topics": [
+    {
+      "topic_id": 0,
+      "topic_label": "Alibi",
+      "utterance_count": 6,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:44:39.688754",
+      "last_mention": "2025-11-17T16:53:25.103057",
+      "total_duration_seconds": 525.414303,
+      "acoustic_stress_mean": 0.3433333333333333,
+      "acoustic_stress_max": 0.48,
+      "acoustic_stress_min": 0.2,
+      "acoustic_stress_trend": -0.00971428571428573,
+      "linguistic_stress_mean": 0.09999999999999999,
+      "linguistic_stress_max": 0.22,
+      "linguistic_stress_min": 0.0,
+      "linguistic_stress_trend": 0.0022857142857142833,
+      "combined_stress_mean": 0.246,
+      "topic_stress_category": "LOW",
+      "stress_change": -0.050000000000000044,
+      "stress_progression": "STABLE"
+    },
+    {
+      "topic_id": 1,
+      "topic_label": "Alfinakis.",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:44:58.659962",
+      "last_mention": "2025-11-17T16:44:58.659962",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.38,
+      "acoustic_stress_max": 0.38,
+      "acoustic_stress_min": 0.38,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.268,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 2,
+      "topic_label": "Motive",
+      "utterance_count": 6,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:45:36.249603",
+      "last_mention": "2025-11-17T16:52:47.820116",
+      "total_duration_seconds": 431.570513,
+      "acoustic_stress_mean": 0.36000000000000004,
+      "acoustic_stress_max": 0.5,
+      "acoustic_stress_min": 0.30000000000000004,
+      "acoustic_stress_trend": -0.023999999999999987,
+      "linguistic_stress_mean": 0.11666666666666665,
+      "linguistic_stress_max": 0.2,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": -0.01428571428571429,
+      "combined_stress_mean": 0.26266666666666666,
+      "topic_stress_category": "LOW",
+      "stress_change": -0.06,
+      "stress_progression": "STABLE"
+    },
+    {
+      "topic_id": 3,
+      "topic_label": "Understand",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:46:13.879721",
+      "last_mention": "2025-11-17T16:46:13.879721",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.48,
+      "acoustic_stress_max": 0.48,
+      "acoustic_stress_min": 0.48,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.32799999999999996,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 4,
+      "topic_label": "Timeline",
+      "utterance_count": 5,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:46:32.474356",
+      "last_mention": "2025-11-17T16:54:38.919959",
+      "total_duration_seconds": 486.445603,
+      "acoustic_stress_mean": 0.45599999999999996,
+      "acoustic_stress_max": 0.5,
+      "acoustic_stress_min": 0.4,
+      "acoustic_stress_trend": -0.015999999999999997,
+      "linguistic_stress_mean": 0.08,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.0,
+      "linguistic_stress_trend": 0.020000000000000004,
+      "combined_stress_mean": 0.3056,
+      "topic_stress_category": "LOW",
+      "stress_change": -0.02999999999999997,
+      "stress_progression": "STABLE"
+    },
+    {
+      "topic_id": 5,
+      "topic_label": "It's...",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:47:10.085932",
+      "last_mention": "2025-11-17T16:47:10.085932",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.48,
+      "acoustic_stress_max": 0.48,
+      "acoustic_stress_min": 0.48,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.32799999999999996,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 6,
+      "topic_label": "Bassoon.",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:47:29.508221",
+      "last_mention": "2025-11-17T16:47:29.508221",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.30000000000000004,
+      "acoustic_stress_max": 0.30000000000000004,
+      "acoustic_stress_min": 0.30000000000000004,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.22000000000000003,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 7,
+      "topic_label": "Relationship",
+      "utterance_count": 2,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:47:48.367630",
+      "last_mention": "2025-11-17T16:53:43.600942",
+      "total_duration_seconds": 355.233312,
+      "acoustic_stress_mean": 0.2,
+      "acoustic_stress_max": 0.2,
+      "acoustic_stress_min": 0.2,
+      "acoustic_stress_trend": -5.063349930200879e-17,
+      "linguistic_stress_mean": 0.0,
+      "linguistic_stress_max": 0.0,
+      "linguistic_stress_min": 0.0,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.12,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 8,
+      "topic_label": "Sperms?",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:48:07.503854",
+      "last_mention": "2025-11-17T16:48:07.503854",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.58,
+      "acoustic_stress_max": 0.58,
+      "acoustic_stress_min": 0.58,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.388,
+      "topic_stress_category": "MODERATE",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 9,
+      "topic_label": "Charity",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:48:44.971995",
+      "last_mention": "2025-11-17T16:48:44.971995",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.5,
+      "acoustic_stress_max": 0.5,
+      "acoustic_stress_min": 0.5,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.33999999999999997,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 10,
+      "topic_label": "Organization.",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:49:22.535339",
+      "last_mention": "2025-11-17T16:49:22.535339",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.58,
+      "acoustic_stress_max": 0.58,
+      "acoustic_stress_min": 0.58,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.388,
+      "topic_stress_category": "MODERATE",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 11,
+      "topic_label": "Everybody?",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:50:00.082660",
+      "last_mention": "2025-11-17T16:50:00.082660",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.4,
+      "acoustic_stress_max": 0.4,
+      "acoustic_stress_min": 0.4,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.28,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 12,
+      "topic_label": "Either",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:50:18.616693",
+      "last_mention": "2025-11-17T16:50:18.616693",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.30000000000000004,
+      "acoustic_stress_max": 0.30000000000000004,
+      "acoustic_stress_min": 0.30000000000000004,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.22000000000000003,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 13,
+      "topic_label": "Denial",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:51:52.341874",
+      "last_mention": "2025-11-17T16:51:52.341874",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.2,
+      "acoustic_stress_max": 0.2,
+      "acoustic_stress_min": 0.2,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.16,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 14,
+      "topic_label": "Maintain",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:52:10.787038",
+      "last_mention": "2025-11-17T16:52:10.787038",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.48,
+      "acoustic_stress_max": 0.48,
+      "acoustic_stress_min": 0.48,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.32799999999999996,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 15,
+      "topic_label": "Really?",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:53:06.502225",
+      "last_mention": "2025-11-17T16:53:06.502225",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.30000000000000004,
+      "acoustic_stress_max": 0.30000000000000004,
+      "acoustic_stress_min": 0.30000000000000004,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.22000000000000003,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 16,
+      "topic_label": "People",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:54:02.265252",
+      "last_mention": "2025-11-17T16:54:02.265252",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.4,
+      "acoustic_stress_max": 0.4,
+      "acoustic_stress_min": 0.4,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.28,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    },
+    {
+      "topic_id": 17,
+      "topic_label": "Realize",
+      "utterance_count": 1,
+      "speakers": [
+        "speaker_0"
+      ],
+      "first_mention": "2025-11-17T16:54:20.621127",
+      "last_mention": "2025-11-17T16:54:20.621127",
+      "total_duration_seconds": 0.0,
+      "acoustic_stress_mean": 0.30000000000000004,
+      "acoustic_stress_max": 0.30000000000000004,
+      "acoustic_stress_min": 0.30000000000000004,
+      "acoustic_stress_trend": 0.0,
+      "linguistic_stress_mean": 0.1,
+      "linguistic_stress_max": 0.1,
+      "linguistic_stress_min": 0.1,
+      "linguistic_stress_trend": 0.0,
+      "combined_stress_mean": 0.22000000000000003,
+      "topic_stress_category": "LOW",
+      "stress_change": 0.0,
+      "stress_progression": "INSUFFICIENT_DATA"
+    }
+  ],
   "change_points": []
 }

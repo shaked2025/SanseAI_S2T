@@ -1,0 +1,24 @@
+==========================================================================================
+                    COMPREHENSIVE FILE ANALYSIS
+==========================================================================================
+
+Extracting audio from 202511083.mp4...
+Traceback (most recent call last):
+  File "C:\Users\admin\SanseAI_S2T\analyze_video_comprehensive.py", line 42, in extract_audio_from_video
+    print(f"  \u2705 Audio extracted to {output_wav}")
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python310\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 2: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\admin\SanseAI_S2T\analyze_video_comprehensive.py", line 489, in <module>
+    results = analyze_file_comprehensive(video_file)
+  File "C:\Users\admin\SanseAI_S2T\analyze_video_comprehensive.py", line 76, in analyze_file_comprehensive
+    audio_file = extract_audio_from_video(audio_file_or_video)
+  File "C:\Users\admin\SanseAI_S2T\analyze_video_comprehensive.py", line 45, in extract_audio_from_video
+    print(f"  \u274c Error: {e}")
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python310\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>

@@ -240,6 +240,30 @@ class ComprehensiveAcousticAnalyzer:
         except:
             return 0.0
             
+    def _calculate_jitter(self, audio):
+        """
+        Calculate basic jitter (pitch period perturbation percentage)
+        """
+        try:
+            f0, _, _ = librosa.pyin(audio, fmin=65, fmax=500, sr=self.sample_rate)
+            f0_voiced = f0[~np.isnan(f0)]
+            
+            if len(f0_voiced) < 2:
+                return 0.0
+                
+            # Convert to periods
+            periods = 1.0 / (f0_voiced + 1e-10)
+            
+            # Calculate consecutive differences
+            diffs = np.abs(np.diff(periods))
+            
+            # Jitter = average difference / average period
+            jitter = np.mean(diffs) / (np.mean(periods) + 1e-10) * 100
+            
+            return float(jitter)
+        except:
+            return 0.0
+            
     def _calculate_jitter_rap(self, audio):
         """
         Relative Average Perturbation (3-point jitter)

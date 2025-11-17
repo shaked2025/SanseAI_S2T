@@ -1,0 +1,214 @@
+==========================================================================================
+                         COMPREHENSIVE ANALYSIS REPORT
+==========================================================================================
+
+File: 202511083.mp4
+Duration: 271.0s (4.5 minutes)
+Chunks Analyzed: 26
+Overall Trend: -0.0001 (stress per minute)
+
+==========================================================================================
+TOPIC ANALYSIS
+==========================================================================================
+
+Topic: Admission (ID: 0)
+  Utterances: 2
+  Duration: 7.3 minutes
+  First mention: 2025-11-17T15:31:36.602800
+  Last mention: 2025-11-17T15:38:57.524163
+  Acoustic Stress: 0.80 (MODERATE)
+  Linguistic Stress: 0.10
+  Stress Trend: INSUFFICIENT_DATA
+
+==========================================================================================
+STRESS CHANGE POINTS
+==========================================================================================
+
+  No significant change points detected
+
+==========================================================================================
+DETAILED TIMELINE
+==========================================================================================
+
+[00:00] Topic: Admission
+  Text: What did you wear? Norin Shuk可是 와상
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[00:10] Topic: Alibi
+  Text: Where is the train going? From the Bacou city to the Bacou city. And then we'll go to the Bacou city. From the Bacou city to the Bacou city.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[00:20] Topic: Admission
+  Text: I was going to be here at the same time. Yeah, I was going to be here at the same time. Did you have a question? Yes, I was going to be here at the same time. I was going to be here at the same time.
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.18
+  Combined: 0.49
+  ⚠️ MODERATE STRESS
+
+[00:30] Topic: Witness
+  Text: And you were going to be in the middle of the street. Are you going to be in the middle of the street? Yes, in the middle of the street. In the middle of the street, you can see the street. Yes, I see.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[00:40] Topic: Kidding.
+  Text: I was just kidding. I was just kidding. Ah, now you play? I am in the final. In the final? Yes, in the final. And in the final. And in the final.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[00:50] Topic: Motive
+  Text: Do you understand? Is it a waste of money? No, I don't have money. I have a salary to make for you. Why do you have to do that?
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.10
+  Combined: 0.46
+  ⚠️ MODERATE STRESS
+
+[01:00] Topic: Everybody!
+  Text: Yeah, you're very famous. And well, I signed off to train business. Yes, you have a Istanbul! In Istanbul you are free to jam. Good afternoon everybody!
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[01:10] Topic: Relation
+  Text: i want to play big game How much youth ? In relation to the youth But from the youth
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[01:20] Topic: Know.
+  Text: No, I don't know. You don't know. No, I don't know. You don't know. You don't know.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.08
+  Combined: 0.51
+  ⚠️ MODERATE STRESS
+
+[01:30] Topic: Denial
+  Text: No stress No stress No stress, how much do you eat? About a year I live there
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.25
+  Combined: 0.58
+  ⚠️ MODERATE STRESS
+
+[01:40] Topic: Motive
+  Text: Do we– No Tor Liang? No unstable But I thought it could happen Because you protect your trainers So… Yeah, really? Don't you see… For apron? For rpm
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[01:50] Topic: Motive
+  Text: We have three of them. We have three of them. We have three of them. And why is it called the Bormenia? Because it's called the Bormenia.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[02:00] Topic: Minutes
+  Text: At least three days left I get it About 5 minutes
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[02:10] Topic: Supplies?
+  Text: We already started gym supplies? Run started. How are you feeling? All good?
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[02:20] Topic: Sorry.
+  Text: I'm sorry. I'm sorry. I'm sorry.
+  Acoustic Stress: 0.63
+  Linguistic Stress: 0.30
+  Combined: 0.50
+  ⚠️ MODERATE STRESS
+
+[02:40] Topic: Visit
+  Text: You want to visit In HIS
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.10
+  Combined: 0.40
+  ⚠️ MODERATE STRESS
+
+[02:50] Topic: Waiting
+  Text: What were we waiting for? We need to get out of here.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[03:00] Topic: Timeline
+  Text: something is going on around the temple shortly after governor
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.10
+  Combined: 0.46
+  ⚠️ MODERATE STRESS
+
+[03:10] Topic: Brother.
+  Text: — You don't? — She has a brother.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[03:20] Topic: Witness
+  Text: Hi. I want some coffee, please. Good Bye permanent. Thank you. See you soon You forgot.icial
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[03:30] Topic: General
+  Text: I remember.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[03:40] Topic: Motive
+  Text: What is he doing in the tunnel? I don't know. Why is he here? Why is he running away? Why is he running away? I don't know.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.00
+  Combined: 0.48
+  ⚠️ MODERATE STRESS
+
+[03:50] Topic: Timeline
+  Text: next week we are completely free Korean Taiwanese and Singapore and she has already completed our executive
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.10
+  Combined: 0.40
+  ⚠️ MODERATE STRESS
+
+[04:00] Topic: Denial
+  Text: There are two shifts in Russian, so it is also not too much.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[04:10] Topic: Hotel?
+  Text: I don't know. You don't know. You can ask me to start the hotel. Do you have a hotel? No, I have one night.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.00
+  Combined: 0.48
+  ⚠️ MODERATE STRESS
+
+[04:20] Topic: January?
+  Text: So, what about the 12th of January? We'll see. Where? Where? Where? I don't know, where? Where? Where?
+  Acoustic Stress: 0.73
+  Linguistic Stress: 0.00
+  Combined: 0.44
+  ⚠️ MODERATE STRESS
+

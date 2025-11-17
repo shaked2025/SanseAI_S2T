@@ -1,0 +1,251 @@
+==========================================================================================
+                         COMPREHENSIVE ANALYSIS REPORT
+==========================================================================================
+
+File: Brad Pitt_ Between Two Ferns with Zach Galifianakis.mp4
+Duration: 333.9s (5.6 minutes)
+Chunks Analyzed: 33
+Overall Trend: -0.0001 (stress per minute)
+
+==========================================================================================
+TOPIC ANALYSIS
+==========================================================================================
+
+  No topics detected
+
+==========================================================================================
+STRESS CHANGE POINTS
+==========================================================================================
+
+  No significant change points detected
+
+==========================================================================================
+DETAILED TIMELINE
+==========================================================================================
+
+[00:00] Topic: Alibi
+  Text: I'm just seeing that I interviewed the president last time and now I'm gonna, you know, go back to interviewing dumb actors. But it's all I'm saying. No, it's fine. It's fine. He's a big star.
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.10
+  Combined: 0.46
+  ⚠️ MODERATE STRESS
+
+[00:10] Topic: Alfinakis.
+  Text: Hi, welcome to another edition of Between Two Furns. I'm your host, Zach Alfinakis. My guest today, Bradley Pits. Bradley Pits, thanks for joining me.
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.10
+  Combined: 0.40
+  ⚠️ MODERATE STRESS
+
+[00:20] Topic: Alibi
+  Text: It's my pleasure. How old were you when you lost your virginity? Zero? I'll tell you about my when I lost my virginity. I...
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.00
+  Combined: 0.36
+  ⚠️ MODERATE STRESS
+
+[00:30] Topic: Motive
+  Text: Really not like to hear that. Showers. Hmm. Why don't you take them? Sigh. Ah.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.20
+  Combined: 0.56
+  ⚠️ MODERATE STRESS
+
+[00:40] Topic: Alibi
+  Text: You play a lot of people that are kind of Nazi haters, which is weird to me. When do you say that? Because you look like Hitler's dream.
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.22
+  Combined: 0.51
+  ⚠️ MODERATE STRESS
+
+[00:50] Topic: Understand
+  Text: Yes, I understand the conundrum of it all. And I could pictures of you were in Playgirl magazine many years ago.
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.10
+  Combined: 0.46
+  ⚠️ MODERATE STRESS
+
+[01:00] Topic: Timeline
+  Text: know that because my dad got a subscription for me after I graduated from junior high school and anyway tell us about this movie furry
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.00
+  Combined: 0.42
+  ⚠️ MODERATE STRESS
+
+[01:10] Topic: Alibi
+  Text: It's fury. It's not furry. No. When does that come out on DVD?
+  Acoustic Stress: 0.50
+  Linguistic Stress: 0.10
+  Combined: 0.34
+
+[01:20] Topic: It's...
+  Text: I got you a gift and it's... Do we have a gift? Oh it's right behind the firm there.
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.10
+  Combined: 0.46
+  ⚠️ MODERATE STRESS
+
+[01:30] Topic: Bassoon.
+  Text: I wonder what that is. It's a bassoon. I thought it was a bowling ball. It's a bassoon. I thought it was a bowling ball.
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.10
+  Combined: 0.40
+  ⚠️ MODERATE STRESS
+
+[01:40] Topic: Relationship
+  Text: You know I'm a... Thank you. You know I'm a dad now. That's a bad soon you can play them for your kids. Yeah, we don't... Best soon in my house, anyway.
+  Acoustic Stress: 0.50
+  Linguistic Stress: 0.00
+  Combined: 0.30
+
+[01:50] Topic: Sperms?
+  Text: more. This is off topic just a bit but do you mind if I borrow one or two of your sperms?
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[02:00] Topic: Timeline
+  Text: Uh, no, I think that would be inappropriate. Okay, it's just written down here, I have to ask. I understand. After a big meal on Thanksgiving, do you ever like unbutton your pants and just sit back and go?
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[02:10] Topic: Charity
+  Text: Oh boy. Don't recall doing that. You do a lot of charity work and I think that it's a-
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[02:20] Topic: Motive
+  Text: really great thing you do and if I was wondering if you could maybe tell us about some of your charity work. Because I also am involved in a lot of charity work myself. Like what? I work with this one group called Dr.
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.10
+  Combined: 0.40
+  ⚠️ MODERATE STRESS
+
+[02:30] Topic: Organization.
+  Text: without diplomas. So Brad, tell us about your charity work. Yeah, it's something I'm very proud of. It's called the Make Your Right Organization. We...
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[02:40] Topic: Timeline
+  Text: We started building in the lower ninth after her kick and trena. I'm on my second life in the sub. Ladies and gentlemen, Louis C. Peck. Doing stand up.
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.10
+  Combined: 0.46
+  ⚠️ MODERATE STRESS
+
+[02:50] Topic: Everybody?
+  Text: Hey, how's it going everybody? Great to be here. In New York and it's a crazy town. There was a couple of rats on the subway and I thought they...
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.10
+  Combined: 0.46
+  ⚠️ MODERATE STRESS
+
+[03:00] Topic: Either
+  Text: were either Ebola or ISIS. I was like, get out of here, rats. Thank you.
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.10
+  Combined: 0.40
+  ⚠️ MODERATE STRESS
+
+[03:10] Topic: Motive
+  Text: He looks like the reverse Benjamin Buttons does any because he gets an older and better. I played him playing you. Who are you talking to? I was talking to a magnet.
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.10
+  Combined: 0.40
+  ⚠️ MODERATE STRESS
+
+[03:20] Topic: Timeline
+  Text: friend and then about you. But he was in Benjamin Buttons. He was in it. That's why I said it. He's in that movie. Yeah. Who'd you play in Benjamin Buttons? He's Benjamin Buttons. Buttons.
+  Acoustic Stress: 0.80
+  Linguistic Stress: 0.10
+  Combined: 0.52
+  ⚠️ MODERATE STRESS
+
+[03:30] Topic: Motive
+  Text: That's the guy you can't recognize him because yeah because of the makeup stuff
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.10
+  Combined: 0.40
+  ⚠️ MODERATE STRESS
+
+[03:40] Topic: Alibi
+  Text: When you and Clooney get dressed up and in your tuxes together, do you ever...
+  Acoustic Stress: 0.50
+  Linguistic Stress: 0.10
+  Combined: 0.34
+
+[03:50] Topic: Denial
+  Text: kind of look at each other and go, aren't we a couple of dapper dans? Never happened to my recollection.
+  Acoustic Stress: 0.50
+  Linguistic Stress: 0.10
+  Combined: 0.34
+
+[04:00] Topic: Maintain
+  Text: Is it hard for you to maintain a suntan?
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.10
+  Combined: 0.46
+  ⚠️ MODERATE STRESS
+
+[04:10] Topic: Motive
+  Text: Because you live in your wife's shadow. Because I, too, I had a romantic theme, more someone.
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.10
+  Combined: 0.40
+  ⚠️ MODERATE STRESS
+
+[04:20] Topic: Motive
+  Text: that was a romantic feeling that was public and it got on my nerves and because she kind of
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.10
+  Combined: 0.40
+  ⚠️ MODERATE STRESS
+
+[04:30] Topic: Really?
+  Text: There was my last piece. It's um, I had the same thing with Condi rice. Oh really?
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.10
+  Combined: 0.40
+  ⚠️ MODERATE STRESS
+
+[04:40] Topic: Alibi
+  Text: Tell me what it was like the first time that you laid eyes on Angelina. Was it like one of those classical love stories like when I don't know and Ross first
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.08
+  Combined: 0.45
+  ⚠️ MODERATE STRESS
+
+[04:50] Topic: Relationship
+  Text: I saw Rachel, you know that show for Antivisina.
+  Acoustic Stress: 0.50
+  Linguistic Stress: 0.00
+  Combined: 0.30
+
+[05:00] Topic: People
+  Text: I'll be there for you I like that some do you think people focus maybe too much on
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.10
+  Combined: 0.46
+  ⚠️ MODERATE STRESS
+
+[05:10] Topic: Realize
+  Text: your looks and don't even realize that you're just a shitty actor.
+  Acoustic Stress: 0.60
+  Linguistic Stress: 0.10
+  Combined: 0.40
+  ⚠️ MODERATE STRESS
+
+[05:20] Topic: Timeline
+  Text: Next question.
+  Acoustic Stress: 0.70
+  Linguistic Stress: 0.10
+  Combined: 0.46
+  ⚠️ MODERATE STRESS
+

@@ -137,20 +137,24 @@ class ComprehensiveQualityAssessment:
         # Confidence level based on how far above threshold
         margin_above_threshold = combined_score - threshold
         
+        # FIXED: Use actual combined_score as confidence base
+        # The combined_score already represents verification confidence (0-1)
+        # We scale it based on margin above threshold
+        
         if margin_above_threshold >= 0.20:
-            metrics['verification_confidence'] = 0.95
+            metrics['verification_confidence'] = min(0.98, combined_score + 0.05)
             metrics['confidence_category'] = "VERY_HIGH"
         elif margin_above_threshold >= 0.15:
-            metrics['verification_confidence'] = 0.90
+            metrics['verification_confidence'] = min(0.95, combined_score + 0.03)
             metrics['confidence_category'] = "HIGH"
         elif margin_above_threshold >= 0.10:
-            metrics['verification_confidence'] = 0.85
+            metrics['verification_confidence'] = combined_score
             metrics['confidence_category'] = "GOOD"
         elif margin_above_threshold >= 0.05:
-            metrics['verification_confidence'] = 0.75
+            metrics['verification_confidence'] = combined_score
             metrics['confidence_category'] = "MEDIUM"
         elif margin_above_threshold >= 0.00:
-            metrics['verification_confidence'] = 0.65
+            metrics['verification_confidence'] = combined_score
             metrics['confidence_category'] = "LOW"
         else:
             metrics['verification_confidence'] = 0.0

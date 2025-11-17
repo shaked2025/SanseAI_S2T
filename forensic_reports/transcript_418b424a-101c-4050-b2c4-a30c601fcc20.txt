@@ -1,0 +1,100 @@
+================================================================================
+FORENSIC INTERROGATION TRANSCRIPT
+================================================================================
+Session ID: 418b424a-101c-4050-b2c4-a30c601fcc20
+Room: InterrogationRoom_A
+Case: INV-2025-001
+Date: 2025-11-17 12:00:13
+Duration: 7.1 minutes
+
+PARTICIPANTS:
+  - shaked (Suspect) - 10 utterances
+  - dvdvdvdv (Interrogator) - 14 utterances
+
+================================================================================
+TRANSCRIPT:
+================================================================================
+
+[12:03:15] Suspect (shaked) [LOW]:
+    language. Hello everyone.
+
+[12:03:18] Suspect (shaked) [LOW]:
+    What's up?
+
+[12:03:20] Suspect (shaked) [LOW]:
+    Hello everyone, Shaketsi.
+
+[12:03:23] Suspect (shaked) [LOW]:
+    What's up? I can't see. Hello everyone.
+
+[12:03:27] Suspect (shaked) [LOW]:
+    Everyone получается
+
+[12:03:52] Suspect (shaked) [LOW]:
+    Confidence to low
+
+[12:04:07] Suspect (shaked) [LOW]:
+    We are taking towards slope. So, distinct hormones. Ah...
+
+[12:04:12] Suspect (shaked) [LOW]:
+    that didn't come out as a discounted entity. This was anfeeding entity, but,
+
+[12:04:18] Suspect (shaked) [LOW]:
+    You
+
+[12:04:20] Interrogator (dvdvdvdv) [LOW]:
+    The point again?
+
+[12:04:26] Interrogator (dvdvdvdv) [LOW]:
+    No. As long as I'm okay with that.
+
+[12:04:30] Interrogator (dvdvdvdv) [LOW]:
+    if it's because now the perceives!
+
+[12:04:34] Suspect (shaked) [LOW]:
+    Oh
+
+[12:04:38] Interrogator (dvdvdvdv) [LOW]:
+    And go get it told. Yeah.
+
+[12:04:55] Interrogator (dvdvdvdv) [LOW]:
+    and go get a told yeah
+
+[12:04:57] Interrogator (dvdvdvdv) [LOW]:
+    I'm still here to eat that.
+
+[12:04:59] Interrogator (dvdvdvdv) [LOW]:
+    Oh, and go get it told yeah
+
+[12:05:03] Interrogator (dvdvdvdv) [LOW]:
+    OF News
+
+[12:05:05] Interrogator (dvdvdvdv) [LOW]:
+    saying this, can you
+
+[12:05:07] Interrogator (dvdvdvdv) [LOW]:
+    Can you write something?
+
+[12:05:11] Interrogator (dvdvdvdv) [LOW]:
+    There we go.
+
+[12:05:15] Interrogator (dvdvdvdv) [LOW]:
+    Is she dead? I thought you were dying
+
+[12:06:13] Interrogator (dvdvdvdv) [LOW]:
+    Confidence is too low.
+
+[12:07:02] Interrogator (dvdvdvdv) [LOW]:
+    Let's go.
+
+
+================================================================================
+QUALITY METRICS:
+================================================================================
+Total utterances: 24
+Average confidence: 61.2%
+Minimum confidence: 61.2%
+Rejected segments: 1
+Acceptance rate: 96.0%
+
+Integrity: COMPROMISED ✗

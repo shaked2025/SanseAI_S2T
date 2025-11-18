@@ -206,8 +206,8 @@ def analyze_proper(video_file):
 
 
 if __name__ == "__main__":
-    # Use REAL interrogation (not comedy!)
-    video_file = "Kavin Interview77 (1).wav"
+    # Try different video
+    video_file = "vid_orig_obf (1).wav"  # Different interview
     
     analysis, utterances = analyze_proper(video_file)
     

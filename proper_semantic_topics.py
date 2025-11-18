@@ -94,18 +94,42 @@ class ResearchGradeTopicModeling:
         # === STEP 3: Semantic Clustering ===
         print("  Step 3: Clustering by semantic similarity...")
         
-        # Use hierarchical clustering for interpretability
-        clustering = AgglomerativeClustering(
+        # Use hierarchical clustering with AGGRESSIVE merging
+        # Goal: Get FEW main topics (5-10), not many (50+)
+        
+        # Try multiple approaches and pick best
+        
+        # Approach 1: Very low distance threshold (merge aggressively)
+        clustering_aggressive = AgglomerativeClustering(
             n_clusters=None,
-            distance_threshold=1.0 - self.similarity_threshold,  # Convert similarity to distance
+            distance_threshold=0.80,  # High threshold = MORE merging (was 0.30)
             linkage='average',
-            metric='cosine'  # Semantic distance
+            metric='cosine'
         )
         
-        topic_ids = clustering.fit_predict(embeddings)
+        topic_ids_aggressive = clustering_aggressive.fit_predict(embeddings)
+        n_topics_aggressive = len(set(topic_ids_aggressive))
         
-        n_topics = len(set(topic_ids))
-        print(f"    Detected {n_topics} semantic topic clusters")
+        # Approach 2: Fixed number of topics (force to ~10)
+        target_topics = min(10, len(embeddings) // 5)  # ~1 topic per 5 utterances
+        
+        clustering_fixed = AgglomerativeClustering(
+            n_clusters=target_topics,
+            linkage='average',
+            metric='cosine'
+        )
+        
+        topic_ids_fixed = clustering_fixed.fit_predict(embeddings)
+        
+        # Choose approach that gives fewer topics
+        if n_topics_aggressive <= 15:
+            topic_ids = topic_ids_aggressive
+            n_topics = n_topics_aggressive
+            print(f"    Detected {n_topics} semantic topic clusters (aggressive merging)")
+        else:
+            topic_ids = topic_ids_fixed
+            n_topics = target_topics
+            print(f"    Detected {n_topics} semantic topic clusters (fixed target)")
         
         # === STEP 4: Merge with Q-A Structure ===
         print("  Step 4: Refining with Q-A structure...")
@@ -124,7 +148,7 @@ class ResearchGradeTopicModeling:
         for topic in topic_clusters:
             self._analyze_topic_timeline(topic, utterances)
             
-        print(f"\n✅ Topic analysis complete: {len(topic_clusters)} topics")
+        print(f"\n[OK] Topic analysis complete: {len(topic_clusters)} topics")
         
         return {
             'topics': topic_clusters,

@@ -298,10 +298,16 @@ class LocationAwareVerifier:
         
         # Extract spatial features from each chunk
         spatial_vectors = []
+        last_features = None
         
         for chunk in audio_chunks:
             features = self.spatial_extractor.extract_all_features(chunk)
             spatial_vectors.append(features['spatial_vector'])
+            last_features = features  # Store last features for display
+            
+        if not spatial_vectors:
+            print(f"      Warning: No valid audio chunks for spatial profile")
+            return
             
         # Average spatial vector (location fingerprint)
         spatial_fingerprint = np.mean(spatial_vectors, axis=0)
@@ -316,7 +322,9 @@ class LocationAwareVerifier:
             'features_history': spatial_vectors
         }
         
-        print(f"      DRR: {features['drr']:.2f}, HF ratio: {features['hf_ratio']:.2f}")
+        # Display features from last chunk (or average if available)
+        if last_features:
+            print(f"      DRR: {last_features['drr']:.2f}, HF ratio: {last_features['hf_ratio']:.2f}")
         print(f"      Spatial consistency: {1.0/(1.0+spatial_std*10):.1%}")
         
     def verify_with_location(self, test_embedding, test_audio, enrolled_speakers):

@@ -44,10 +44,10 @@ class AudioCapture:
             # Show which device we're using
             if self.device_index is not None:
                 device_info = self.audio.get_device_info_by_index(self.device_index)
-                print(f"🎤 Using microphone: {device_info['name']} (index {self.device_index})")
+                print(f"[MIC] Using microphone: {device_info['name']} (index {self.device_index})")
             else:
                 default_device = self.audio.get_default_input_device_info()
-                print(f"🎤 Using default microphone: {default_device['name']}")
+                print(f"[MIC] Using default microphone: {default_device['name']}")
                 self.device_index = default_device['index']
             
             self.stream = self.audio.open(
@@ -62,7 +62,7 @@ class AudioCapture:
             
             self.is_recording = True
             self.stream.start_stream()
-            print(f"✅ Audio capture started: {self.sample_rate}Hz, {self.channels} channel(s)")
+            print(f"[OK] Audio capture started: {self.sample_rate}Hz, {self.channels} channel(s)")
             
         except Exception as e:
             print(f"Error starting audio capture: {e}")
@@ -145,9 +145,12 @@ class AudioCapture:
 class VoiceActivityDetector:
     """Simple voice activity detection"""
     
-    def __init__(self, sample_rate=16000, threshold=200, min_duration=0.3):
+    def __init__(self, sample_rate=16000, threshold=419, min_duration=0.3):
         self.sample_rate = sample_rate
-        self.threshold = threshold  # LOWERED: 500 → 200 for more sensitivity
+        # Production-level calibration: BOTH male and female voices
+        # VAD threshold: 419 (60% of RMS threshold 699)
+        # Based on comprehensive multi-gender calibration data
+        self.threshold = threshold
         self.min_duration = min_duration
         self.min_samples = int(sample_rate * min_duration)
         

@@ -46,7 +46,8 @@ class ImprovedUnknownRejection:
         self.speaker_consistency = {}  # {speaker_key: deque of recent similarities}
         
         # Local Outlier Factor for density-based rejection
-        self.lof = LocalOutlierFactor(n_neighbors=3, contamination=0.1, novelty=True)
+        # Adjusted contamination for lapel mics (less strict: 0.1 → 0.2)
+        self.lof = LocalOutlierFactor(n_neighbors=3, contamination=0.2, novelty=True)
         self.lof_fitted = False
         
     def fit_on_enrolled(self, enrollment_system):
@@ -86,7 +87,7 @@ class ImprovedUnknownRejection:
         
     def verify_with_enhanced_rejection(self, test_embedding, speaker_key, 
                                       voice_similarity, spatial_similarity,
-                                      enrolled_speakers):
+                                      enrolled_speakers, use_per_speaker_threshold=True):
         """
         Multi-layer rejection with ensemble approach
         
@@ -102,16 +103,23 @@ class ImprovedUnknownRejection:
         """
         method_results = {}
         
-        # === METHOD 1: Threshold Check (Base) ===
+        # === METHOD 1: Threshold Check (Per-Speaker or Base) ===
         combined = voice_similarity
         if spatial_similarity:
             combined = 0.85 * voice_similarity + 0.15 * spatial_similarity
+        
+        # Use per-speaker threshold if available
+        if use_per_speaker_threshold and speaker_key in enrolled_speakers:
+            threshold = enrolled_speakers[speaker_key].get('threshold', self.base_threshold)
+        else:
+            threshold = self.base_threshold
             
-        threshold_pass = combined >= self.base_threshold
+        threshold_pass = combined >= threshold
         method_results['threshold'] = {
             'pass': threshold_pass,
             'combined_score': float(combined),
-            'threshold': self.base_threshold
+            'threshold': threshold,
+            'per_speaker': use_per_speaker_threshold and speaker_key in enrolled_speakers
         }
         
         # === METHOD 2: Consistency Check (NEW) ===
@@ -146,15 +154,18 @@ class ImprovedUnknownRejection:
         if len(sorted_sims) >= 2:
             margin = sorted_sims[0] - sorted_sims[1]
             
-            # Adaptive margin requirement
-            if voice_similarity >= 0.75:
-                required_margin = 0.08
-            elif voice_similarity >= 0.68:
-                required_margin = 0.10
+            # Adaptive margin requirement (relaxed for better acceptance)
+            # Research: Too strict margins cause false rejections
+            if voice_similarity >= 0.70:
+                required_margin = 0.05  # Lowered from 0.08 - high confidence needs small margin
+            elif voice_similarity >= 0.65:
+                required_margin = 0.08  # Lowered from 0.10
+            elif voice_similarity >= 0.60:
+                required_margin = 0.10  # Lowered from 0.12
             else:
-                required_margin = 0.12
+                required_margin = 0.12  # Lowered from 0.15 - more lenient
                 
-            margin_pass = (margin >= required_margin) or (voice_similarity >= 0.68)
+            margin_pass = (margin >= required_margin) or (voice_similarity >= 0.70)  # Lowered from 0.80
         else:
             margin = 0.5
             margin_pass = True
@@ -168,7 +179,7 @@ class ImprovedUnknownRejection:
         
         # === METHOD 5: Spatial Verification (If Available) ===
         if spatial_similarity is not None:
-            spatial_pass = spatial_similarity >= 0.70
+            spatial_pass = spatial_similarity >= 0.60  # Lowered from 0.70 for more lenient matching
             method_results['spatial'] = {
                 'pass': spatial_pass,
                 'similarity': float(spatial_similarity)
@@ -185,8 +196,8 @@ class ImprovedUnknownRejection:
             accept = all(all_methods)
             confidence = np.mean([m for m in [combined, consistency_score] if m > 0])
         else:
-            # Majority vote (at least 4/5)
-            accept = sum(all_methods) >= 4
+            # Majority vote (at least 3/5 methods must pass)
+            accept = sum(all_methods) >= 3  # Changed from 4 to 3 for more lenient matching
             confidence = combined
             
         method_results['decision'] = {

@@ -17,7 +17,7 @@ class ResemblyzerEmbeddings:
     def __init__(self):
         self.encoder = None
         self.lock = threading.Lock()
-        print("🧠 Initializing Resemblyzer speaker encoder...")
+        print("[INIT] Initializing Resemblyzer speaker encoder...")
         self._load_encoder()
         
     def _load_encoder(self):
@@ -29,11 +29,11 @@ class ResemblyzerEmbeddings:
                 self.encoder = VoiceEncoder()
                 self.preprocess = preprocess_wav
                 
-            print("✅ Resemblyzer encoder loaded successfully (256-dim embeddings)")
+            print("[OK] Resemblyzer encoder loaded successfully (256-dim embeddings)")
             
         except Exception as e:
-            print(f"❌ Error loading Resemblyzer: {e}")
-            print("💡 Install with: pip install resemblyzer")
+            print(f"[ERROR] Error loading Resemblyzer: {e}")
+            print("[INFO] Install with: pip install resemblyzer")
             raise
             
     def extract_embedding(self, audio_data, sample_rate=16000):
@@ -73,7 +73,7 @@ class ResemblyzerEmbeddings:
             return embedding
             
         except Exception as e:
-            print(f"❌ Error extracting embedding: {e}")
+            print(f"[ERROR] Error extracting embedding: {e}")
             # Return zero embedding on error
             return np.zeros(256, dtype=np.float32)
 
@@ -111,7 +111,7 @@ class RobustSpeakerDatabase:
                 'last_seen': datetime.now()
             }
             
-            print(f"👤 New speaker created: {self.speakers[speaker_id]['name']} (enrolling...)")
+            print(f"[NEW] New speaker created: {self.speakers[speaker_id]['name']} (enrolling...)")
             return speaker_id
             
     def update_speaker(self, speaker_id, embedding, confidence=1.0):
@@ -147,7 +147,7 @@ class RobustSpeakerDatabase:
                     speaker['enrolled'] = True
                     # Calculate optimal threshold based on embedding variance
                     speaker['threshold'] = max(0.70, 0.85 - speaker['std'] * 10)
-                    print(f"✅ {speaker['name']} enrolled! (threshold: {speaker['threshold']:.2f})")
+                    print(f"[OK] {speaker['name']} enrolled! (threshold: {speaker['threshold']:.2f})")
                     
             speaker['count'] += 1
             speaker['last_seen'] = datetime.now()
@@ -220,9 +220,9 @@ class RobustSpeakerDatabase:
             try:
                 with open(filepath, 'wb') as f:
                     pickle.dump(self.speakers, f)
-                print(f"💾 Speaker database saved ({len(self.speakers)} speakers)")
+                print(f"[SAVED] Speaker database saved ({len(self.speakers)} speakers)")
             except Exception as e:
-                print(f"❌ Error saving database: {e}")
+                print(f"[ERROR] Error saving database: {e}")
                 
     def load(self, filepath):
         """Load speaker database"""
@@ -233,10 +233,10 @@ class RobustSpeakerDatabase:
                         self.speakers = pickle.load(f)
                     self.next_speaker_id = max(self.speakers.keys()) + 1 if self.speakers else 0
                     enrolled = sum(1 for s in self.speakers.values() if s.get('enrolled', False))
-                    print(f"📂 Loaded {len(self.speakers)} speakers ({enrolled} enrolled)")
+                    print(f"[LOADED] Loaded {len(self.speakers)} speakers ({enrolled} enrolled)")
                     return True
             except Exception as e:
-                print(f"❌ Error loading database: {e}")
+                print(f"[ERROR] Error loading database: {e}")
         return False
 
 
@@ -320,7 +320,7 @@ class RobustSpeakerDiarization:
         self.max_speakers = max_speakers
         self.base_threshold = similarity_threshold
         
-        print("🎯 Initializing ROBUST Speaker Diarization System...")
+        print("[INIT] Initializing ROBUST Speaker Diarization System...")
         print(f"   Max speakers: {max_speakers}")
         print(f"   Base threshold: {similarity_threshold}")
         print(f"   Mode: Resemblyzer (256-dim embeddings)")
@@ -345,7 +345,7 @@ class RobustSpeakerDiarization:
         self.db_path = "speaker_database_robust.pkl"
         self.speaker_db.load(self.db_path)
         
-        print("✅ Robust speaker diarization initialized")
+        print("[OK] Robust speaker diarization initialized")
         
     def identify_speaker(self, audio_data, sample_rate=16000):
         """
@@ -382,7 +382,7 @@ class RobustSpeakerDiarization:
                 self.successful_matches += 1
                 
                 speaker_info = self.speaker_db.get_speaker_info(speaker_id)
-                enrolled_status = "✅" if speaker_info.get('enrolled', False) else "📝"
+                enrolled_status = "[OK]" if speaker_info.get('enrolled', False) else "[ENROLLING]"
                 
             else:
                 # No match - create new speaker?
@@ -412,12 +412,12 @@ class RobustSpeakerDiarization:
             speaker_info = self.speaker_db.get_speaker_info(smoothed_id)
             enrolled_str = " (enrolled)" if speaker_info.get('enrolled', False) else " (enrolling)"
             
-            print(f"👤 {speaker_info['name']}{enrolled_str} (conf: {confidence:.2f}, acc: {accuracy:.1f}%)")
+            print(f"[SPEAKER] {speaker_info['name']}{enrolled_str} (conf: {confidence:.2f}, acc: {accuracy:.1f}%)")
             
             return smoothed_id
             
         except Exception as e:
-            print(f"❌ Error in speaker identification: {e}")
+            print(f"[ERROR] Error in speaker identification: {e}")
             import traceback
             traceback.print_exc()
             return 0

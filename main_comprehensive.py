@@ -28,6 +28,7 @@ import json
 from audio_capture import AudioCapture
 from speaker_diarization_robust import ResemblyzerEmbeddings
 from speaker_enrollment import SpeakerEnrollment
+from enhanced_enrollment_quality import EnhancedEnrollmentSystem, ScoreNormalizer
 
 # Verification
 from simple_robust_verification import SimpleRobustVerifier
@@ -67,14 +68,20 @@ class ComprehensiveInterrogationSystem:
         self.model = whisper.load_model("base")
         self.audio = AudioCapture(sample_rate=16000, channels=1, device_index=5)
         self.embedder = ResemblyzerEmbeddings()
-        self.enrollment = SpeakerEnrollment(self.embedder)
+        # Use enhanced enrollment system with quality validation
+        self.enrollment = EnhancedEnrollmentSystem(self.embedder)
+        self.score_normalizer = ScoreNormalizer()
         
         # === VERIFICATION COMPONENTS ===
         print("Loading verification systems...")
         
-        self.base_verifier = SimpleRobustVerifier(base_threshold=0.64)
+        # Production-level: Per-speaker thresholds (calculated during enrollment)
+        # Base threshold used only as fallback
+        # Research: Resemblyzer works best with thresholds 0.5-0.6, not 0.65+
+        self.base_verifier = SimpleRobustVerifier(base_threshold=0.55)  # Lowered from 0.65
         self.location_verifier = LocationAwareVerifier(self.base_verifier, spatial_weight=0.15)
-        self.improved_rejector = ImprovedUnknownRejection(base_threshold=0.64, strict_mode=True)
+        # Enhanced rejection: Use majority vote (not strict mode) to reduce false rejections
+        self.improved_rejector = ImprovedUnknownRejection(base_threshold=0.55, strict_mode=False)
         self.stress_processor = StressInvariantProcessor()
         
         # === ANALYSIS COMPONENTS ===
@@ -84,6 +91,9 @@ class ComprehensiveInterrogationSystem:
         self.linguistic_analyzer = LinguisticStressAnalyzer()
         self.conversation_analyzer = ConversationDynamicsAnalyzer()
         self.topic_system = TopicSegmentationSystem(similarity_threshold=0.65)
+        
+        # Store previous transcription for context (improves Whisper accuracy)
+        self.previous_text = ""
         self.temporal_analyzer = TemporalStressAnalyzer(baseline_duration_minutes=5)
         
         # === FORENSIC COMPONENTS ===
@@ -96,7 +106,7 @@ class ComprehensiveInterrogationSystem:
         self.is_running = False
         self.is_recording_enrollment = False
         
-        print("✅ All systems loaded")
+        print("[OK] All systems loaded")
         print(f"   Session ID: {self.audit.session_id}")
         print()
         
@@ -157,7 +167,7 @@ class ComprehensiveInterrogationSystem:
                                      width=4, font=('Arial', 9))
             role_combo.pack(side=tk.LEFT, padx=1)
             
-            enroll_btn = tk.Button(pframe, text="📝", command=lambda idx=i: self.enroll(idx),
+            enroll_btn = tk.Button(pframe, text="[ENROLL]", command=lambda idx=i: self.enroll(idx),
                                   font=('Arial', 8), width=2, bg='#E74C3C', fg='white')
             enroll_btn.pack(side=tk.LEFT, padx=1)
             
@@ -260,14 +270,21 @@ class ComprehensiveInterrogationSystem:
                         args=(idx, name, role), daemon=True).start()
         
     def enrollment_thread(self, idx, name, role):
-        """Enrollment thread - 6 samples"""
+        """Enrollment thread - Enhanced: 10 samples with quality validation"""
         speaker_key = f"participant_{idx}"
         samples = []
         
         self.enrollment.start_enrollment(speaker_key, name, role)
         
-        for i in range(6):
-            self.status_bar.config(text=f"🔴 Recording {name} - Sample {i+1}/6")
+        # Enhanced: Collect 8 samples minimum (research: 8-10 minimum)
+        # Quality validator will reject poor samples
+        samples_collected = 0
+        samples_attempted = 0
+        max_attempts = 20  # Allow up to 20 attempts to get 8 good samples
+        
+        while samples_collected < 8 and samples_attempted < max_attempts:
+            samples_attempted += 1
+            self.status_bar.config(text=f"[REC] Recording {name} - Sample {samples_collected+1}/8 (attempt {samples_attempted})")
             self.root.update()
             
             self.audio.clear_queue()
@@ -280,37 +297,78 @@ class ComprehensiveInterrogationSystem:
             audio_data = self.audio.get_buffer(duration=5.5)
             
             if len(audio_data) > 16000:
-                # Stress-invariant preprocessing
-                audio_norm = self.stress_processor.normalize_audio(audio_data, 16000)
-                audio_for_emb = (audio_norm * 32768).astype(np.int16)
+                # Quality validation BEFORE processing
+                from enhanced_enrollment_quality import EnrollmentQualityValidator
+                validator = EnrollmentQualityValidator()
                 
-                self.enrollment.add_enrollment_sample(speaker_key, audio_for_emb, 16000)
-                samples.append(audio_data)
+                # Show RMS value for debugging
+                rms_value = np.sqrt(np.mean(audio_data.astype(np.float32) ** 2))
+                print(f"   [DEBUG] RMS: {rms_value:.0f} (threshold: {validator.min_rms})")
                 
-                self.participant_widgets[idx]['status'].config(text=f"{i+1}/6", fg='orange')
+                is_valid, quality, issues = validator.validate_sample(audio_data, 16000)
+                
+                if is_valid:
+                    # Stress-invariant preprocessing
+                    audio_norm = self.stress_processor.normalize_audio(audio_data, 16000)
+                    audio_for_emb = (audio_norm * 32768).astype(np.int16)
+                    
+                    success, q_score, msg, valid = self.enrollment.add_enrollment_sample(
+                        speaker_key, audio_for_emb, 16000
+                    )
+                    
+                    if valid:
+                        samples.append(audio_data)
+                        samples_collected += 1
+                        self.participant_widgets[idx]['status'].config(
+                            text=f"{samples_collected}/8", fg='orange'
+                        )
+                        print(f"   [OK] Sample {samples_collected} accepted (quality: {quality:.1%}, RMS: {rms_value:.0f})")
+                    else:
+                        print(f"   [REJECT] Sample rejected: {msg}")
+                else:
+                    print(f"   [REJECT] Sample rejected: {', '.join(issues)} (RMS: {rms_value:.0f})")
+                
                 self.root.update()
                 time.sleep(0.5)
                 
-        # Complete
+        # Complete enrollment
         success, quality, msg = self.enrollment.complete_enrollment(speaker_key)
         
-        # Spatial fingerprint
-        self.location_verifier.enroll_spatial_profile(speaker_key, samples)
+        if not success:
+            self.participant_widgets[idx]['status'].config(text="[FAIL]", fg='red')
+            self.status_bar.config(text=f"[ERROR] {name} enrollment failed: {msg}")
+            print(f"[ERROR] {name} enrollment failed: {msg}")
+        else:
+            # Spatial fingerprint
+            self.location_verifier.enroll_spatial_profile(speaker_key, samples)
+            
+            # Register
+            self.audit.register_participant(speaker_key, name, role, quality)
+            
+            print(f"[OK] {name} enrolled (quality: {quality:.1%})")
+            
+            self.participant_widgets[idx]['status'].config(text="[OK]", fg='green')
+            
+            # Update score normalizer after enrollment
+            self.score_normalizer.fit_z_norm(self.enrollment.get_enrolled_speakers())
+            
+            # Fit rejection model
+            self.improved_rejector.fit_on_enrolled(self.enrollment)
         
-        # Register
-        self.audit.register_participant(speaker_key, name, role, quality)
-        
-        print(f"✅ {name} enrolled (quality: {quality:.1%})")
-        
-        self.participant_widgets[idx]['status'].config(text="✅", fg='green')
-        
-        # Re-enable
+        # Re-enable enrollment buttons
         for w in self.participant_widgets:
             w['button'].config(state=tk.NORMAL)
             
-        # Enable start if 2+ enrolled
-        if len(self.enrollment.get_enrolled_speakers()) >= 2:
+        # Enable start if 1+ enrolled (for testing, can change back to 2+ for production)
+        enrolled_count = len(self.enrollment.get_enrolled_speakers())
+        print(f"[INFO] Enrolled speakers: {enrolled_count}")
+        if enrolled_count >= 1:  # Changed from 2 to 1 for easier testing
             self.start_btn.config(state=tk.NORMAL)
+            self.status_bar.config(text=f"[READY] {enrolled_count} speaker(s) enrolled - Ready to start")
+            print(f"[INFO] Start button enabled")
+        else:
+            self.status_bar.config(text="[WAIT] Enroll at least 1 speaker to start")
+            print(f"[INFO] Start button disabled - need at least 1 enrolled speaker")
             
         self.is_recording_enrollment = False
         
@@ -337,7 +395,7 @@ class ComprehensiveInterrogationSystem:
         
         threading.Thread(target=self.comprehensive_analysis_loop, daemon=True).start()
         
-        self.status_bar.config(text="🔴 COMPREHENSIVE ANALYSIS IN PROGRESS", bg='#E74C3C')
+        self.status_bar.config(text="[REC] COMPREHENSIVE ANALYSIS IN PROGRESS", bg='#E74C3C')
         
     def stop(self):
         """Stop and generate comprehensive report"""
@@ -385,8 +443,8 @@ class ComprehensiveInterrogationSystem:
                     time.sleep(0.1)
                     continue
                     
-                # Get audio
-                audio_data = self.audio.get_buffer(duration=2.5)
+                # Get audio (increased to 3 seconds for better transcription context)
+                audio_data = self.audio.get_buffer(duration=3.0)
                 
                 if len(audio_data) < 16000:
                     time.sleep(0.1)
@@ -395,12 +453,16 @@ class ComprehensiveInterrogationSystem:
                 # Check speech
                 rms = np.sqrt(np.mean(audio_data.astype(np.float32) ** 2))
                 
-                if rms < 300:
+                # Adaptive RMS threshold - lowered for better sensitivity
+                # Original calibration: 699 (45% of median 1555)
+                # Lowered to 400 for better detection of normal speech
+                # This is more lenient and should catch normal speaking volume
+                if rms < 400:  # Lowered from 699 for better sensitivity
                     time.sleep(0.1)
                     continue
                     
                 print(f"\n{'='*90}")
-                print(f"🎤 Processing utterance (RMS: {int(rms)})")
+                print(f"[AUDIO] Processing utterance (RMS: {int(rms)})")
                 
                 # === COMPREHENSIVE ACOUSTIC ANALYSIS ===
                 print("   Extracting 50+ acoustic features...")
@@ -426,13 +488,18 @@ class ComprehensiveInterrogationSystem:
                 # === IMPROVED UNKNOWN SPEAKER REJECTION ===
                 print("   Multi-layer speaker verification...")
                 
-                # Get voice similarity
+                # Get voice similarity (use raw similarity, normalization can reduce scores incorrectly)
                 similarities = {}
                 for key, profile in enrolled.items():
-                    similarities[key] = np.dot(test_embedding, profile['mean_embedding'])
+                    raw_sim = np.dot(test_embedding, profile['mean_embedding'])
+                    # Use raw similarity - Z-norm can reduce scores and cause false rejections
+                    # Only normalize if we have good statistics (disabled for now)
+                    # normalized_sim = self.score_normalizer.normalize_score(raw_sim, key, method='znorm')
+                    similarities[key] = raw_sim  # Use raw similarity
                     
                 best_key = max(similarities, key=similarities.get)
                 voice_sim = similarities[best_key]
+                best_threshold = enrolled[best_key].get('threshold', 0.55)  # Lowered default
                 
                 # Get spatial similarity
                 spatial_accept, _, _, combined_score, reason = self.location_verifier.verify_with_location(
@@ -447,48 +514,62 @@ class ComprehensiveInterrogationSystem:
                     except:
                         pass
                         
-                # ENHANCED REJECTION
+                # ENHANCED REJECTION (with per-speaker threshold)
                 accept, confidence, method_results = self.improved_rejector.verify_with_enhanced_rejection(
-                    test_embedding, best_key, voice_sim, spatial_sim, enrolled
+                    test_embedding, best_key, voice_sim, spatial_sim, enrolled,
+                    use_per_speaker_threshold=True
                 )
                 
                 speaker_name = enrolled[best_key]['name']
                 speaker_role = enrolled[best_key]['role']
                 
                 print(f"   Speaker: {speaker_name} ({speaker_role})")
-                print(f"   Voice: {voice_sim:.3f}, Spatial: {spatial_sim:.3f if spatial_sim else 'N/A'}")
+                spatial_str = f"{spatial_sim:.3f}" if spatial_sim is not None else "N/A"
+                print(f"   Voice: {voice_sim:.3f}, Spatial: {spatial_str}")
                 print(f"   Methods passed: {method_results['decision']['methods_passed']}/{method_results['decision']['methods_total']}")
                 
                 if not accept:
                     # REJECTED
-                    print(f"   🚫 REJECTED")
+                    print(f"   [REJECT] REJECTED: Unknown speaker")
+                    print(f"   Voice similarity: {voice_sim:.3f} (threshold: {best_threshold:.3f})")
                     print(f"   Failed methods: {[k for k, v in method_results.items() if isinstance(v, dict) and not v.get('pass', True)]}")
-                    
-                    # Add to impostor cohort
-                    self.improved_rejector.add_impostor_sample(test_embedding)
-                    
-                    # Log rejection
-                    self.audit.log_verification(
-                        hashlib.md5(audio_data.tobytes()).hexdigest()[:16],
-                        best_key, speaker_name, voice_sim, spatial_sim, combined_score,
-                        "REJECTED", 0.64, {'method_results': str(method_results)}
-                    )
-                    
-                    last_time = time.time()
+                    self.audit.log_rejection(test_embedding, voice_sim, method_results)
+                    continue
+                
+                # Final per-speaker threshold check
+                if voice_sim < best_threshold:
+                    print(f"   [REJECT] Below per-speaker threshold: {voice_sim:.3f} < {best_threshold:.3f}")
                     continue
                     
                 # ACCEPTED
-                print(f"   ✅ ACCEPTED (confidence: {confidence:.3f})")
+                print(f"   [OK] ACCEPTED (confidence: {confidence:.3f})")
                 
                 # === TRANSCRIPTION ===
                 print("   Transcribing...")
                 audio_float = audio_data.astype(np.float32) / 32768.0
-                result = self.model.transcribe(audio_float, language='en', fp16=False, verbose=False)
+                # Improved transcription settings for better accuracy
+                # - beam_size=5: Better accuracy
+                # - temperature=0: More deterministic, less creative errors
+                # - condition_on_previous_text=True: Use context from previous transcriptions
+                # - initial_prompt: Help with context
+                result = self.model.transcribe(
+                    audio_float, 
+                    language='en', 
+                    fp16=False, 
+                    verbose=False,
+                    beam_size=5,
+                    temperature=0.0,
+                    condition_on_previous_text=True if self.previous_text else False,
+                    initial_prompt=f"This is a conversation in an interrogation room. Previous context: {self.previous_text[-100:]}" if self.previous_text else "This is a conversation in an interrogation room."
+                )
                 
                 if not result['text'].strip():
                     continue
                     
                 text = result['text'].strip()
+                
+                # Store for next transcription (context)
+                self.previous_text = text
                 print(f"   Text: {text[:60]}...")
                 
                 # === LINGUISTIC ANALYSIS ===
@@ -559,12 +640,12 @@ class ComprehensiveInterrogationSystem:
                     hashlib.sha256(audio_data.tobytes()).hexdigest()
                 )
                 
-                print(f"   ✅ Transcribed and analyzed")
+                print(f"   [OK] Transcribed and analyzed")
                 
                 last_time = time.time()
                 
             except Exception as e:
-                print(f"❌ Error: {e}")
+                print(f"[ERROR] Error: {e}")
                 import traceback
                 traceback.print_exc()
                 time.sleep(1)

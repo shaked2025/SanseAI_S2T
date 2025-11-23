@@ -15,14 +15,14 @@ import numpy as np
 from datetime import datetime, timedelta
 import whisper
 
-from proper_semantic_topics import ResearchGradeTopicModeling
+from llm_based_topic_analysis import LLMBasedTopicAnalysis
 from liwc_based_analysis import ComprehensiveLIWC
 from enhanced_acoustic_features import ComprehensiveAcousticAnalyzer
 
 
 def extract_audio(audio_file):
     """Extract/load audio"""
-    print(f"Loading {audio_file}...")
+    print(f"Loading {audio_file}...", flush=True)
     
     if audio_file.endswith('.wav'):
         wav_file = audio_file
@@ -88,25 +88,25 @@ def analyze_and_format(video_file):
     """
     Complete analysis with beautiful formatting
     """
-    print("="*120)
-    print(" "*40 + "FORMATTED TOPIC ANALYSIS REPORT")
-    print("="*120)
-    print()
+    print("="*120, flush=True)
+    print(" "*40 + "FORMATTED TOPIC ANALYSIS REPORT", flush=True)
+    print("="*120, flush=True)
+    print(flush=True)
     
     # Extract audio
     audio, duration = extract_audio(video_file)
     
     # Initialize
-    print("Loading models...")
+    print("Loading models...", flush=True)
     whisper_model = whisper.load_model("base")
-    topic_modeler = ResearchGradeTopicModeling(min_topic_size=2)
+    topic_modeler = LLMBasedTopicAnalysis(use_llm=True, llm_model='llama2')  # LLM-based approach
     liwc_analyzer = ComprehensiveLIWC()
     acoustic_analyzer = ComprehensiveAcousticAnalyzer()
     
-    print("[OK] Models loaded\n")
+    print("[OK] Models loaded\n", flush=True)
     
     # Process chunks
-    print(f"Processing {int(duration/10)} chunks...\n")
+    print(f"Processing {int(duration/10)} chunks...\n", flush=True)
     
     utterances = []
     chunk_duration = 10
@@ -170,114 +170,142 @@ def analyze_and_format(video_file):
         
         utterances.append(utterance)
         
-    print(f"[OK] Processed {len(utterances)} utterances\n")
+    print(f"[OK] Processed {len(utterances)} utterances\n", flush=True)
     
-    # Topic analysis
-    print("Performing semantic topic analysis...\n")
-    topic_analysis = topic_modeler.analyze_interrogation_topics(utterances)
+    # Topic analysis (LLM-based approach)
+    print("Performing LLM-based topic analysis...\n", flush=True)
+    topic_analysis = topic_modeler.analyze_conversation(utterances)
     
-    # Add embeddings to utterances for centrality calculation
-    from sentence_transformers import SentenceTransformer
-    model = SentenceTransformer('all-MiniLM-L6-v2')
-    all_embeddings = model.encode([u['text'] for u in utterances], show_progress_bar=False)
-    
-    for i, utt in enumerate(utterances):
-        utt['embedding'] = all_embeddings[i]
+    # Add embeddings to utterances for centrality calculation (if not already present)
+    if not any('embedding' in u for u in utterances):
+        from sentence_transformers import SentenceTransformer
+        model = SentenceTransformer('all-MiniLM-L6-v2')
+        all_embeddings = model.encode([u['text'] for u in utterances], show_progress_bar=False)
+        
+        for i, utt in enumerate(utterances):
+            utt['embedding'] = all_embeddings[i]
         
     # === FORMAT OUTPUT ===
-    print("\n" + "="*120)
-    print(" "*45 + "TOPIC ANALYSIS REPORT")
-    print("="*120)
-    print(f"\nFile: {video_file}")
-    print(f"Duration: {duration/60:.1f} minutes")
-    print(f"Utterances: {len(utterances)}")
-    print(f"Main Topics Identified: {len(topic_analysis['topics'])}")
-    print()
+    print("\n" + "="*120, flush=True)
+    print(" "*45 + "CONVERSATION ANALYSIS REPORT", flush=True)
+    print("="*120, flush=True)
+    print(f"\nFile: {video_file}", flush=True)
+    print(f"Duration: {duration/60:.1f} minutes", flush=True)
+    print(f"Utterances: {len(utterances)}", flush=True)
+    print(f"Topics Identified: {len(topic_analysis.get('topics', []))}", flush=True)
+    print(f"Questions Asked: {len(topic_analysis.get('questions', []))}", flush=True)
+    print(flush=True)
+    
+    # Show all questions
+    questions = topic_analysis.get('questions', [])
+    if questions:
+        print("\n" + "="*120, flush=True)
+        print(" "*50 + "ALL QUESTIONS ASKED", flush=True)
+        print("="*120, flush=True)
+        for idx, q in enumerate(questions, 1):
+            print(f"\nQ{idx} [{q.get('timestamp', '')}] ({q.get('speaker', 'Unknown')}):", flush=True)
+            print(f"  {q['text']}", flush=True)
+        print(flush=True)
     
     # Sort topics by importance (number of mentions)
-    topics_sorted = sorted(topic_analysis['topics'], key=lambda t: t['mention_count'], reverse=True)
+    topics_sorted = sorted(topic_analysis.get('topics', []), key=lambda t: t.get('mention_count', 0), reverse=True)
     
     for topic_rank, topic in enumerate(topics_sorted, 1):
-        print("\n" + "="*120)
-        print(f"TOPIC #{topic_rank}: {topic['label']}")
-        print("="*120)
+        print("\n" + "="*120, flush=True)
+        print(f"TOPIC #{topic_rank}: {topic['label']}", flush=True)
+        print("="*120, flush=True)
         
-        print(f"  Total Mentions: {topic['mention_count']}")
+        print(f"  Questions in this topic: {len(topic.get('questions', []))}", flush=True)
+        print(f"  Total Mentions: {topic['mention_count']}", flush=True)
         
         if 'total_span_minutes' in topic:
-            print(f"  Time Span: {topic['total_span_minutes']:.1f} minutes")
-            print(f"  First mentioned: {topic['first_mention'][11:19]}")  # HH:MM:SS
-            print(f"  Last mentioned: {topic['last_mention'][11:19]}")
+            print(f"  Time Span: {topic['total_span_minutes']:.1f} minutes", flush=True)
+            if 'first_mention' in topic:
+                print(f"  First mentioned: {topic['first_mention'][11:19] if len(topic['first_mention']) > 19 else topic['first_mention']}", flush=True)
+            if 'last_mention' in topic:
+                print(f"  Last mentioned: {topic['last_mention'][11:19] if len(topic['last_mention']) > 19 else topic['last_mention']}", flush=True)
             
         if topic.get('is_revisited'):
-            print(f"  🔄 TOPIC REVISITED: {topic['period_count']} discussion periods")
+            print(f"  [REVISITED] TOPIC REVISITED: {topic['period_count']} discussion periods", flush=True)
             gaps = topic.get('revisit_gaps_minutes', [])
             if gaps:
-                print(f"  Gaps between discussions: {[f'{g:.1f}min' for g in gaps]}")
-                
-        # Get all utterances for this topic
-        topic_utterances = [utterances[idx] for idx in topic['utterance_indices']]
+                print(f"  Gaps between discussions: {[f'{g:.1f}min' for g in gaps]}", flush=True)
         
-        # Calculate topic centroid
-        topic_embeddings = [u['embedding'] for u in topic_utterances]
-        topic_centroid = np.mean(topic_embeddings, axis=0)
+        # Show questions for this topic
+        if topic.get('questions'):
+            print(f"\n  QUESTIONS IN THIS TOPIC:", flush=True)
+            print("  " + "-"*116, flush=True)
+            for q_idx, q_text in enumerate(topic['questions'], 1):
+                print(f"  Q{q_idx}: {q_text}", flush=True)
+            print("  " + "-"*116, flush=True)
         
-        # Calculate impact scores
-        for utt in topic_utterances:
-            utt['impact_score'] = calculate_impact_score(utt, topic_centroid)
-            
-        # Sort by impact
-        topic_utterances_sorted = sorted(topic_utterances, key=lambda u: u['impact_score'], reverse=True)
-        
-        # Show top 10 (or all if less than 10)
-        top_n = min(10, len(topic_utterances_sorted))
-        
-        print(f"\n  TOP {top_n} MOST IMPACTFUL UTTERANCES:")
-        print("  " + "-"*116)
-        
-        for rank, utt in enumerate(topic_utterances_sorted[:top_n], 1):
-            print(f"\n  #{rank} | Time: [{utt['timestamp_str']}] | Stress: {utt['combined_stress']:.2f} | Words: {utt['word_count']}")
-            print(f"      {utt['text']}")
-            
-            # Stress breakdown
-            if utt['combined_stress'] >= 0.60:
-                stress_indicator = "⚠️ HIGH STRESS"
-            elif utt['combined_stress'] >= 0.35:
-                stress_indicator = "⚠️ MODERATE STRESS"
+        # Show natural language summary
+        if topic.get('summary'):
+            print(f"\n  NATURAL LANGUAGE SUMMARY (What Happened in This Topic):", flush=True)
+            print("  " + "-"*116, flush=True)
+            # Print summary as natural text (not line by line if it's a paragraph)
+            summary_text = topic['summary'].strip()
+            # If it's a multi-line summary, print each line
+            if '\n' in summary_text:
+                summary_lines = summary_text.split('\n')
+                for line in summary_lines:
+                    if line.strip():
+                        print(f"  {line}", flush=True)
             else:
-                stress_indicator = "✓ Low stress"
-                
-            print(f"      {stress_indicator} (Acoustic: {utt['acoustic_stress_prob']:.2f}, Linguistic: {utt['linguistic_stress_prob']:.2f})")
-            
-        print("\n  " + "-"*116)
+                # Single paragraph - wrap it nicely
+                print(f"  {summary_text}", flush=True)
+            print("  " + "-"*116, flush=True)
         
-        # Topic-level stress summary
-        if topic['mention_count'] > 1:
-            topic_stresses = [u['combined_stress'] for u in topic_utterances]
-            avg_stress = np.mean(topic_stresses)
-            max_stress = np.max(topic_stresses)
-            
-            print(f"\n  📊 TOPIC STRESS SUMMARY:")
-            print(f"      Average stress: {avg_stress:.2f}")
-            print(f"      Maximum stress: {max_stress:.2f}")
-            
-            if avg_stress >= 0.50:
-                print(f"      ⚠️ HIGH STRESS on this topic overall!")
-            elif avg_stress >= 0.35:
-                print(f"      ⚠️ MODERATE stress on this topic")
-            else:
-                print(f"      ✓ Low stress on this topic")
+        # Show all utterances in this topic (full transcription)
+        if topic.get('all_utterances'):
+            print(f"\n  FULL TRANSCRIPTION FOR THIS TOPIC ({len(topic['all_utterances'])} utterances):", flush=True)
+            print("  " + "-"*116, flush=True)
+            for i, utt in enumerate(topic['all_utterances'][:15], 1):  # Show first 15
+                timestamp = utt.get('timestamp_str', '')
+                speaker = utt.get('speaker_role', 'Speaker')
+                text = utt.get('text', '').strip()
+                if text:
+                    # Fix Unicode encoding
+                    try:
+                        text_safe = text.encode('ascii', 'replace').decode('ascii')
+                    except:
+                        text_safe = ''.join(char if ord(char) < 128 else '?' for char in text)
+                    print(f"  [{timestamp}] {speaker}: {text_safe[:200]}{'...' if len(text_safe) > 200 else ''}", flush=True)
+            if len(topic['all_utterances']) > 15:
+                print(f"  ... and {len(topic['all_utterances']) - 15} more utterances", flush=True)
+            print("  " + "-"*116, flush=True)
                 
-    print("\n" + "="*120)
-    print(" "*50 + "END OF REPORT")
-    print("="*120)
+        # Show key answers for this topic
+        if topic.get('answers'):
+            print(f"\n  KEY ANSWERS IN THIS TOPIC:", flush=True)
+            print("  " + "-"*116, flush=True)
+            # Show top 5 most informative answers (longest ones)
+            answers_sorted = sorted(topic['answers'], key=len, reverse=True)
+            for a_idx, answer in enumerate(answers_sorted[:5], 1):
+                if len(answer) > 20:  # Only meaningful answers
+                    # Fix Unicode encoding
+                    try:
+                        answer_safe = answer.encode('ascii', 'replace').decode('ascii')
+                    except:
+                        answer_safe = ''.join(char if ord(char) < 128 else '?' for char in answer)
+                    print(f"  Answer {a_idx}: {answer_safe[:200]}{'...' if len(answer_safe) > 200 else ''}", flush=True)
+            print("  " + "-"*116, flush=True)
+                
+    print("\n" + "="*120, flush=True)
+    print(" "*50 + "END OF REPORT", flush=True)
+    print("="*120, flush=True)
     
     return topic_analysis, utterances
 
 
 if __name__ == "__main__":
-    # Try different video to verify
-    video_file = "Kavin Interview77 (1).wav"
+    import sys
+    
+    # Get video file from command line argument or use default
+    if len(sys.argv) > 1:
+        video_file = sys.argv[1]
+    else:
+        video_file = "Kavin Interview77 (1).wav"
     
     analyze_and_format(video_file)
 

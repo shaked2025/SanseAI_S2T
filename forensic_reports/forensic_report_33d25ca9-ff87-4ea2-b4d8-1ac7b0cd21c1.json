@@ -1,0 +1,87 @@
+{
+  "session_metadata": {
+    "session_id": "33d25ca9-ff87-4ea2-b4d8-1ac7b0cd21c1",
+    "room_id": "InterrogationRoom_A",
+    "case_id": "INV-2025-001",
+    "start_time": "2025-11-19T13:17:20.630495",
+    "end_time": "2025-11-19T13:20:35.455358",
+    "duration_seconds": 194.824863
+  },
+  "participants": {
+    "participant_0": {
+      "key": "participant_0",
+      "name": "adscscsc",
+      "role": "Int",
+      "enrollment_quality": 0.7424446244143149,
+      "enrollment_time": "2025-11-19T13:18:20.746470",
+      "utterance_count": 0
+    },
+    "participant_1": {
+      "key": "participant_1",
+      "name": "wfdvdvdddv",
+      "role": "Sus",
+      "enrollment_quality": 0.8168651742006225,
+      "enrollment_time": "2025-11-19T13:19:39.356641",
+      "utterance_count": 0
+    }
+  },
+  "statistics": {
+    "total_verifications": 0,
+    "accepted": 0,
+    "rejected": 0,
+    "transcribed_segments": 0,
+    "total_duration_seconds": 194.824863,
+    "avg_confidence": 0.0,
+    "min_confidence": 0.0,
+    "rejection_rate": 0.0
+  },
+  "integrity_check": {
+    "is_valid": true,
+    "issues": [],
+    "verified_at": "2025-11-19T13:20:35.455358"
+  },
+  "transcript": [],
+  "verification_log": [],
+  "rejection_log": [],
+  "system_events": [
+    {
+      "timestamp": "2025-11-19T13:17:20.630495",
+      "event_type": "SESSION_START",
+      "details": {
+        "session_id": "33d25ca9-ff87-4ea2-b4d8-1ac7b0cd21c1",
+        "room_id": "InterrogationRoom_A",
+        "case_id": "INV-2025-001",
+        "timestamp": "2025-11-19T13:17:20.630495"
+      }
+    },
+    {
+      "timestamp": "2025-11-19T13:18:20.746470",
+      "event_type": "PARTICIPANT_ENROLLED",
+      "details": {
+        "key": "participant_0",
+        "name": "adscscsc",
+        "role": "Int",
+        "enrollment_quality": 0.7424446244143149,
+        "enrollment_time": "2025-11-19T13:18:20.746470",
+        "utterance_count": 0
+      }
+    },
+    {
+      "timestamp": "2025-11-19T13:19:39.356641",
+      "event_type": "PARTICIPANT_ENROLLED",
+      "details": {
+        "key": "participant_1",
+        "name": "wfdvdvdddv",
+        "role": "Sus",
+        "enrollment_quality": 0.8168651742006225,
+        "enrollment_time": "2025-11-19T13:19:39.356641",
+        "utterance_count": 0
+      }
+    },
+    {
+      "timestamp": "2025-11-19T13:19:54.658904",
+      "event_type": "INTERROGATION_START",
+      "details": {}
+    }
+  ]
+}

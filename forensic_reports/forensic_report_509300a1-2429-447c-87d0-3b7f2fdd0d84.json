@@ -1,0 +1,1716 @@
+{
+  "session_metadata": {
+    "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+    "room_id": "InterrogationRoom_A",
+    "case_id": "INV-2025-001",
+    "start_time": "2025-11-19T13:21:09.526228",
+    "end_time": "2025-11-19T14:11:27.549820",
+    "duration_seconds": 3018.023592
+  },
+  "participants": {
+    "participant_0": {
+      "key": "participant_0",
+      "name": "fgbfbfbfbvfb",
+      "role": "Int",
+      "enrollment_quality": 0.7414975162658413,
+      "enrollment_time": "2025-11-19T14:05:37.088628",
+      "utterance_count": 16
+    },
+    "participant_1": {
+      "key": "participant_1",
+      "name": "sfdvdvfd",
+      "role": "Sus",
+      "enrollment_quality": 0.7951078982555436,
+      "enrollment_time": "2025-11-19T14:06:46.728409",
+      "utterance_count": 10
+    }
+  },
+  "statistics": {
+    "total_verifications": 43,
+    "accepted": 0,
+    "rejected": 43,
+    "transcribed_segments": 26,
+    "total_duration_seconds": 3018.023592,
+    "avg_confidence": 0.6122857308994216,
+    "min_confidence": 0.6122857308994217,
+    "rejection_rate": 1.0
+  },
+  "integrity_check": {
+    "is_valid": false,
+    "issues": [
+      "Verification entry 1 signature invalid",
+      "Verification entry 2 signature invalid",
+      "Verification entry 3 signature invalid",
+      "Verification entry 4 signature invalid",
+      "Verification entry 5 signature invalid",
+      "Verification entry 6 signature invalid",
+      "Verification entry 7 signature invalid",
+      "Verification entry 8 signature invalid",
+      "Verification entry 9 signature invalid",
+      "Verification entry 10 signature invalid",
+      "Verification entry 11 signature invalid",
+      "Verification entry 12 signature invalid",
+      "Verification entry 13 signature invalid",
+      "Verification entry 14 signature invalid",
+      "Verification entry 15 signature invalid",
+      "Verification entry 16 signature invalid",
+      "Verification entry 17 signature invalid",
+      "Verification entry 18 signature invalid",
+      "Verification entry 19 signature invalid",
+      "Verification entry 20 signature invalid",
+      "Verification entry 21 signature invalid",
+      "Verification entry 22 signature invalid",
+      "Verification entry 23 signature invalid",
+      "Verification entry 24 signature invalid",
+      "Verification entry 25 signature invalid",
+      "Verification entry 26 signature invalid",
+      "Verification entry 27 signature invalid",
+      "Verification entry 28 signature invalid",
+      "Verification entry 29 signature invalid",
+      "Verification entry 30 signature invalid",
+      "Verification entry 31 signature invalid",
+      "Verification entry 32 signature invalid",
+      "Verification entry 33 signature invalid",
+      "Verification entry 34 signature invalid",
+      "Verification entry 35 signature invalid",
+      "Verification entry 36 signature invalid",
+      "Verification entry 37 signature invalid",
+      "Verification entry 38 signature invalid",
+      "Verification entry 39 signature invalid",
+      "Verification entry 40 signature invalid",
+      "Verification entry 41 signature invalid",
+      "Verification entry 42 signature invalid"
+    ],
+    "verified_at": "2025-11-19T14:11:27.549820"
+  },
+  "transcript": [
+    {
+      "sequence_number": 0,
+      "timestamp": "2025-11-19T14:07:21.992221",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "And...",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "bed1c9392b124c41f618be70828275123c2fe0f711f0557405a04efb3888d5f4",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "e0209dd0ff7573391b70f26cef9d15366654ccfabbf5b49ecd669f122d74ea78"
+    },
+    {
+      "sequence_number": 1,
+      "timestamp": "2025-11-19T14:07:31.787220",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "speaker_role": "Sus",
+      "text": "Shalom! Shalom!",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "f1ce37a3407dfa2afa9aa7d8341c2b161493bfb2647997651830e6ab06c4360e",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "63c30fe1ecc81f68133cbce8c699528981d5c198bb69a7335d174cbd478f2c4b",
+      "previous_signature": "e0209dd0ff7573391b70f26cef9d15366654ccfabbf5b49ecd669f122d74ea78"
+    },
+    {
+      "sequence_number": 2,
+      "timestamp": "2025-11-19T14:07:44.034307",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "away",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "6bbe9d1fc5331a921b412cec8ecda64500fc8aa981bbbbf586d41f9b45c923e6",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "b00f4c6b106409ef5fa330fb2b7c5d690f9c9bb760cd4a1bca150c001024569d",
+      "previous_signature": "63c30fe1ecc81f68133cbce8c699528981d5c198bb69a7335d174cbd478f2c4b"
+    },
+    {
+      "sequence_number": 3,
+      "timestamp": "2025-11-19T14:07:54.030254",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "Hey everyone how are you?",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "c786f3e71fe3136e049f49d9eb21eb2bce08198613212957ee78226bfeac5fa6",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "418baee779d21b26b48d60ae378f8193e670a4f72c85424e22757542f8eef803",
+      "previous_signature": "b00f4c6b106409ef5fa330fb2b7c5d690f9c9bb760cd4a1bca150c001024569d"
+    },
+    {
+      "sequence_number": 4,
+      "timestamp": "2025-11-19T14:08:00.769918",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "speaker_role": "Sus",
+      "text": "Everyone, how are you?",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "352aea819c6f103bf866abe162a62b1e53ca6d186d9f5ec6295a83df7dff0c70",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "032858459756ad0feb1ffb0d203832b000d83fbb97f4de6475a6a0833c96c62d",
+      "previous_signature": "418baee779d21b26b48d60ae378f8193e670a4f72c85424e22757542f8eef803"
+    },
+    {
+      "sequence_number": 5,
+      "timestamp": "2025-11-19T14:08:07.669552",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "speaker_role": "Sus",
+      "text": "Shalom, my name is Yosusya.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "933612dc35300d7f652f51c8e41e5d69e27c57d2fb698ff309151d7be407f055",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "19f06502cd9815573d396ea8ab7d9def912c9bc9d61c78e493d445c1a73d21c1",
+      "previous_signature": "032858459756ad0feb1ffb0d203832b000d83fbb97f4de6475a6a0833c96c62d"
+    },
+    {
+      "sequence_number": 6,
+      "timestamp": "2025-11-19T14:08:17.639889",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "I will learn.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "da7dea0654773a1ebff331df80c0e85cc4d0d5d9b7ba448470e9e27948ee606e",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "4911bdb98941fb3039b68c8fb98c1c704a8e15be6246cb3bffeda9b3401f1b85",
+      "previous_signature": "19f06502cd9815573d396ea8ab7d9def912c9bc9d61c78e493d445c1a73d21c1"
+    },
+    {
+      "sequence_number": 7,
+      "timestamp": "2025-11-19T14:08:24.426010",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "speaker_role": "Sus",
+      "text": "with culminating a story.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "601f76098c8022b58e82115b6105b8d83fac5a21c2ae881bf2f7cb0d3bc99b41",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "215c337b95a4f3847ef857a9b82a19bae7b2f8d4d3022dbcf2b5c87a13c8ed54",
+      "previous_signature": "4911bdb98941fb3039b68c8fb98c1c704a8e15be6246cb3bffeda9b3401f1b85"
+    },
+    {
+      "sequence_number": 8,
+      "timestamp": "2025-11-19T14:08:30.317689",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "speaker_role": "Sus",
+      "text": "have, come in here, see what we'll gain.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "d5bd6add6967057b0c1425c7f43ffa82048891215a2c0ea0985f0f563de3460a",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "f3497b0d0ecfe6f8256548ef82f265e99424c7bb62ca81ccd5acf22ff0ad47b7",
+      "previous_signature": "215c337b95a4f3847ef857a9b82a19bae7b2f8d4d3022dbcf2b5c87a13c8ed54"
+    },
+    {
+      "sequence_number": 9,
+      "timestamp": "2025-11-19T14:08:45.653642",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "speaker_role": "Sus",
+      "text": "I could not jump on the lumps.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "3f56da4796b1c51a94e29d6c43d722eae8b8a85185cbc47b0b026107c04c348e",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "86a44b603c3997e7869cc5c7b0277f412f8dc9d78bbba7ad8ddfa78a30578005",
+      "previous_signature": "f3497b0d0ecfe6f8256548ef82f265e99424c7bb62ca81ccd5acf22ff0ad47b7"
+    },
+    {
+      "sequence_number": 10,
+      "timestamp": "2025-11-19T14:09:11.831819",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "One, two, three, four.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "0da0787c0c6bcf0e04aa26057125904c91f1711102d8d01319fbc227ea1879cb",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "b41b8d07b13fa85b32ffe8d5cba06ae233b3334b854ce38bfdb3641dd4834a89",
+      "previous_signature": "86a44b603c3997e7869cc5c7b0277f412f8dc9d78bbba7ad8ddfa78a30578005"
+    },
+    {
+      "sequence_number": 11,
+      "timestamp": "2025-11-19T14:09:15.531432",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "Hey everyone, how are you today?",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "ee1edd950d96d2d530d92c794004a3515724d46aaf6fca2cbbdf8b30bbc8f088",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "e30bbd4e83e21eaf965cf45e4ed70f02e5c7ee58b34c50ca48f240212f85aaef",
+      "previous_signature": "b41b8d07b13fa85b32ffe8d5cba06ae233b3334b854ce38bfdb3641dd4834a89"
+    },
+    {
+      "sequence_number": 12,
+      "timestamp": "2025-11-19T14:09:20.780213",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "Though made by ANNP Stephen",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "8100f1d23dfe9985b061feae34638a57f6d6dfde63758734704f021c84814c88",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "bc946b3232bb236ea4679ea0796fb0fe848b884f16275c39c727f33f022f4b1d",
+      "previous_signature": "e30bbd4e83e21eaf965cf45e4ed70f02e5c7ee58b34c50ca48f240212f85aaef"
+    },
+    {
+      "sequence_number": 13,
+      "timestamp": "2025-11-19T14:09:24.791908",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "That. How did you do? Luma.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "e3b83e6184025cb370a73d8fad8ce7f58e765120c75d3be5a5ae5dc19986356e",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "62a7a4e952fd7f89bc0c96ae1b32d68c7ce7d4a75be50ff1a1619b86b94a34d1",
+      "previous_signature": "bc946b3232bb236ea4679ea0796fb0fe848b884f16275c39c727f33f022f4b1d"
+    },
+    {
+      "sequence_number": 14,
+      "timestamp": "2025-11-19T14:09:30.358157",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "Would you like this simply?",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "ca5e5e2c2963e713c517df3fb08409224d64d37f140a86b561cbfa42f225d422",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "fd0f30a2cad62cc12a904323589ed111af4fb97b593b3d1f9f906cac18137679",
+      "previous_signature": "62a7a4e952fd7f89bc0c96ae1b32d68c7ce7d4a75be50ff1a1619b86b94a34d1"
+    },
+    {
+      "sequence_number": 15,
+      "timestamp": "2025-11-19T14:09:42.409432",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "You have no idea how strong you are.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "bc64222cd366897343745d1423d5ffdb6b69eb9940daf2e946b4f0e79231b12b",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "854172465bcc41337a27d08c73840b41a2eb174ed47d7135351ba816bc01a277",
+      "previous_signature": "fd0f30a2cad62cc12a904323589ed111af4fb97b593b3d1f9f906cac18137679"
+    },
+    {
+      "sequence_number": 16,
+      "timestamp": "2025-11-19T14:09:48.041094",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "It's a very steep slats",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "32a0c9914a1e461de1dc33e570f9a262f70aca76eb1a192693c392a83660d820",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "dfd5df5bc1576d4a51ade55cf2040355469590348c972bc2009b2c61d08d6aff",
+      "previous_signature": "854172465bcc41337a27d08c73840b41a2eb174ed47d7135351ba816bc01a277"
+    },
+    {
+      "sequence_number": 17,
+      "timestamp": "2025-11-19T14:09:54.309147",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "\u56e0\u70ba\u6c92\u6709\u9054\u5be6\u90fd\u6211\u7684\u540d\u5b57\u771f\u7684\u9019\u6a23",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "6d3e7b6d0f9644a7ef7b88c60bd93c38a6903f793734091026cbf497186b1d4a",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "7c913ef93f710b72053bc8192f48933e7ad71658d25e2bb6d03abb74265e51dc",
+      "previous_signature": "dfd5df5bc1576d4a51ade55cf2040355469590348c972bc2009b2c61d08d6aff"
+    },
+    {
+      "sequence_number": 18,
+      "timestamp": "2025-11-19T14:10:10.888340",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "speaker_role": "Sus",
+      "text": "It's a kid, don't want a little turtle.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "20336a44115877e8a8effc46ec7a4622c7e40aedf55d683eecdac6634f844c4e",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "e472a9aa1aa62a8b6f3a1c9cf228a9c117551ca949f59a66cf87107c267f0f74",
+      "previous_signature": "7c913ef93f710b72053bc8192f48933e7ad71658d25e2bb6d03abb74265e51dc"
+    },
+    {
+      "sequence_number": 19,
+      "timestamp": "2025-11-19T14:10:24.054612",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "Let's see... Let's just enjoy it.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "95f775bbd0c8f02cf8f3d5048a870f709459a889a361513433467c6db50fae28",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "7358e5163545f859c8e22fa99e9eb142e2b7b87271ea660311e4e6d2949dee36",
+      "previous_signature": "e472a9aa1aa62a8b6f3a1c9cf228a9c117551ca949f59a66cf87107c267f0f74"
+    },
+    {
+      "sequence_number": 20,
+      "timestamp": "2025-11-19T14:10:34.263461",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "speaker_role": "Sus",
+      "text": "I thought they should be someone.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "e892c0e1c84ee683a59af2e50025d96d0219bef866a4b6ffb230ecace5696ad1",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "a44f105e503f7a2a2d64228983875e76d37f87d271ec9f7c795826d8d39a2096",
+      "previous_signature": "7358e5163545f859c8e22fa99e9eb142e2b7b87271ea660311e4e6d2949dee36"
+    },
+    {
+      "sequence_number": 21,
+      "timestamp": "2025-11-19T14:10:46.823440",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "speaker_role": "Sus",
+      "text": "See, those things were like, I'm not sure...",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "90118956bd0051120224894eaf0b17d1debc842ce17d9213928690f5aa5f6256",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "39d828fac472856187820dbe5546fc08bfa95d6f91dfde25e70b58fb0716c211",
+      "previous_signature": "a44f105e503f7a2a2d64228983875e76d37f87d271ec9f7c795826d8d39a2096"
+    },
+    {
+      "sequence_number": 22,
+      "timestamp": "2025-11-19T14:10:52.425301",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "And am going to put it on fire",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "1ea2e6888688bfe50715d1609d7d5a316e8ecdce0ba632593017f15dc86bd72d",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "f8fd1b54da8f3263685c0b5dd79f09db82be59f7aa30a5fb04d1f691141462a8",
+      "previous_signature": "39d828fac472856187820dbe5546fc08bfa95d6f91dfde25e70b58fb0716c211"
+    },
+    {
+      "sequence_number": 23,
+      "timestamp": "2025-11-19T14:11:01.089547",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "So Meravalia...",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "ddfe6e7a717576a6eba0ada51f3bbcf70eaea6f7ec15b41d63d2039e7b6dd70f",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "b420e249aaf27315b37066cf16128b1bed99b94a5dc32e74d9588e8f99b14d38",
+      "previous_signature": "f8fd1b54da8f3263685c0b5dd79f09db82be59f7aa30a5fb04d1f691141462a8"
+    },
+    {
+      "sequence_number": 24,
+      "timestamp": "2025-11-19T14:11:09.965747",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "speaker_role": "Int",
+      "text": "and in family language.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "61cff7403b48b3be987da32ee1353ce7d78b0496c817011c36272437b09020b1",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "4b911d2801f1092cf7c80c8fda89a13b408cdeb200233ee44aca7f785a2b28bf",
+      "previous_signature": "b420e249aaf27315b37066cf16128b1bed99b94a5dc32e74d9588e8f99b14d38"
+    },
+    {
+      "sequence_number": 25,
+      "timestamp": "2025-11-19T14:11:18.935513",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "speaker_role": "Sus",
+      "text": "Keyhole, Nicol\u00e1s Azeroll.",
+      "confidence": 0.6122857308994217,
+      "audio_checksum": "5f0bb2e79c8e14de998f86bd0ef3bd0df6991b847823d40df0692e401b03bb6d",
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "07af8d29bd685c4bd84cb71b5a614772b6a482965ffb7f0825430800595e7d29",
+      "previous_signature": "4b911d2801f1092cf7c80c8fda89a13b408cdeb200233ee44aca7f785a2b28bf"
+    }
+  ],
+  "verification_log": [
+    {
+      "sequence_number": 0,
+      "timestamp": "2025-11-19T14:06:56.097228",
+      "audio_segment_id": "aa1f4a5b1e0ae1bd",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.6996868252754211,
+      "spatial_similarity": 0.95,
+      "combined_score": 0.7375308836395352,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7372338014841079, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6996868}, 'lof': {'pass': False, 'score': 0.22381905716892403}, 'margin': {'pass': True, 'margin': 0.08402466773986816, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.95}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "5d44b670d3b35de6fc0973977d858d93cd79d04a0c339f817cccb6c1935d1f67"
+    },
+    {
+      "sequence_number": 1,
+      "timestamp": "2025-11-19T14:06:59.356326",
+      "audio_segment_id": "eb5f62c71a6d4abc",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.733681321144104,
+      "spatial_similarity": 0.97,
+      "combined_score": 0.7694098893452709,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7691291229724884, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.7336813}, 'lof': {'pass': False, 'score': 0.21435317026263107}, 'margin': {'pass': True, 'margin': 0.03380537033081055, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.97}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "e45d221a42cb3ba23bc77e333865407520e73598bd4d0c1514be03c0993645a3",
+      "previous_signature": "5d44b670d3b35de6fc0973977d858d93cd79d04a0c339f817cccb6c1935d1f67"
+    },
+    {
+      "sequence_number": 2,
+      "timestamp": "2025-11-19T14:07:02.569528",
+      "audio_segment_id": "71725a38cf94f7e6",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.6916808485984802,
+      "spatial_similarity": 0.95,
+      "combined_score": 0.7300627656438785,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7304287213087082, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.69168085}, 'lof': {'pass': False, 'score': 0.2156125592563849}, 'margin': {'pass': True, 'margin': 0.020872890949249268, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.95}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "f11ba71e41790370ec6c2b02188393507ed5b1969f6b22b1844683d3785b1f09",
+      "previous_signature": "e45d221a42cb3ba23bc77e333865407520e73598bd4d0c1514be03c0993645a3"
+    },
+    {
+      "sequence_number": 3,
+      "timestamp": "2025-11-19T14:07:05.938546",
+      "audio_segment_id": "4e58bd9489f6134d",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.7252890467643738,
+      "spatial_similarity": 0.98,
+      "combined_score": 0.7633212212042257,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7634956897497177, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.8736762995378294}, 'lof': {'pass': False, 'score': 0.21063868211010714}, 'margin': {'pass': True, 'margin': 0.04189157485961914, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.98}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "9dc007e1808d1582df505adeee5de0a1c21fc37e2d51d70d649776aa1997069c",
+      "previous_signature": "f11ba71e41790370ec6c2b02188393507ed5b1969f6b22b1844683d3785b1f09"
+    },
+    {
+      "sequence_number": 4,
+      "timestamp": "2025-11-19T14:07:09.137847",
+      "audio_segment_id": "1b2c17c5cdaa164f",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.794406533241272,
+      "spatial_similarity": 0.93,
+      "combined_score": 0.8151427241761504,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.8147455532550811, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.79440653}, 'lof': {'pass': False, 'score': 0.21751260265562913}, 'margin': {'pass': True, 'margin': 0.11618363857269287, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.93}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "d334e8fb28b237e412ed052e240ce2aa2e76fed46d953f158dcc66d26b88c22c",
+      "previous_signature": "9dc007e1808d1582df505adeee5de0a1c21fc37e2d51d70d649776aa1997069c"
+    },
+    {
+      "sequence_number": 5,
+      "timestamp": "2025-11-19T14:07:12.698506",
+      "audio_segment_id": "53aa66c93a880df8",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.7229853868484497,
+      "spatial_similarity": 0.98,
+      "combined_score": 0.7622309188853935,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7615375788211822, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.8880231681637141}, 'lof': {'pass': False, 'score': 0.22557243461549115}, 'margin': {'pass': True, 'margin': 0.07567989826202393, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.98}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "9490f681fa50d3ea10aabb3e44ee327b8b35efbf24134a2584468d2537bac693",
+      "previous_signature": "d334e8fb28b237e412ed052e240ce2aa2e76fed46d953f158dcc66d26b88c22c"
+    },
+    {
+      "sequence_number": 6,
+      "timestamp": "2025-11-19T14:07:16.066390",
+      "audio_segment_id": "68bb25b1339b116d",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7436116933822632,
+      "spatial_similarity": 0.89,
+      "combined_score": 0.7653555889178671,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7655699393749238, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.7045307675059346}, 'lof': {'pass': False, 'score': 0.2265287774932481}, 'margin': {'pass': True, 'margin': 0.03510892391204834, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.89}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "640818852edb238da488aa7f680c18f5b8dcccfa1aa3e859b1cd2013a6ad0dd1",
+      "previous_signature": "9490f681fa50d3ea10aabb3e44ee327b8b35efbf24134a2584468d2537bac693"
+    },
+    {
+      "sequence_number": 7,
+      "timestamp": "2025-11-19T14:07:25.167276",
+      "audio_segment_id": "ffcc49c3f4da0a69",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7473800182342529,
+      "spatial_similarity": 0.9,
+      "combined_score": 0.7703592924058764,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.770273015499115, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.7333307351429593}, 'lof': {'pass': False, 'score': 0.20394547047038408}, 'margin': {'pass': True, 'margin': 0.08756113052368164, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.9}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "7b82e6f2de3df8c25df9c1329a228215a8aa4c3ac74721d99f5c2ae0926c123b",
+      "previous_signature": "640818852edb238da488aa7f680c18f5b8dcccfa1aa3e859b1cd2013a6ad0dd1"
+    },
+    {
+      "sequence_number": 8,
+      "timestamp": "2025-11-19T14:07:34.955431",
+      "audio_segment_id": "cc045622e839ba79",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.58390873670578,
+      "spatial_similarity": null,
+      "combined_score": 0.6323492435606881,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.58390873670578, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5960874876542471}, 'lof': {'pass': False, 'score': 0.21585730077195042}, 'margin': {'pass': False, 'margin': 0.11660158634185791, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 2, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "cb0d99f8c0387177627c344c601429bf565c664c604d9d6bda3f72946451d14e",
+      "previous_signature": "7b82e6f2de3df8c25df9c1329a228215a8aa4c3ac74721d99f5c2ae0926c123b"
+    },
+    {
+      "sequence_number": 9,
+      "timestamp": "2025-11-19T14:07:38.226897",
+      "audio_segment_id": "17e5bbc410ef8e52",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.7601326704025269,
+      "spatial_similarity": 0.97,
+      "combined_score": 0.7911401024707642,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7916127698421478, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.606591308691064}, 'lof': {'pass': False, 'score': 0.20996916820740527}, 'margin': {'pass': True, 'margin': 0.052438974380493164, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.97}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "632c9b6f7d037ad55eff5cad2f7f634226ae4f07917a1bdb8c678218c9ab9c28",
+      "previous_signature": "cb0d99f8c0387177627c344c601429bf565c664c604d9d6bda3f72946451d14e"
+    },
+    {
+      "sequence_number": 10,
+      "timestamp": "2025-11-19T14:07:47.238176",
+      "audio_segment_id": "65f27c0b86aeba95",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.6631234288215637,
+      "spatial_similarity": 0.94,
+      "combined_score": 0.704240911551324,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7046549144983292, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6250465311756571}, 'lof': {'pass': True, 'score': 0.22888183339286886}, 'margin': {'pass': False, 'margin': 0.09660303592681885, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': 0.94}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "6dcdf56f8791d36d3f36f6be44c502fd436b6c0c80eb827c6adf799a6b431c3c",
+      "previous_signature": "632c9b6f7d037ad55eff5cad2f7f634226ae4f07917a1bdb8c678218c9ab9c28"
+    },
+    {
+      "sequence_number": 11,
+      "timestamp": "2025-11-19T14:07:50.465958",
+      "audio_segment_id": "38baf01835b104be",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7295165061950684,
+      "spatial_similarity": 0.98,
+      "combined_score": 0.7667701551975571,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7670890302658081, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.765465687020534}, 'lof': {'pass': False, 'score': 0.20180306679938323}, 'margin': {'pass': True, 'margin': 0.05099177360534668, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.98}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "787495fd11bab250ce87c9fe21fc8712eee769bc326554111e213a43b8de1f43",
+      "previous_signature": "6dcdf56f8791d36d3f36f6be44c502fd436b6c0c80eb827c6adf799a6b431c3c"
+    },
+    {
+      "sequence_number": 12,
+      "timestamp": "2025-11-19T14:07:57.211875",
+      "audio_segment_id": "b21d3f5c81363da5",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.586722731590271,
+      "spatial_similarity": null,
+      "combined_score": 0.6479317296657787,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.586722731590271, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6234144448333742}, 'lof': {'pass': False, 'score': 0.17944656597794242}, 'margin': {'pass': False, 'margin': 0.008680582046508789, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 2, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "733747453b9fa95b191070eb19d2d628e9552bfc879d1dd2f1472568e00728f5",
+      "previous_signature": "787495fd11bab250ce87c9fe21fc8712eee769bc326554111e213a43b8de1f43"
+    },
+    {
+      "sequence_number": 13,
+      "timestamp": "2025-11-19T14:08:04.030526",
+      "audio_segment_id": "34e582d72f8db7fc",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.68326735496521,
+      "spatial_similarity": 0.92,
+      "combined_score": 0.718491780764936,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7187772517204285, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6349077158880181}, 'lof': {'pass': False, 'score': 0.20639430530788094}, 'margin': {'pass': True, 'margin': 0.011810243129730225, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.92}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "3313e4961928bfa224bed78648cb12fc024dcfe72594df37955fb9956f71509d",
+      "previous_signature": "733747453b9fa95b191070eb19d2d628e9552bfc879d1dd2f1472568e00728f5"
+    },
+    {
+      "sequence_number": 14,
+      "timestamp": "2025-11-19T14:08:10.888230",
+      "audio_segment_id": "885ad7b273579513",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7393442392349243,
+      "spatial_similarity": 0.87,
+      "combined_score": 0.7594239687370383,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7589426033496856, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6194027537436463}, 'lof': {'pass': False, 'score': 0.20193240213006391}, 'margin': {'pass': True, 'margin': 0.08776640892028809, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.87}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "a66b5b6ffdbe4f5611853a3e7a77b8828aa75619b951eb102681ca84f949207f",
+      "previous_signature": "3313e4961928bfa224bed78648cb12fc024dcfe72594df37955fb9956f71509d"
+    },
+    {
+      "sequence_number": 15,
+      "timestamp": "2025-11-19T14:08:14.109240",
+      "audio_segment_id": "45dff2648d179632",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.6871775388717651,
+      "spatial_similarity": 0.92,
+      "combined_score": 0.7220384806979556,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7221009080410004, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6132922595723419}, 'lof': {'pass': False, 'score': 0.20248421531732755}, 'margin': {'pass': True, 'margin': 0.013662099838256836, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.92}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "ff78c9e325bbf304404fba2f7d63f2e3f6acb5fda4462c903a27931aa5762ce6",
+      "previous_signature": "a66b5b6ffdbe4f5611853a3e7a77b8828aa75619b951eb102681ca84f949207f"
+    },
+    {
+      "sequence_number": 16,
+      "timestamp": "2025-11-19T14:08:20.862219",
+      "audio_segment_id": "6f7d113ead9be67c",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7566362619400024,
+      "spatial_similarity": 0.87,
+      "combined_score": 0.773020457551066,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7736408226490021, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6121251968358785}, 'lof': {'pass': False, 'score': 0.2072736920898202}, 'margin': {'pass': True, 'margin': 0.022647380828857422, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.87}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "5c35964504b3830604d9196dc6bff7c42cf07d3b64e6704901431defbce48386",
+      "previous_signature": "ff78c9e325bbf304404fba2f7d63f2e3f6acb5fda4462c903a27931aa5762ce6"
+    },
+    {
+      "sequence_number": 17,
+      "timestamp": "2025-11-19T14:08:33.532133",
+      "audio_segment_id": "ee4ac9b1ea997dd6",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7975882291793823,
+      "spatial_similarity": 0.98,
+      "combined_score": 0.8246739011689549,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.824949994802475, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5592228991712461}, 'lof': {'pass': False, 'score': 0.22354431050346002}, 'margin': {'pass': True, 'margin': 0.14432477951049805, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.98}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "df7c7a661524e077f2f3d7786d4b75822ef8d99a8541cccbc6b7dfacc8dddd12",
+      "previous_signature": "5c35964504b3830604d9196dc6bff7c42cf07d3b64e6704901431defbce48386"
+    },
+    {
+      "sequence_number": 18,
+      "timestamp": "2025-11-19T14:08:36.741444",
+      "audio_segment_id": "ac0842e64463cf0d",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.5357435345649719,
+      "spatial_similarity": null,
+      "combined_score": 0.5357435345649719,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.5357435345649719, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.540984541139318}, 'lof': {'pass': False, 'score': 0.20607375313780313}, 'margin': {'pass': False, 'margin': 0.09381487965583801, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 2, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "dddce535f0688d760efdade51d2637ef5a71086ec069e1f41b50e8da4a0779a5",
+      "previous_signature": "df7c7a661524e077f2f3d7786d4b75822ef8d99a8541cccbc6b7dfacc8dddd12"
+    },
+    {
+      "sequence_number": 19,
+      "timestamp": "2025-11-19T14:08:39.928909",
+      "audio_segment_id": "8b5a579de4077893",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7094175815582275,
+      "spatial_similarity": 0.95,
+      "combined_score": 0.7455867011296086,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7455049443244933, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.629608466501781}, 'lof': {'pass': False, 'score': 0.19014391500158487}, 'margin': {'pass': True, 'margin': 0.019382476806640625, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.95}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "31fbf8ead9edd3eb4c1b9f5ea1eec610e65474fbc35d983440cae026a17ad470",
+      "previous_signature": "dddce535f0688d760efdade51d2637ef5a71086ec069e1f41b50e8da4a0779a5"
+    },
+    {
+      "sequence_number": 20,
+      "timestamp": "2025-11-19T14:08:48.854873",
+      "audio_segment_id": "8a93c7060802d558",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.774787425994873,
+      "spatial_similarity": 0.97,
+      "combined_score": 0.8040590209720841,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.804069312095642, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6383835546568547}, 'lof': {'pass': False, 'score': 0.21305294063116295}, 'margin': {'pass': True, 'margin': 0.07284867763519287, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.97}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "cdda2d82ada5135bda534527fef0e4037486ff45a0867402b2ee3bdd00fb5bde",
+      "previous_signature": "31fbf8ead9edd3eb4c1b9f5ea1eec610e65474fbc35d983440cae026a17ad470"
+    },
+    {
+      "sequence_number": 21,
+      "timestamp": "2025-11-19T14:08:52.088415",
+      "audio_segment_id": "6073d95fee62f474",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.6944345235824585,
+      "spatial_similarity": 0.95,
+      "combined_score": 0.7330925550256101,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7327693450450896, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5419804259619916}, 'lof': {'pass': False, 'score': 0.21211564916692738}, 'margin': {'pass': True, 'margin': 0.0048043131828308105, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.95}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "1479c4e0e1c0ea891e14b960ada9703caf506b8032365a731b4c56ad66518b07",
+      "previous_signature": "cdda2d82ada5135bda534527fef0e4037486ff45a0867402b2ee3bdd00fb5bde"
+    },
+    {
+      "sequence_number": 22,
+      "timestamp": "2025-11-19T14:08:55.359137",
+      "audio_segment_id": "09d6833c7c6d197d",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7774373292922974,
+      "spatial_similarity": 0.9,
+      "combined_score": 0.7953834871259161,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7958217298984528, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6483238094409108}, 'lof': {'pass': False, 'score': 0.21470265683726697}, 'margin': {'pass': True, 'margin': 0.059445083141326904, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.9}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "e116213a0f82683179f12b60a11af849da7865a6fc154d8f372a6a780045df12",
+      "previous_signature": "1479c4e0e1c0ea891e14b960ada9703caf506b8032365a731b4c56ad66518b07"
+    },
+    {
+      "sequence_number": 23,
+      "timestamp": "2025-11-19T14:08:58.568260",
+      "audio_segment_id": "9665274ec0daac55",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7209004759788513,
+      "spatial_similarity": 0.99,
+      "combined_score": 0.7619055658224769,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7612654045820235, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6417718811588007}, 'lof': {'pass': False, 'score': 0.19276116187307987}, 'margin': {'pass': True, 'margin': 0.014305293560028076, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.99}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "2958f98db61103f651b98e9da240b53a3456e9b08c2d5f268cd318fafc1cdfb8",
+      "previous_signature": "e116213a0f82683179f12b60a11af849da7865a6fc154d8f372a6a780045df12"
+    },
+    {
+      "sequence_number": 24,
+      "timestamp": "2025-11-19T14:09:01.758805",
+      "audio_segment_id": "562e266d602e83df",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7683991193771362,
+      "spatial_similarity": 0.91,
+      "combined_score": 0.7895958826227091,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7896392514705657, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6776120176702315}, 'lof': {'pass': False, 'score': 0.2104349506617484}, 'margin': {'pass': True, 'margin': 0.02842116355895996, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.91}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "67eebe4fbda1860d38f7a7c97491cec5b1db162b4d2a088687ad67ed0609f1f1",
+      "previous_signature": "2958f98db61103f651b98e9da240b53a3456e9b08c2d5f268cd318fafc1cdfb8"
+    },
+    {
+      "sequence_number": 25,
+      "timestamp": "2025-11-19T14:09:04.958389",
+      "audio_segment_id": "f71e2f2c0cc9b34a",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7033061981201172,
+      "spatial_similarity": 0.87,
+      "combined_score": 0.7279584630118242,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7283102684020997, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.653365900473544}, 'lof': {'pass': False, 'score': 0.22473717194180276}, 'margin': {'pass': True, 'margin': 0.01454615592956543, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.87}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "c6d63c5992ddaa214c06699b732c04b22dc2b67c65e7ca14ec300c9f1258f8d0",
+      "previous_signature": "67eebe4fbda1860d38f7a7c97491cec5b1db162b4d2a088687ad67ed0609f1f1"
+    },
+    {
+      "sequence_number": 26,
+      "timestamp": "2025-11-19T14:09:08.147723",
+      "audio_segment_id": "b35ec0fb8d8ee979",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.7112014293670654,
+      "spatial_similarity": 0.96,
+      "combined_score": 0.7491284200731572,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7485212149620056, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5427480308289335}, 'lof': {'pass': False, 'score': 0.21747406573815323}, 'margin': {'pass': True, 'margin': 0.09928321838378906, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.96}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "e7c92587a0c9d4151fe4ca40f5af69628934e935f6795f8533d2ca8f912f84d4",
+      "previous_signature": "c6d63c5992ddaa214c06699b732c04b22dc2b67c65e7ca14ec300c9f1258f8d0"
+    },
+    {
+      "sequence_number": 27,
+      "timestamp": "2025-11-19T14:09:33.580483",
+      "audio_segment_id": "a50a654a521283fb",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7021331191062927,
+      "spatial_similarity": 0.98,
+      "combined_score": 0.7431523414997013,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7438131512403489, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.648157451593766}, 'lof': {'pass': False, 'score': 0.19899071481924566}, 'margin': {'pass': True, 'margin': 0.059924960136413574, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.98}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "146644364fe5e7923524351497d739531e976acfa6993ad6128048ed74fbc542",
+      "previous_signature": "e7c92587a0c9d4151fe4ca40f5af69628934e935f6795f8533d2ca8f912f84d4"
+    },
+    {
+      "sequence_number": 28,
+      "timestamp": "2025-11-19T14:09:36.805288",
+      "audio_segment_id": "80e7fce7fe4bf5bd",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.6931501626968384,
+      "spatial_similarity": 0.99,
+      "combined_score": 0.7376647984445329,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7376776382923126, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6688415397672594}, 'lof': {'pass': False, 'score': 0.18387960117239519}, 'margin': {'pass': True, 'margin': 0.02452009916305542, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.99}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "e0f98891077ca15abf222352fcb43a8775e0910b0ff3194cf7d8718a388b9287",
+      "previous_signature": "146644364fe5e7923524351497d739531e976acfa6993ad6128048ed74fbc542"
+    },
+    {
+      "sequence_number": 29,
+      "timestamp": "2025-11-19T14:09:57.506505",
+      "audio_segment_id": "b18020841be2c8a7",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.660703182220459,
+      "spatial_similarity": null,
+      "combined_score": 0.7040594047874383,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.660703182220459, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6762272979997732}, 'lof': {'pass': False, 'score': 0.21958592781340047}, 'margin': {'pass': False, 'margin': 0.0688905119895935, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 3, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "ea61e1b20f7dd542208e8f32e768df0f02a6e7e8d8f2e57e25564a587a44b415",
+      "previous_signature": "e0f98891077ca15abf222352fcb43a8775e0910b0ff3194cf7d8718a388b9287"
+    },
+    {
+      "sequence_number": 30,
+      "timestamp": "2025-11-19T14:10:00.736221",
+      "audio_segment_id": "2d056731da0987f3",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.786529541015625,
+      "spatial_similarity": 0.83,
+      "combined_score": 0.7928385026829308,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7930501098632812, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6731806903632488}, 'lof': {'pass': False, 'score': 0.21098521495214367}, 'margin': {'pass': True, 'margin': 0.08378088474273682, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.83}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "2cc6d919d12bb4217b59950da711f1f39d9d285ce6bd84add36dc4a11b5dc070",
+      "previous_signature": "ea61e1b20f7dd542208e8f32e768df0f02a6e7e8d8f2e57e25564a587a44b415"
+    },
+    {
+      "sequence_number": 31,
+      "timestamp": "2025-11-19T14:10:03.997233",
+      "audio_segment_id": "bcc4355a7346a6bb",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.7558363080024719,
+      "spatial_similarity": 0.94,
+      "combined_score": 0.7840875504094512,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7834608618021012, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6763487462326884}, 'lof': {'pass': False, 'score': 0.2250563941646259}, 'margin': {'pass': True, 'margin': 0.011998474597930908, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.94}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "6475706f29a6542c6ea41f902816a380a8927e31b3667124f7e5d0232b6ec456",
+      "previous_signature": "2cc6d919d12bb4217b59950da711f1f39d9d285ce6bd84add36dc4a11b5dc070"
+    },
+    {
+      "sequence_number": 32,
+      "timestamp": "2025-11-19T14:10:07.250979",
+      "audio_segment_id": "b9e2d92558590914",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.46784576773643494,
+      "spatial_similarity": null,
+      "combined_score": 0.46784576773643494,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.46784576773643494, 'threshold': 0.64}, 'consistency': {'pass': False, 'score': 0.5358880119311404}, 'lof': {'pass': False, 'score': 0.19403182131787927}, 'margin': {'pass': False, 'margin': 0.043129533529281616, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 1, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "1869e413c78ac672fae39175c36891e5019dfb4eaae4bd3f2b4cac9a525acb04",
+      "previous_signature": "6475706f29a6542c6ea41f902816a380a8927e31b3667124f7e5d0232b6ec456"
+    },
+    {
+      "sequence_number": 33,
+      "timestamp": "2025-11-19T14:10:14.982697",
+      "audio_segment_id": "f22223142d8bd7e9",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.5309423804283142,
+      "spatial_similarity": null,
+      "combined_score": 0.5309423804283142,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.5309423804283142, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5125958919422235}, 'lof': {'pass': False, 'score': 0.21860770225141274}, 'margin': {'pass': False, 'margin': 0.11633387207984924, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 2, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "213b4682a32509522cd095c63ee64bf2783c12a14668de8ad2f2849ced631624",
+      "previous_signature": "1869e413c78ac672fae39175c36891e5019dfb4eaae4bd3f2b4cac9a525acb04"
+    },
+    {
+      "sequence_number": 34,
+      "timestamp": "2025-11-19T14:10:18.191378",
+      "audio_segment_id": "4bd2c2c91eb9b5d5",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.5718940496444702,
+      "spatial_similarity": null,
+      "combined_score": 0.6284051641809187,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.5718940496444702, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.514718758999198}, 'lof': {'pass': False, 'score': 0.20037272166596362}, 'margin': {'pass': False, 'margin': 0.04486340284347534, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 2, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "848d107d533a9fc302718a01d78166be3180b9de35d5c0a7254c535807f0fc48",
+      "previous_signature": "213b4682a32509522cd095c63ee64bf2783c12a14668de8ad2f2849ced631624"
+    },
+    {
+      "sequence_number": 35,
+      "timestamp": "2025-11-19T14:10:27.348488",
+      "audio_segment_id": "cd0fb2282fff58ee",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.6919814348220825,
+      "spatial_similarity": 0.89,
+      "combined_score": 0.7214308461754363,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.72168421959877, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5133544368339565}, 'lof': {'pass': False, 'score': 0.22336836813381106}, 'margin': {'pass': True, 'margin': 0.041561782360076904, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.89}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "e95ebbe2fd639707d9b00d7a377caa3ecfc30399ac061fb4a8f9d0bb7af0845a",
+      "previous_signature": "848d107d533a9fc302718a01d78166be3180b9de35d5c0a7254c535807f0fc48"
+    },
+    {
+      "sequence_number": 36,
+      "timestamp": "2025-11-19T14:10:30.577988",
+      "audio_segment_id": "a559799bbad91e55",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.7130473852157593,
+      "spatial_similarity": 0.96,
+      "combined_score": 0.7493412554783874,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7500902774333954, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5182951155461634}, 'lof': {'pass': False, 'score': 0.21208403015804425}, 'margin': {'pass': True, 'margin': 0.016192495822906494, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.96}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "80f64668a1be762f0d863ee8e7a92d14e7f09f8451dc5e0a7a13ad07e2d8b344",
+      "previous_signature": "e95ebbe2fd639707d9b00d7a377caa3ecfc30399ac061fb4a8f9d0bb7af0845a"
+    },
+    {
+      "sequence_number": 37,
+      "timestamp": "2025-11-19T14:10:37.501271",
+      "audio_segment_id": "4eeca64406afaa2c",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.6905114650726318,
+      "spatial_similarity": 0.96,
+      "combined_score": 0.7310702186031641,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7309347453117371, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5202568467262344}, 'lof': {'pass': False, 'score': 0.21555359854885486}, 'margin': {'pass': True, 'margin': 0.0006447434425354004, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.96}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "334765aa8d0d5c2352e7001296fd5044015cd1dc4be56c860297c2ce384129bf",
+      "previous_signature": "80f64668a1be762f0d863ee8e7a92d14e7f09f8451dc5e0a7a13ad07e2d8b344"
+    },
+    {
+      "sequence_number": 38,
+      "timestamp": "2025-11-19T14:10:40.763966",
+      "audio_segment_id": "cf6247404bf51358",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7500941753387451,
+      "spatial_similarity": 0.94,
+      "combined_score": 0.7781109106180751,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7785800490379333, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.713830630248392}, 'lof': {'pass': False, 'score': 0.20090954557257681}, 'margin': {'pass': True, 'margin': 0.09511560201644897, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.94}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "b162a303a1c649f27ce4976df4cbc64d828ae33966240bc9e65e3f85bb54fb9d",
+      "previous_signature": "334765aa8d0d5c2352e7001296fd5044015cd1dc4be56c860297c2ce384129bf"
+    },
+    {
+      "sequence_number": 39,
+      "timestamp": "2025-11-19T14:10:55.655124",
+      "audio_segment_id": "15741315771d7f2a",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.6351942420005798,
+      "spatial_similarity": null,
+      "combined_score": 0.6865277907225398,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.6351942420005798, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.48746986212504906}, 'lof': {'pass': False, 'score': 0.20358256038401606}, 'margin': {'pass': False, 'margin': 0.1028628945350647, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 2, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "cb815ee99d2d0fa5dfab9760acdbf6f6aafaa90fe9f33af98b5c33b60edee749",
+      "previous_signature": "b162a303a1c649f27ce4976df4cbc64d828ae33966240bc9e65e3f85bb54fb9d"
+    },
+    {
+      "sequence_number": 40,
+      "timestamp": "2025-11-19T14:11:04.303923",
+      "audio_segment_id": "acd6e0f2ce654106",
+      "speaker_key": "participant_0",
+      "speaker_name": "fgbfbfbfbvfb",
+      "voice_similarity": 0.7260291576385498,
+      "spatial_similarity": 0.94,
+      "combined_score": 0.7587242610763274,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7581247839927673, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5529130243285684}, 'lof': {'pass': False, 'score': 0.21350460788348075}, 'margin': {'pass': True, 'margin': 0.022995710372924805, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.94}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "663b9458ea3252038389d22d228b17b9d081065b85d92cfc6290e22d7e95ccd3",
+      "previous_signature": "cb815ee99d2d0fa5dfab9760acdbf6f6aafaa90fe9f33af98b5c33b60edee749"
+    },
+    {
+      "sequence_number": 41,
+      "timestamp": "2025-11-19T14:11:13.183941",
+      "audio_segment_id": "63e029b265a84486",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.8009442090988159,
+      "spatial_similarity": 0.98,
+      "combined_score": 0.828170553211623,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.8278025777339936, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6728119873525247}, 'lof': {'pass': False, 'score': 0.22554027876779834}, 'margin': {'pass': True, 'margin': 0.06597673892974854, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.98}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "f3625412cfedb8e5c729841e83b6c31b3aeb619a07919163010d8ce1db06d53a",
+      "previous_signature": "663b9458ea3252038389d22d228b17b9d081065b85d92cfc6290e22d7e95ccd3"
+    },
+    {
+      "sequence_number": 42,
+      "timestamp": "2025-11-19T14:11:22.169208",
+      "audio_segment_id": "8c55f82f37a4aac4",
+      "speaker_key": "participant_1",
+      "speaker_name": "sfdvdvfd",
+      "voice_similarity": 0.7813829183578491,
+      "spatial_similarity": 0.96,
+      "combined_score": 0.8079198621933659,
+      "decision": "REJECTED",
+      "threshold_used": 0.64,
+      "quality_metrics": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.8081754806041718, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6854849095950784}, 'lof': {'pass': False, 'score': 0.21272921128423847}, 'margin': {'pass': True, 'margin': 0.10286647081375122, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.96}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+      "signature": "03e8326abed628a81dc0c44f63d86b99d28451a9fc8190cf1d65218d78b691f4",
+      "previous_signature": "f3625412cfedb8e5c729841e83b6c31b3aeb619a07919163010d8ce1db06d53a"
+    }
+  ],
+  "rejection_log": [
+    {
+      "timestamp": "2025-11-19T14:06:56.097228",
+      "sequence_number": 0,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7375308836395352,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7372338014841079, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6996868}, 'lof': {'pass': False, 'score': 0.22381905716892403}, 'margin': {'pass': True, 'margin': 0.08402466773986816, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.95}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 0
+    },
+    {
+      "timestamp": "2025-11-19T14:06:59.356326",
+      "sequence_number": 1,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7694098893452709,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7691291229724884, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.7336813}, 'lof': {'pass': False, 'score': 0.21435317026263107}, 'margin': {'pass': True, 'margin': 0.03380537033081055, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.97}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 1
+    },
+    {
+      "timestamp": "2025-11-19T14:07:02.569528",
+      "sequence_number": 2,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7300627656438785,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7304287213087082, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.69168085}, 'lof': {'pass': False, 'score': 0.2156125592563849}, 'margin': {'pass': True, 'margin': 0.020872890949249268, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.95}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 2
+    },
+    {
+      "timestamp": "2025-11-19T14:07:05.938546",
+      "sequence_number": 3,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7633212212042257,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7634956897497177, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.8736762995378294}, 'lof': {'pass': False, 'score': 0.21063868211010714}, 'margin': {'pass': True, 'margin': 0.04189157485961914, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.98}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 3
+    },
+    {
+      "timestamp": "2025-11-19T14:07:09.137847",
+      "sequence_number": 4,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.8151427241761504,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.8147455532550811, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.79440653}, 'lof': {'pass': False, 'score': 0.21751260265562913}, 'margin': {'pass': True, 'margin': 0.11618363857269287, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.93}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 4
+    },
+    {
+      "timestamp": "2025-11-19T14:07:12.698506",
+      "sequence_number": 5,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7622309188853935,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7615375788211822, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.8880231681637141}, 'lof': {'pass': False, 'score': 0.22557243461549115}, 'margin': {'pass': True, 'margin': 0.07567989826202393, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.98}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 5
+    },
+    {
+      "timestamp": "2025-11-19T14:07:16.066390",
+      "sequence_number": 6,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7653555889178671,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7655699393749238, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.7045307675059346}, 'lof': {'pass': False, 'score': 0.2265287774932481}, 'margin': {'pass': True, 'margin': 0.03510892391204834, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.89}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 6
+    },
+    {
+      "timestamp": "2025-11-19T14:07:25.167276",
+      "sequence_number": 7,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7703592924058764,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.770273015499115, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.7333307351429593}, 'lof': {'pass': False, 'score': 0.20394547047038408}, 'margin': {'pass': True, 'margin': 0.08756113052368164, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.9}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 7
+    },
+    {
+      "timestamp": "2025-11-19T14:07:34.955431",
+      "sequence_number": 8,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.6323492435606881,
+      "quality": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.58390873670578, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5960874876542471}, 'lof': {'pass': False, 'score': 0.21585730077195042}, 'margin': {'pass': False, 'margin': 0.11660158634185791, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 2, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 8
+    },
+    {
+      "timestamp": "2025-11-19T14:07:38.226897",
+      "sequence_number": 9,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7911401024707642,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7916127698421478, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.606591308691064}, 'lof': {'pass': False, 'score': 0.20996916820740527}, 'margin': {'pass': True, 'margin': 0.052438974380493164, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.97}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 9
+    },
+    {
+      "timestamp": "2025-11-19T14:07:47.238176",
+      "sequence_number": 10,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.704240911551324,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7046549144983292, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6250465311756571}, 'lof': {'pass': True, 'score': 0.22888183339286886}, 'margin': {'pass': False, 'margin': 0.09660303592681885, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': 0.94}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 10
+    },
+    {
+      "timestamp": "2025-11-19T14:07:50.465958",
+      "sequence_number": 11,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7667701551975571,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7670890302658081, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.765465687020534}, 'lof': {'pass': False, 'score': 0.20180306679938323}, 'margin': {'pass': True, 'margin': 0.05099177360534668, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.98}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 11
+    },
+    {
+      "timestamp": "2025-11-19T14:07:57.211875",
+      "sequence_number": 12,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.6479317296657787,
+      "quality": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.586722731590271, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6234144448333742}, 'lof': {'pass': False, 'score': 0.17944656597794242}, 'margin': {'pass': False, 'margin': 0.008680582046508789, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 2, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 12
+    },
+    {
+      "timestamp": "2025-11-19T14:08:04.030526",
+      "sequence_number": 13,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.718491780764936,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7187772517204285, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6349077158880181}, 'lof': {'pass': False, 'score': 0.20639430530788094}, 'margin': {'pass': True, 'margin': 0.011810243129730225, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.92}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 13
+    },
+    {
+      "timestamp": "2025-11-19T14:08:10.888230",
+      "sequence_number": 14,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7594239687370383,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7589426033496856, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6194027537436463}, 'lof': {'pass': False, 'score': 0.20193240213006391}, 'margin': {'pass': True, 'margin': 0.08776640892028809, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.87}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 14
+    },
+    {
+      "timestamp": "2025-11-19T14:08:14.109240",
+      "sequence_number": 15,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7220384806979556,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7221009080410004, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6132922595723419}, 'lof': {'pass': False, 'score': 0.20248421531732755}, 'margin': {'pass': True, 'margin': 0.013662099838256836, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.92}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 15
+    },
+    {
+      "timestamp": "2025-11-19T14:08:20.862219",
+      "sequence_number": 16,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.773020457551066,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7736408226490021, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6121251968358785}, 'lof': {'pass': False, 'score': 0.2072736920898202}, 'margin': {'pass': True, 'margin': 0.022647380828857422, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.87}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 16
+    },
+    {
+      "timestamp": "2025-11-19T14:08:33.532133",
+      "sequence_number": 17,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.8246739011689549,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.824949994802475, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5592228991712461}, 'lof': {'pass': False, 'score': 0.22354431050346002}, 'margin': {'pass': True, 'margin': 0.14432477951049805, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.98}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 17
+    },
+    {
+      "timestamp": "2025-11-19T14:08:36.741444",
+      "sequence_number": 18,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.5357435345649719,
+      "quality": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.5357435345649719, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.540984541139318}, 'lof': {'pass': False, 'score': 0.20607375313780313}, 'margin': {'pass': False, 'margin': 0.09381487965583801, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 2, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 18
+    },
+    {
+      "timestamp": "2025-11-19T14:08:39.928909",
+      "sequence_number": 19,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7455867011296086,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7455049443244933, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.629608466501781}, 'lof': {'pass': False, 'score': 0.19014391500158487}, 'margin': {'pass': True, 'margin': 0.019382476806640625, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.95}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 19
+    },
+    {
+      "timestamp": "2025-11-19T14:08:48.854873",
+      "sequence_number": 20,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.8040590209720841,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.804069312095642, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6383835546568547}, 'lof': {'pass': False, 'score': 0.21305294063116295}, 'margin': {'pass': True, 'margin': 0.07284867763519287, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.97}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 20
+    },
+    {
+      "timestamp": "2025-11-19T14:08:52.088415",
+      "sequence_number": 21,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7330925550256101,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7327693450450896, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5419804259619916}, 'lof': {'pass': False, 'score': 0.21211564916692738}, 'margin': {'pass': True, 'margin': 0.0048043131828308105, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.95}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 21
+    },
+    {
+      "timestamp": "2025-11-19T14:08:55.359137",
+      "sequence_number": 22,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7953834871259161,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7958217298984528, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6483238094409108}, 'lof': {'pass': False, 'score': 0.21470265683726697}, 'margin': {'pass': True, 'margin': 0.059445083141326904, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.9}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 22
+    },
+    {
+      "timestamp": "2025-11-19T14:08:58.568260",
+      "sequence_number": 23,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7619055658224769,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7612654045820235, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6417718811588007}, 'lof': {'pass': False, 'score': 0.19276116187307987}, 'margin': {'pass': True, 'margin': 0.014305293560028076, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.99}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 23
+    },
+    {
+      "timestamp": "2025-11-19T14:09:01.758805",
+      "sequence_number": 24,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7895958826227091,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7896392514705657, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6776120176702315}, 'lof': {'pass': False, 'score': 0.2104349506617484}, 'margin': {'pass': True, 'margin': 0.02842116355895996, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.91}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 24
+    },
+    {
+      "timestamp": "2025-11-19T14:09:04.958389",
+      "sequence_number": 25,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7279584630118242,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7283102684020997, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.653365900473544}, 'lof': {'pass': False, 'score': 0.22473717194180276}, 'margin': {'pass': True, 'margin': 0.01454615592956543, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.87}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 25
+    },
+    {
+      "timestamp": "2025-11-19T14:09:08.147723",
+      "sequence_number": 26,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7491284200731572,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7485212149620056, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5427480308289335}, 'lof': {'pass': False, 'score': 0.21747406573815323}, 'margin': {'pass': True, 'margin': 0.09928321838378906, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.96}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 26
+    },
+    {
+      "timestamp": "2025-11-19T14:09:33.580483",
+      "sequence_number": 27,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7431523414997013,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7438131512403489, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.648157451593766}, 'lof': {'pass': False, 'score': 0.19899071481924566}, 'margin': {'pass': True, 'margin': 0.059924960136413574, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.98}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 27
+    },
+    {
+      "timestamp": "2025-11-19T14:09:36.805288",
+      "sequence_number": 28,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7376647984445329,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7376776382923126, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6688415397672594}, 'lof': {'pass': False, 'score': 0.18387960117239519}, 'margin': {'pass': True, 'margin': 0.02452009916305542, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.99}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 28
+    },
+    {
+      "timestamp": "2025-11-19T14:09:57.506505",
+      "sequence_number": 29,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7040594047874383,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.660703182220459, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6762272979997732}, 'lof': {'pass': False, 'score': 0.21958592781340047}, 'margin': {'pass': False, 'margin': 0.0688905119895935, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 3, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 29
+    },
+    {
+      "timestamp": "2025-11-19T14:10:00.736221",
+      "sequence_number": 30,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7928385026829308,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7930501098632812, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6731806903632488}, 'lof': {'pass': False, 'score': 0.21098521495214367}, 'margin': {'pass': True, 'margin': 0.08378088474273682, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.83}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 30
+    },
+    {
+      "timestamp": "2025-11-19T14:10:03.997233",
+      "sequence_number": 31,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7840875504094512,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7834608618021012, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6763487462326884}, 'lof': {'pass': False, 'score': 0.2250563941646259}, 'margin': {'pass': True, 'margin': 0.011998474597930908, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.94}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 31
+    },
+    {
+      "timestamp": "2025-11-19T14:10:07.250979",
+      "sequence_number": 32,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.46784576773643494,
+      "quality": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.46784576773643494, 'threshold': 0.64}, 'consistency': {'pass': False, 'score': 0.5358880119311404}, 'lof': {'pass': False, 'score': 0.19403182131787927}, 'margin': {'pass': False, 'margin': 0.043129533529281616, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 1, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 32
+    },
+    {
+      "timestamp": "2025-11-19T14:10:14.982697",
+      "sequence_number": 33,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.5309423804283142,
+      "quality": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.5309423804283142, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5125958919422235}, 'lof': {'pass': False, 'score': 0.21860770225141274}, 'margin': {'pass': False, 'margin': 0.11633387207984924, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 2, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 33
+    },
+    {
+      "timestamp": "2025-11-19T14:10:18.191378",
+      "sequence_number": 34,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.6284051641809187,
+      "quality": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.5718940496444702, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.514718758999198}, 'lof': {'pass': False, 'score': 0.20037272166596362}, 'margin': {'pass': False, 'margin': 0.04486340284347534, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 2, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 34
+    },
+    {
+      "timestamp": "2025-11-19T14:10:27.348488",
+      "sequence_number": 35,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7214308461754363,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.72168421959877, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5133544368339565}, 'lof': {'pass': False, 'score': 0.22336836813381106}, 'margin': {'pass': True, 'margin': 0.041561782360076904, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.89}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 35
+    },
+    {
+      "timestamp": "2025-11-19T14:10:30.577988",
+      "sequence_number": 36,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7493412554783874,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7500902774333954, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5182951155461634}, 'lof': {'pass': False, 'score': 0.21208403015804425}, 'margin': {'pass': True, 'margin': 0.016192495822906494, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.96}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 36
+    },
+    {
+      "timestamp": "2025-11-19T14:10:37.501271",
+      "sequence_number": 37,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7310702186031641,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7309347453117371, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5202568467262344}, 'lof': {'pass': False, 'score': 0.21555359854885486}, 'margin': {'pass': True, 'margin': 0.0006447434425354004, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.96}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 37
+    },
+    {
+      "timestamp": "2025-11-19T14:10:40.763966",
+      "sequence_number": 38,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.7781109106180751,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7785800490379333, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.713830630248392}, 'lof': {'pass': False, 'score': 0.20090954557257681}, 'margin': {'pass': True, 'margin': 0.09511560201644897, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.94}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 38
+    },
+    {
+      "timestamp": "2025-11-19T14:10:55.655124",
+      "sequence_number": 39,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.6865277907225398,
+      "quality": {
+        "method_results": "{'threshold': {'pass': False, 'combined_score': 0.6351942420005798, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.48746986212504906}, 'lof': {'pass': False, 'score': 0.20358256038401606}, 'margin': {'pass': False, 'margin': 0.1028628945350647, 'required': 0.12}, 'spatial': {'pass': True, 'similarity': None}, 'decision': {'accept': False, 'methods_passed': 2, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 39
+    },
+    {
+      "timestamp": "2025-11-19T14:11:04.303923",
+      "sequence_number": 40,
+      "reason": "Unknown",
+      "best_match": "fgbfbfbfbvfb",
+      "similarity": 0.7587242610763274,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.7581247839927673, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.5529130243285684}, 'lof': {'pass': False, 'score': 0.21350460788348075}, 'margin': {'pass': True, 'margin': 0.022995710372924805, 'required': 0.1}, 'spatial': {'pass': True, 'similarity': 0.94}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 40
+    },
+    {
+      "timestamp": "2025-11-19T14:11:13.183941",
+      "sequence_number": 41,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.828170553211623,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.8278025777339936, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6728119873525247}, 'lof': {'pass': False, 'score': 0.22554027876779834}, 'margin': {'pass': True, 'margin': 0.06597673892974854, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.98}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 41
+    },
+    {
+      "timestamp": "2025-11-19T14:11:22.169208",
+      "sequence_number": 42,
+      "reason": "Unknown",
+      "best_match": "sfdvdvfd",
+      "similarity": 0.8079198621933659,
+      "quality": {
+        "method_results": "{'threshold': {'pass': True, 'combined_score': 0.8081754806041718, 'threshold': 0.64}, 'consistency': {'pass': True, 'score': 0.6854849095950784}, 'lof': {'pass': False, 'score': 0.21272921128423847}, 'margin': {'pass': True, 'margin': 0.10286647081375122, 'required': 0.08}, 'spatial': {'pass': True, 'similarity': 0.96}, 'decision': {'accept': False, 'methods_passed': 4, 'methods_total': 5, 'mode': 'STRICT'}}"
+      },
+      "verification_ref": 42
+    }
+  ],
+  "system_events": [
+    {
+      "timestamp": "2025-11-19T13:21:09.526228",
+      "event_type": "SESSION_START",
+      "details": {
+        "session_id": "509300a1-2429-447c-87d0-3b7f2fdd0d84",
+        "room_id": "InterrogationRoom_A",
+        "case_id": "INV-2025-001",
+        "timestamp": "2025-11-19T13:21:09.526228"
+      }
+    },
+    {
+      "timestamp": "2025-11-19T14:05:37.088628",
+      "event_type": "PARTICIPANT_ENROLLED",
+      "details": {
+        "key": "participant_0",
+        "name": "fgbfbfbfbvfb",
+        "role": "Int",
+        "enrollment_quality": 0.7414975162658413,
+        "enrollment_time": "2025-11-19T14:05:37.088628",
+        "utterance_count": 16
+      }
+    },
+    {
+      "timestamp": "2025-11-19T14:06:46.728409",
+      "event_type": "PARTICIPANT_ENROLLED",
+      "details": {
+        "key": "participant_1",
+        "name": "sfdvdvfd",
+        "role": "Sus",
+        "enrollment_quality": 0.7951078982555436,
+        "enrollment_time": "2025-11-19T14:06:46.728409",
+        "utterance_count": 10
+      }
+    },
+    {
+      "timestamp": "2025-11-19T14:06:52.714912",
+      "event_type": "INTERROGATION_START",
+      "details": {}
+    }
+  ]
+}

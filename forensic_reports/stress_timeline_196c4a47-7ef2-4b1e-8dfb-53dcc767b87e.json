@@ -1,0 +1,709 @@
+{
+  "session_id": "196c4a47-7ef2-4b1e-8dfb-53dcc767b87e",
+  "baseline_acoustic": 0.31743589743589756,
+  "baseline_linguistic": 0.10051282051282054,
+  "overall_trend": 5.996333124885966e-05,
+  "change_points": [],
+  "timeline": [
+    {
+      "timestamp": "2025-11-19 14:21:43.681116",
+      "time_elapsed_seconds": 0.0,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:21:47.319327",
+      "time_elapsed_seconds": 3.638211,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:21:50.887563",
+      "time_elapsed_seconds": 7.206447,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:21:54.465115",
+      "time_elapsed_seconds": 10.783999,
+      "acoustic_stress": 0.38,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.268
+    },
+    {
+      "timestamp": "2025-11-19 14:21:58.039361",
+      "time_elapsed_seconds": 14.358245,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:22:01.558996",
+      "time_elapsed_seconds": 17.87788,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:22:05.087046",
+      "time_elapsed_seconds": 21.40593,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:22:12.005193",
+      "time_elapsed_seconds": 28.324077,
+      "acoustic_stress": 0.1,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.1
+    },
+    {
+      "timestamp": "2025-11-19 14:22:17.573012",
+      "time_elapsed_seconds": 33.891896,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:22:22.731167",
+      "time_elapsed_seconds": 39.050051,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:22:32.724516",
+      "time_elapsed_seconds": 49.0434,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:22:40.317458",
+      "time_elapsed_seconds": 56.636342,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:22:53.290116",
+      "time_elapsed_seconds": 69.609,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:23:01.379225",
+      "time_elapsed_seconds": 77.698109,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:23:14.972676",
+      "time_elapsed_seconds": 91.29156,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:23:24.546226",
+      "time_elapsed_seconds": 100.86511,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:23:28.168980",
+      "time_elapsed_seconds": 104.487864,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:23:37.136871",
+      "time_elapsed_seconds": 113.455755,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:23:47.176505",
+      "time_elapsed_seconds": 123.495389,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:24:04.457114",
+      "time_elapsed_seconds": 140.775998,
+      "acoustic_stress": 0.1,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.1
+    },
+    {
+      "timestamp": "2025-11-19 14:24:37.097469",
+      "time_elapsed_seconds": 173.416353,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:24:40.627663",
+      "time_elapsed_seconds": 176.946547,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:24:44.163956",
+      "time_elapsed_seconds": 180.48284,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:24:50.296078",
+      "time_elapsed_seconds": 186.614962,
+      "acoustic_stress": 0.1,
+      "linguistic_stress": 0.22,
+      "combined_stress": 0.14800000000000002
+    },
+    {
+      "timestamp": "2025-11-19 14:24:53.963186",
+      "time_elapsed_seconds": 190.28207,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.0,
+      "combined_stress": 0.12
+    },
+    {
+      "timestamp": "2025-11-19 14:24:57.643691",
+      "time_elapsed_seconds": 193.962575,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:25:01.280989",
+      "time_elapsed_seconds": 197.599873,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:25:07.652853",
+      "time_elapsed_seconds": 203.971737,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:25:19.081978",
+      "time_elapsed_seconds": 215.400862,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:25:24.661254",
+      "time_elapsed_seconds": 220.980138,
+      "acoustic_stress": 0.5,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.33999999999999997
+    },
+    {
+      "timestamp": "2025-11-19 14:25:28.956341",
+      "time_elapsed_seconds": 225.275225,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:25:34.145102",
+      "time_elapsed_seconds": 230.463986,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:25:44.301064",
+      "time_elapsed_seconds": 240.619948,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:25:58.050796",
+      "time_elapsed_seconds": 254.36968,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:26:06.947104",
+      "time_elapsed_seconds": 263.265988,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:26:12.990787",
+      "time_elapsed_seconds": 269.309671,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:26:20.655416",
+      "time_elapsed_seconds": 276.9743,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:26:26.331757",
+      "time_elapsed_seconds": 282.650641,
+      "acoustic_stress": 0.5,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.33999999999999997
+    },
+    {
+      "timestamp": "2025-11-19 14:26:32.368770",
+      "time_elapsed_seconds": 288.687654,
+      "acoustic_stress": 0.5,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.33999999999999997
+    },
+    {
+      "timestamp": "2025-11-19 14:26:44.236930",
+      "time_elapsed_seconds": 300.555814,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:26:47.870890",
+      "time_elapsed_seconds": 304.189774,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:27:08.462375",
+      "time_elapsed_seconds": 324.781259,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:27:12.100718",
+      "time_elapsed_seconds": 328.419602,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:27:17.681613",
+      "time_elapsed_seconds": 334.000497,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:27:23.396813",
+      "time_elapsed_seconds": 339.715697,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:28:06.228112",
+      "time_elapsed_seconds": 382.546996,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:28:12.123934",
+      "time_elapsed_seconds": 388.442818,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:28:18.214937",
+      "time_elapsed_seconds": 394.533821,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:28:22.382693",
+      "time_elapsed_seconds": 398.701577,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:28:25.992400",
+      "time_elapsed_seconds": 402.311284,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:28:31.679304",
+      "time_elapsed_seconds": 407.998188,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:28:40.327939",
+      "time_elapsed_seconds": 416.646823,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:28:45.788201",
+      "time_elapsed_seconds": 422.107085,
+      "acoustic_stress": 0.5,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.33999999999999997
+    },
+    {
+      "timestamp": "2025-11-19 14:28:49.485508",
+      "time_elapsed_seconds": 425.804392,
+      "acoustic_stress": 0.5,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.33999999999999997
+    },
+    {
+      "timestamp": "2025-11-19 14:28:53.127139",
+      "time_elapsed_seconds": 429.446023,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:28:58.948811",
+      "time_elapsed_seconds": 435.267695,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:29:10.780012",
+      "time_elapsed_seconds": 447.098896,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:29:22.838597",
+      "time_elapsed_seconds": 459.157481,
+      "acoustic_stress": 0.58,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.388
+    },
+    {
+      "timestamp": "2025-11-19 14:29:26.477453",
+      "time_elapsed_seconds": 462.796337,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:29:34.230413",
+      "time_elapsed_seconds": 470.549297,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:29:42.986156",
+      "time_elapsed_seconds": 479.30504,
+      "acoustic_stress": 0.5,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.33999999999999997
+    },
+    {
+      "timestamp": "2025-11-19 14:29:56.537585",
+      "time_elapsed_seconds": 492.856469,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.2,
+      "combined_stress": 0.32
+    },
+    {
+      "timestamp": "2025-11-19 14:30:10.682506",
+      "time_elapsed_seconds": 507.00139,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:30:14.286515",
+      "time_elapsed_seconds": 510.605399,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:30:19.490513",
+      "time_elapsed_seconds": 515.809397,
+      "acoustic_stress": 0.5,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.33999999999999997
+    },
+    {
+      "timestamp": "2025-11-19 14:30:28.014138",
+      "time_elapsed_seconds": 524.333022,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:30:33.708726",
+      "time_elapsed_seconds": 530.02761,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:30:39.311794",
+      "time_elapsed_seconds": 535.630678,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:30:45.020749",
+      "time_elapsed_seconds": 541.339633,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:30:51.390764",
+      "time_elapsed_seconds": 547.709648,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:30:57.068644",
+      "time_elapsed_seconds": 553.387528,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:31:02.858440",
+      "time_elapsed_seconds": 559.177324,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:31:17.163381",
+      "time_elapsed_seconds": 573.482265,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:31:23.260461",
+      "time_elapsed_seconds": 579.579345,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:31:30.090726",
+      "time_elapsed_seconds": 586.40961,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.18,
+      "combined_stress": 0.312
+    },
+    {
+      "timestamp": "2025-11-19 14:31:35.548520",
+      "time_elapsed_seconds": 591.867404,
+      "acoustic_stress": 0.5,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.33999999999999997
+    },
+    {
+      "timestamp": "2025-11-19 14:31:39.085302",
+      "time_elapsed_seconds": 595.404186,
+      "acoustic_stress": 0.48,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.32799999999999996
+    },
+    {
+      "timestamp": "2025-11-19 14:31:48.304679",
+      "time_elapsed_seconds": 604.623563,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:31:53.746139",
+      "time_elapsed_seconds": 610.065023,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:31:59.503567",
+      "time_elapsed_seconds": 615.822451,
+      "acoustic_stress": 0.5,
+      "linguistic_stress": 0.22,
+      "combined_stress": 0.388
+    },
+    {
+      "timestamp": "2025-11-19 14:32:05.282384",
+      "time_elapsed_seconds": 621.601268,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:32:11.091411",
+      "time_elapsed_seconds": 627.410295,
+      "acoustic_stress": 0.5,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.33999999999999997
+    },
+    {
+      "timestamp": "2025-11-19 14:32:19.552135",
+      "time_elapsed_seconds": 635.871019,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:32:26.248238",
+      "time_elapsed_seconds": 642.567122,
+      "acoustic_stress": 0.48,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.32799999999999996
+    },
+    {
+      "timestamp": "2025-11-19 14:32:34.765414",
+      "time_elapsed_seconds": 651.084298,
+      "acoustic_stress": 0.38,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.268
+    },
+    {
+      "timestamp": "2025-11-19 14:32:40.510301",
+      "time_elapsed_seconds": 656.829185,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:32:44.232375",
+      "time_elapsed_seconds": 660.551259,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:32:49.627821",
+      "time_elapsed_seconds": 665.946705,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:32:53.932625",
+      "time_elapsed_seconds": 670.251509,
+      "acoustic_stress": 0.38,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.268
+    },
+    {
+      "timestamp": "2025-11-19 14:33:03.364760",
+      "time_elapsed_seconds": 679.683644,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:33:08.952517",
+      "time_elapsed_seconds": 685.271401,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:33:12.601163",
+      "time_elapsed_seconds": 688.920047,
+      "acoustic_stress": 0.1,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.1
+    },
+    {
+      "timestamp": "2025-11-19 14:33:22.209388",
+      "time_elapsed_seconds": 698.528272,
+      "acoustic_stress": 0.48,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.32799999999999996
+    },
+    {
+      "timestamp": "2025-11-19 14:33:28.262675",
+      "time_elapsed_seconds": 704.581559,
+      "acoustic_stress": 0.2,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.16
+    },
+    {
+      "timestamp": "2025-11-19 14:33:34.224933",
+      "time_elapsed_seconds": 710.543817,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    },
+    {
+      "timestamp": "2025-11-19 14:33:42.331579",
+      "time_elapsed_seconds": 718.650463,
+      "acoustic_stress": 0.5,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.33999999999999997
+    },
+    {
+      "timestamp": "2025-11-19 14:33:48.204201",
+      "time_elapsed_seconds": 724.523085,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:33:53.710363",
+      "time_elapsed_seconds": 730.029247,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:34:19.396051",
+      "time_elapsed_seconds": 755.714935,
+      "acoustic_stress": 0.4,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.28
+    },
+    {
+      "timestamp": "2025-11-19 14:34:25.140581",
+      "time_elapsed_seconds": 761.459465,
+      "acoustic_stress": 0.30000000000000004,
+      "linguistic_stress": 0.1,
+      "combined_stress": 0.22000000000000003
+    }
+  ]
+}

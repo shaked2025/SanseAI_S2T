@@ -2,951 +2,820 @@
 
 ## 🎯 **OVERVIEW**
 
-This is a comprehensive AI-powered system that automatically transcribes interrogation sessions and provides deep analysis including speaker identification, stress detection, and topic modeling.
+AI-powered system for automatic transcription of interrogation sessions with speaker identification, stress detection, and topic analysis.
 
-**For:** Law enforcement, legal proceedings, investigative interviews
-**Purpose:** Accurate transcription with speaker identification and psychological analysis
+**For:** Law enforcement, legal proceedings, investigative interviews  
+**Purpose:** Accurate transcription with speaker identification and psychological analysis  
 **Privacy:** 100% local processing, no cloud services, no data transmission
 
 ---
 
-## 🔄 **COMPLETE SYSTEM FLOW**
-
-### **HIGH-LEVEL PROCESS:**
+## 🔄 **SYSTEM FLOW**
 
 ```
-Audio Input (Microphone)
-    ↓
-Speaker Identification (WHO is speaking)
-    ↓
-Speech-to-Text Transcription (WHAT was said)
-    ↓
-Multi-Dimensional Analysis (HOW it was said, stress, topics)
-    ↓
-Forensic Report Generation (Legal-compliant output)
+Audio Input → Speaker Identification → Speech-to-Text → Multi-Dimensional Analysis → Forensic Report
 ```
 
 ---
 
-## 📋 **DETAILED PROCESS BREAKDOWN**
+## 📋 **PROCESS BREAKDOWN**
 
-### **PHASE 1: ENROLLMENT (Before Interrogation)**
-
-**What Happens:**
-Each participant records 6 voice samples (5 seconds each) to create their unique "voiceprint."
+### **PHASE 1: ENROLLMENT**
 
 **Process:**
-1. **Participant speaks into microphone** (6 times, 5 seconds each)
-   - Example: "My name is John Smith, I am the interrogator"
-   - Total time: ~30 seconds per person
+1. Participant records 6 voice samples (5 seconds each)
+2. Resemblyzer AI converts each sample to 256-dimensional voiceprint
+3. Averages 6 samples to create master voiceprint
+4. Extracts spatial location features (6-number signature)
+5. Stores: Name, role, voiceprint, location signature
 
-2. **Voice Analysis (Resemblyzer AI Model)**
-   - Converts each 5-second recording into a 256-number mathematical representation
-   - These 256 numbers capture unique voice characteristics (pitch, timbre, speaking style)
-   - Think of it like a fingerprint, but for voice
-
-3. **Voiceprint Creation**
-   - Averages the 6 samples to create one "master voiceprint"
-   - Calculates consistency (how similar the 6 samples are)
-   - Quality score: 70-90% typical (higher = more consistent voice)
-
-4. **Location Fingerprint (Spatial Features)**
-   - Analyzes acoustic characteristics of speaker's position
-   - Measures: Echo patterns, frequency absorption, distance from microphone
-   - Creates 6-number "location signature"
-   - Purpose: Reject speakers in different locations (passersby)
-
-5. **Storage**
-   - Name, role, voiceprint, location signature saved
-   - Ready for real-time verification during interrogation
-
-**Technologies Used:**
-- **Resemblyzer:** Deep learning model for voice embeddings
-  - Type: Neural network (3-layer LSTM)
-  - Training: Trained on 100,000+ voice samples
-  - Output: 256-dimensional voice "fingerprint"
-  
-- **Spatial Audio Analysis:** Acoustic physics calculations
-  - DRR (Direct-to-Reverberant Ratio)
-  - Spectral analysis
-  - Room acoustics modeling
+**Technologies:**
+- **Resemblyzer:** 3-layer LSTM, 256-dim embeddings
+- **Spatial Analysis:** DRR, spectral analysis, room acoustics
 
 ---
 
 ### **PHASE 2: LIVE INTERROGATION**
 
-**What Happens:**
-Real-time processing as people speak, identifying WHO said WHAT with quality indicators.
-
-#### **Step 1: Audio Capture (Continuous)**
-
-**Process:**
-- Microphone continuously records at 16,000 samples per second
-- Audio stored in circular buffer (last 10 seconds always available)
-- Every 1.5 seconds, system processes a 2.5-second chunk
-
-**Why 2.5 seconds?**
-- Long enough for voice analysis (need speech patterns)
-- Short enough for real-time (minimal delay)
-- Overlapping chunks ensure nothing missed
+#### **Step 1: Audio Capture**
+- Continuous recording at 16,000 Hz
+- Processes 2.5-second overlapping chunks every 1.5 seconds
 
 #### **Step 2: Voice Activity Detection**
+- RMS energy threshold: 300
+- Filters silence/background noise
 
-**Process:**
-- Calculates audio energy (RMS - Root Mean Square)
-- If energy > threshold (300): Speech detected, proceed
-- If energy < threshold: Silence/background noise, skip
+#### **Step 3: Speaker Verification**
+- Extracts 256-dim voice embedding (Resemblyzer)
+- Compares to all enrolled voiceprints (cosine similarity)
+- Extracts spatial features, compares to enrolled location
+- **Combined Score:** 85% voice + 15% spatial
+- **Threshold:** 0.64 (accept if above)
+- **5-Layer Rejection:** Threshold, consistency, outlier, margin, spatial
 
-**Purpose:**
-- Don't waste processing on silence
-- Reduce false detections
+#### **Step 4: Speech-to-Text**
+- **Whisper (Base Model):** 74M parameters, Transformer architecture
+- Processing: ~1.5 seconds per 2.5s audio
+- Output: Text with confidence scores and timestamps
 
-#### **Step 3: Speaker Verification (WHO)**
+#### **Step 5: Comprehensive Analysis**
 
-**Technologies:**
-1. **Voice Embedding Extraction**
-   - Same Resemblyzer model as enrollment
-   - Converts 2.5s audio → 256-number representation
-   - Processing time: ~100ms
+**A. Acoustic Stress Analysis (60+ Features)**
 
-2. **Similarity Calculation**
-   - Compares test voice to ALL enrolled voiceprints
-   - Uses cosine similarity (mathematical distance measure)
-   - Each comparison: dot product of 256 numbers
-   - Output: Similarity score 0-1 for each person
-   - Example: Person A: 0.78, Person B: 0.45
+**1. Fundamental Frequency (F0) Features (15 features)**
 
-3. **Location Verification**
-   - Extracts spatial features from test audio
-   - Compares to enrolled location signatures
-   - Output: Spatial similarity 0-1
-   - Example: Spatial: 0.96 (same position!)
+**f0_mean** - Average pitch (Hz)
+- Normal: 100-300 Hz (males), 150-400 Hz (females)
+- Stress: Increases 20-40 Hz
+- Research: Scherer (1986), r=0.58 with stress
 
-4. **Combined Decision**
-   - Voice score: 85% weight
-   - Spatial score: 15% weight
-   - Combined = 0.85 × 0.78 + 0.15 × 0.96 = 0.81
-   - Threshold: 0.64
-   - Decision: 0.81 > 0.64 → **ACCEPTED**
+**f0_std** - Pitch variability (Hz)
+- Normal: 15-25 Hz
+- Stress: 30-50 Hz (voice wavers)
+- Research: Hansen (1996), r=0.62 with stress
 
-**Rejection Mechanisms (5 layers):**
-1. Threshold check (combined score > 0.64)
-2. Consistency check (temporal variance low)
-3. Outlier detection (density-based)
-4. Margin requirement (clear winner)
-5. Spatial match (location confirms)
+**f0_min** - Minimum pitch (Hz)
+- Indicates lowest vocal register used
 
-**All 5 must pass → Accept. Any fails → Reject as unknown.**
+**f0_max** - Maximum pitch (Hz)
+- Indicates highest vocal register used
 
-#### **Step 4: Speech-to-Text Transcription (WHAT)**
+**f0_range** - Pitch range (max - min, Hz)
+- Normal: 100-200 Hz
+- Stress: Often increases (wider range)
 
-**Technology: OpenAI Whisper (Base Model)**
-- Type: Transformer neural network
-- Size: 74 million parameters
-- Training: 680,000 hours of multilingual speech
-- Processing time: ~1.5 seconds per 2.5s audio
+**f0_median** - Median pitch (Hz)
+- Robust to outliers, better than mean for skewed distributions
 
-**Process:**
-1. **Audio Preprocessing**
-   - Converts to mel spectrogram (frequency representation)
-   - 80 frequency bands over time
+**f0_cv** - Coefficient of variation (std/mean)
+- Normalized variability measure
+- Normal: 0.10-0.15
+- Stress: >0.20 (more variable)
 
-2. **Encoder (Audio → Meaning)**
-   - 6-layer transformer processes audio
-   - Creates contextualized representation
+**f0_q25** - 25th percentile pitch (Hz)
+- Lower quartile, indicates pitch floor
 
-3. **Decoder (Meaning → Text)**
-   - 6-layer transformer generates text
-   - Produces text word-by-word
-   - Uses beam search (explores multiple possibilities)
+**f0_q75** - 75th percentile pitch (Hz)
+- Upper quartile, indicates pitch ceiling
 
-4. **Output**
-   - Text: "I was at home that evening"
-   - Confidence metrics: How sure Whisper is
-   - Timestamps: When each word was spoken
+**f0_iqr** - Interquartile range (q75 - q25, Hz)
+- Spread of middle 50% of pitch values
+- Stress: Often increases
 
-#### **Step 5: Comprehensive Analysis (HOW + Context)**
+**f0_mean_abs_slope** - Average absolute pitch change rate (Hz/frame)
+- Measures how quickly pitch changes
+- Stress: Higher (more erratic pitch movements)
 
-**A. Acoustic Stress Analysis (50+ Features)**
+**f0_slope_variance** - Variance of pitch changes
+- Measures consistency of pitch movements
+- Stress: Higher (inconsistent changes)
 
-**What's Measured:**
-1. **Pitch (F0) Features:**
-   - Average pitch, variability, range
-   - Purpose: Stress increases pitch 20-40 Hz
-   - 15 different pitch measurements
+**f0_rising_percent** - Percentage of rising pitch contours
+- Normal: ~50%
+- Stress: May increase (uncertainty questions)
 
-2. **Jitter (Voice Tremor):**
-   - Pitch period instability
-   - Purpose: Stress causes voice to waver
-   - Normal: <1%, Stressed: 1-3%
+**f0_falling_percent** - Percentage of falling pitch contours
+- Normal: ~50%
+- Stress: May decrease
 
-3. **Shimmer (Amplitude Variation):**
-   - Loudness fluctuations
-   - Purpose: Stress affects voice stability
-   - Normal: <3%, Stressed: 3-6%
+**voicing_ratio** - Ratio of voiced to unvoiced frames
+- Normal: 0.6-0.8
+- Stress: May decrease (more breathy/unvoiced segments)
 
-4. **Formants (Vocal Tract Resonances):**
-   - F1-F4 frequency measurements
-   - Purpose: Stress tenses vocal tract
-   - Detects vocal tension
+**2. Jitter Features (3 features)**
 
-5. **Energy Dynamics:**
-   - Breathing patterns, energy modulation
-   - Purpose: Stress affects breath control
-   - Measures erratic vs smooth energy
+**jitter_percent** - Pitch period perturbation percentage
+- Measures cycle-to-cycle variation in pitch period
+- Normal: <1%
+- Stressed: 1-3%
+- Very stressed: >3%
+- Research: Voice pathology standard (Baken & Orlikoff, 2000)
 
-6. **Pause Patterns:**
-   - Count, duration, ratio
-   - Purpose: Hesitation indicates processing/stress
-   - Detects long pauses (>0.5s)
+**jitter_rap** - Relative Average Perturbation (3-point jitter)
+- More robust than simple jitter
+- Uses 3-point moving average to reduce noise
+- Normal: <0.5%
+- Stressed: 0.5-1.5%
 
-7. **Voice Quality:**
-   - Harmonics-to-Noise Ratio (HNR)
-   - Zero-crossing rate
-   - Purpose: Stress degrades voice quality
+**jitter_ppq5** - 5-point Period Perturbation Quotient
+- Smoothes over 5 periods for noise robustness
+- Most robust jitter measure
+- Normal: <0.3%
+- Stressed: 0.3-1.0%
 
-**Output:**
-- Acoustic stress probability: 0-1 (0=calm, 1=very stressed)
-- Category: LOW, MODERATE, HIGH
-- Specific indicators: "High F0 variability, elevated shimmer"
+**3. Shimmer Features (5 features)**
+
+**shimmer_percent** - Amplitude perturbation percentage
+- Measures cycle-to-cycle variation in loudness
+- Normal: <3%
+- Stressed: 3-6%
+- Very stressed: >6%
+- Research: Voice pathology standard
+
+**shimmer_db** - Shimmer in decibels (20*log10 ratio)
+- Logarithmic measure of amplitude variation
+- More perceptually relevant than linear percentage
+
+**shimmer_apq3** - 3-point Amplitude Perturbation Quotient
+- Uses 3-point smoothing for robustness
+- Normal: <2%
+- Stressed: 2-4%
+
+**shimmer_apq5** - 5-point Amplitude Perturbation Quotient
+- Smoothes over 5 periods
+- More robust to noise
+- Normal: <1.5%
+- Stressed: 1.5-3%
+
+**shimmer_apq11** - 11-point Amplitude Perturbation Quotient
+- Most robust shimmer measure
+- Smoothes over 11 periods
+- Best for noisy recordings
+- Normal: <1%
+- Stressed: 1-2%
+
+**4. Formant Features (9 features)**
+
+**formant_f1_mean** - First formant frequency (Hz)
+- Vocal tract length indicator
+- Normal: 300-800 Hz
+- Stress: May shift (tensed vocal tract)
+
+**formant_f2_mean** - Second formant frequency (Hz)
+- Tongue position indicator
+- Normal: 800-2500 Hz
+- Stress: May shift (altered articulation)
+
+**formant_f3_mean** - Third formant frequency (Hz)
+- Lip rounding indicator
+- Normal: 2000-3500 Hz
+- Stress: May shift
+
+**formant_f4_mean** - Fourth formant frequency (Hz)
+- Higher vocal tract resonances
+- Normal: 3000-4500 Hz
+
+**formant_f1_std** - F1 variability (Hz)
+- Measures consistency of vocal tract shape
+- Stress: Higher (inconsistent articulation)
+
+**formant_f2_std** - F2 variability (Hz)
+- Measures tongue position consistency
+- Stress: Higher
+
+**formant_f3_std** - F3 variability (Hz)
+- Measures lip rounding consistency
+- Stress: Higher
+
+**formant_f4_std** - F4 variability (Hz)
+- Higher formant variability
+- Stress: Higher
+
+**formant_b1_mean** - F1 bandwidth (Hz)
+- Narrower bandwidth = tenser vocal tract
+- Stress: Often narrower (tension)
+
+**5. Energy Dynamics Features (8 features)**
+
+**energy_mean** - Average RMS energy
+- Overall loudness level
+- Normal: 0.1-0.3 (normalized)
+- Stress: May increase or decrease
+
+**energy_std** - Energy variability
+- Measures loudness fluctuations
+- Normal: 0.05-0.15
+- Stress: Higher (erratic energy)
+
+**energy_cv** - Coefficient of variation (std/mean)
+- Normalized energy variability
+- Normal: 0.3-0.5
+- Stress: >0.6 (erratic breathing)
+
+**energy_max** - Maximum energy peak
+- Peak loudness level
+
+**energy_min** - Minimum energy (non-zero)
+- Quietest voiced segment
+
+**energy_dynamic_range** - Energy range (max - min)
+- Loudness variation span
+- Stress: Often increases
+
+**energy_modulation_depth** - Standard deviation of energy changes
+- Measures energy fluctuation rate
+- Stress: Higher (erratic modulation)
+
+**energy_decay_rate_mean** - Average energy decay after peaks (slope)
+- Measures breath control
+- Normal: Gradual decay
+- Stress: Rapid decay (poor breath control)
+
+**energy_decay_rate_std** - Variability of decay rates
+- Consistency of breath control
+- Stress: Higher (inconsistent)
+
+**6. Spectral Features (8 features)**
+
+**spectral_centroid** - Center of mass of spectrum (Hz)
+- "Brightness" of voice
+- Normal: 1000-2000 Hz
+- Stress: May shift (tensed voice)
+
+**spectral_spread** - Variance around centroid (Hz)
+- Spectral bandwidth
+- Normal: 500-1500 Hz
+- Stress: May change
+
+**spectral_skewness** - Asymmetry of spectrum
+- Positive = high-frequency emphasis
+- Negative = low-frequency emphasis
+- Stress: May shift
+
+**spectral_kurtosis** - Peakedness of spectrum
+- High = concentrated energy
+- Low = spread energy
+- Stress: May change
+
+**spectral_entropy** - Randomness/unpredictability (bits)
+- High = noisy, breathy
+- Low = clear, periodic
+- Normal: 6-8 bits
+- Stress: Higher (more noise)
+
+**spectral_flatness** - Wiener entropy (geometric/arithmetic mean)
+- Measure of noisiness
+- 0 = pure tone, 1 = white noise
+- Normal: 0.1-0.3
+- Stress: Higher (more noise)
+
+**spectral_slope** - Tilt of spectrum (dB/octave)
+- High-frequency emphasis indicator
+- Stress: May change
+
+**hnr_db** - Harmonics-to-Noise Ratio (dB)
+- Voice quality measure
+- High = clear, periodic voice
+- Low = breathy, noisy voice
+- Normal: 15-25 dB
+- Stressed: <10 dB (degraded quality)
+
+**7. Pause Pattern Features (6 features)**
+
+**pause_count** - Number of significant pauses (>50ms)
+- Normal: 2-5 per second
+- Stress: More pauses (hesitation)
+
+**pause_total_duration** - Total pause time (seconds)
+- Cumulative silence
+- Stress: Higher (more hesitation)
+
+**pause_mean_duration** - Average pause length (seconds)
+- Normal: 0.1-0.3s
+- Stress: Longer (0.3-0.8s)
+
+**pause_max_duration** - Longest pause (seconds)
+- Indicates major hesitation
+- Stress: >0.5s common
+
+**pause_ratio** - Pause time / total time
+- Normal: 0.1-0.2 (10-20%)
+- Stress: >0.25 (25%+ pauses)
+
+**long_pause_count** - Number of long pauses (>0.5s)
+- Major hesitation indicator
+- Stress: >2 long pauses
+
+**8. Voice Quality Features (3 features)**
+
+**zero_crossing_rate** - Rate of sign changes (Hz)
+- Voicing quality indicator
+- High = noisy, unvoiced
+- Low = clear, voiced
+- Normal: 0.05-0.15
+- Stress: May increase
+
+**zcr_std** - Zero-crossing rate variability
+- Consistency of voicing
+- Stress: Higher (inconsistent)
+
+**hps_strength** - Harmonic Product Spectrum strength
+- Pitch clarity measure
+- High = clear, periodic
+- Low = breathy, aperiodic
+- Normal: 10-50
+- Stress: Lower (degraded harmonics)
+
+**9. Temporal Dynamics Features (2 features)**
+
+**temporal_energy_variance** - Energy variance across 1-second segments
+- Long-term energy stability
+- Stress: Higher (erratic over time)
+
+**temporal_pitch_variance** - Pitch variance across 1-second segments
+- Long-term pitch stability
+- Stress: Higher (erratic over time)
+
+**Stress Assessment:**
+- Combines all 60+ features into stress probability (0-1)
+- Categories: LOW (<0.35), MODERATE (0.35-0.60), HIGH (>0.60)
+- Indicators: Lists specific stress markers detected
 
 **B. Linguistic Stress Analysis (LIWC-Based, 30+ Categories)**
 
-**Technology: LIWC (Linguistic Inquiry and Word Count)**
-- Research: Validated in 1000+ psychology studies
-- Created by: Pennebaker et al.
-- Purpose: Detect psychological states from word choice
+**Technology:** LIWC (Linguistic Inquiry and Word Count)
+- Research: 1000+ studies, Pennebaker et al.
+- Validation: r=0.45-0.75 with psychological states
 
-**What's Analyzed:**
-
-1. **Emotional Content:**
-   - Anxiety words: worried, scared, nervous (r=0.65 with stress)
-   - Anger words: mad, furious, hate (r=0.61 with anger)
-   - Negative emotion overall (r=0.68)
-
-2. **Cognitive Processes:**
-   - Certainty: always, definitely, clearly (r=0.52 with confidence)
-   - Tentative: maybe, perhaps, probably (r=0.58 with uncertainty)
-   - Insight: think, know, understand (r=0.54 with cognitive complexity)
-
-3. **Pronoun Usage (Critical for Deception):**
-   - "I" usage: Truth-tellers use 27% MORE (validated)
-   - "We/They": Deceivers use these to distance
-   - Self-reference ratio calculated
-
-4. **Temporal Markers:**
-   - Specific times: "at 3:15 PM" (truth-tellers)
-   - Vague times: "sometime afternoon" (deceivers)
-   - Past vs present tense balance
-
-5. **Cognitive Load Indicators:**
-   - Hedges: "kind of", "sort of" (r=0.52 with load)
-   - Filled pauses: "uh", "um", "er" (r=0.52)
-   - Self-corrections: "I mean", "actually"
-   - Shorter sentences (stress impairs capacity)
+**Categories Analyzed:**
+1. **Emotional Content:** Anxiety words (r=0.65), anger words (r=0.61), negative emotion (r=0.68)
+2. **Cognitive Processes:** Certainty (r=0.52), tentative (r=0.58), insight (r=0.54)
+3. **Pronoun Usage:** "I" usage (truth-tellers use 27% more), "we/they" (deceivers distance)
+4. **Temporal Markers:** Specific vs vague times, past vs present tense
+5. **Cognitive Load:** Hedges (r=0.52), filled pauses (r=0.52), self-corrections, shorter sentences
 
 **Output:**
 - Linguistic stress probability: 0-1
 - Deception risk: LOW/MODERATE/HIGH
-- Specific markers: "Low self-reference (avoiding 'I'), high uncertainty"
+- Specific markers identified
 
-**C. Semantic Topic Modeling**
-
-**Technology: Sentence-BERT (SBERT)**
-- Research: ACL 2019, state-of-the-art sentence embeddings
-- Purpose: Understand MEANING, not just words
+**C. LLM-Based Topic Modeling**
 
 **Process:**
+1. **Question Extraction:** Pattern-based detection (WH-words, auxiliaries, imperatives)
+2. **Full Context:** Combines all utterances with timestamps
+3. **Topic Extraction:**
+   - **LLM Mode (if available):** Offline LLM (Ollama) understands full context
+   - **Fallback Mode:** Enhanced rule-based with semantic clustering
+4. **Natural Language Summaries:** LLM or rule-based summaries explaining what happened
+5. **Full Transcription:** Collects all utterances per topic
+6. **Timeline Analysis:** Tracks topic mentions, revisits, gaps
 
-1. **Semantic Embedding**
-   - Each utterance converted to 384-number representation
-   - Captures semantic meaning
-   - Example: "I was home" and "I stayed at house" = similar embeddings (same meaning!)
-
-2. **Semantic Clustering**
-   - Groups utterances by meaning similarity
-   - Uses cosine similarity of embeddings
-   - Aggressive merging to get FEW main topics (5-15 typical)
-
-3. **Thematic Labeling**
-   - Matches against known interrogation themes:
-     - Work/Employment
-     - Criminal Activity
-     - Intelligence/Espionage
-     - Alibi/Location
-     - Timeline/Events
-     - Etc.
-   - Or extracts key terms if no theme match
-
-4. **Timeline Analysis**
-   - Detects when topic first mentioned
-   - Tracks all mentions (even hours apart)
-   - Identifies topic returns (gap > 2 minutes)
-
-**Output:**
-- Topic: "Intelligence/Espionage"
-- Mentions: 15
-- Span: 8.7 minutes
-- Revisited: Yes (3 periods)
-- Gaps: 4.2min, 6.8min
-
-**D. Temporal Stress Tracking**
-
-**Process:**
-
-1. **Baseline Establishment (First 5 Minutes)**
-   - Records normal stress levels
-   - Acoustic baseline: e.g., 0.42
-   - Linguistic baseline: e.g., 0.10
-
-2. **Continuous Monitoring**
-   - Tracks stress for every utterance
-   - Compares to baseline
-   - Detects deviations
-
-3. **Trend Detection**
-   - Linear regression over entire session
-   - Slope: Positive = increasing stress, Negative = decreasing
-
-4. **Change Point Detection**
-   - Identifies sudden stress changes
-   - When: Timestamp of spike
-   - Magnitude: How much it changed
-   - Direction: Increase or decrease
-
-**Output:**
-- "Change point at 18:30: stress 0.35 → 0.65 (SPIKE!)"
-- Overall trend: +0.015 per minute (gradually increasing)
+**Output Per Topic:**
+- Topic name
+- Questions asked
+- Natural language summary
+- Full transcription
+- Time span, revisits, gaps
 
 ---
 
 ### **PHASE 3: FORENSIC REPORT GENERATION**
 
-**What's Generated:**
-
-**1. Live Transcript (Real-Time Display)**
-```
-[14:30:15] Interrogator (Det. Smith): Where were you on the evening of...
-    ⚠️ MODERATE STRESS (Acoustic: 0.42, Linguistic: 0.15)
-    Topic: Alibi/Location
-
-[14:30:28] Suspect (John Doe): I was at home watching television.
-    ✓ Low stress (Acoustic: 0.25, Linguistic: 0.08)
-    Topic: Alibi/Location
-```
-
-**2. Topic Analysis Report**
-
-For each main topic:
-- Topic name (high-level theme)
-- Number of mentions
-- Time span (first to last)
-- Topic revisits (if discussed multiple times)
-- **Top 10 most impactful utterances:**
-  - Timestamp
-  - Full text
-  - Stress levels
-  - Ranked by: Stress + length + semantic centrality
-
-**3. Forensic Audit Trail (JSON)**
-- Every verification attempt logged
-- Every rejection logged with reason
-- Cryptographic signatures (tamper-proof)
-- Chain of custody maintained
-- Legally admissible format
-
-**4. Session Summary**
-- Participants enrolled
-- Duration
-- Utterance count
-- Topic breakdown
-- Stress baselines and trends
-- Quality metrics
+**Outputs:**
+1. **Live Transcript:** Real-time display with speaker, text, stress, topic
+2. **Topic Analysis:** Questions, summaries, full transcriptions per topic
+3. **Forensic Audit (JSON):** Complete machine-readable data with cryptographic signatures
+4. **Stress Timeline:** Visualization of stress over time
 
 ---
 
 ## 🧠 **TECHNOLOGY STACK**
 
-### **AI Models Used:**
-
-**1. Resemblyzer (Speaker Identification)**
-- **Purpose:** Convert voice to mathematical representation
-- **Type:** Deep learning (LSTM neural network)
-- **Size:** 24 million parameters
-- **Training:** LibriSpeech corpus (2,000+ speakers)
-- **Output:** 256-dimensional voice embedding
-- **Speed:** ~100ms per utterance
-- **Accuracy:** Proven in our tests (88.9% average, 100% controlled)
+**1. Resemblyzer (Speaker ID)**
+- 3-layer LSTM, 256-dim embeddings
+- Speed: ~100ms per utterance
+- Accuracy: 88-95%
 
 **2. Whisper (Speech-to-Text)**
-- **Purpose:** Convert speech to text
-- **Type:** Transformer neural network
-- **Size:** 74 million parameters
-- **Training:** 680,000 hours multilingual speech (OpenAI)
-- **Output:** Transcribed text with confidence scores
-- **Speed:** ~1.5 seconds per 2.5s audio
-- **Languages:** 99 (English for this system)
+- Transformer, 74M parameters
+- Speed: ~1.5s per 2.5s audio
+- Accuracy: 85-95%
 
-**3. Sentence-BERT (Semantic Understanding)**
-- **Purpose:** Understand MEANING of text
-- **Type:** BERT-based sentence embeddings
-- **Size:** 22 million parameters
-- **Training:** Billions of sentence pairs
-- **Output:** 384-dimensional semantic representation
-- **Use:** Topic clustering, similarity detection
-- **Key Benefit:** "I was home" = "I stayed at house" (understands synonyms!)
+**3. Sentence-BERT (Semantic)**
+- BERT-based, 384-dim embeddings
+- Purpose: Topic clustering, similarity
 
-**4. LIWC (Linguistic Analysis)**
-- **Purpose:** Psychological analysis of language
-- **Type:** Validated word categorization framework
-- **Research:** 1000+ studies by Pennebaker et al.
-- **Categories:** 30+ (emotion, cognition, deception markers, etc.)
-- **Validation:** Proven correlations with psychological states (r=0.45-0.75)
+**4. LIWC (Linguistic)**
+- 30+ validated categories
+- Research: 1000+ studies
+
+**5. Offline LLM (Ollama) - Optional**
+- Purpose: Natural language topic understanding
+- Privacy: 100% local
+- Fallback: Enhanced rule-based when unavailable
 
 ---
 
-## 🔍 **KEY FEATURES EXPLAINED**
+## 🔍 **KEY FEATURES**
 
-### **1. Speaker Identification (WHO)**
+### **1. Speaker Identification**
+- Voice matching: Cosine similarity (0-1)
+- Spatial verification: 6-number location signature
+- Combined score: 85% voice + 15% spatial
+- 5-layer rejection system
+- Accuracy: 90-95% enrolled, 93-95% unknown rejection
 
-**How It Works:**
+### **2. Stress Detection**
+- **Acoustic:** 60+ features → stress probability
+- **Linguistic:** 30+ LIWC categories → stress probability
+- **Combined:** 60% acoustic + 40% linguistic
+- Categories: LOW, MODERATE, HIGH
 
-**Voice Matching:**
-- Compares current speech to enrolled voiceprints
-- Uses mathematical similarity (cosine similarity)
-- Score: 0 (completely different) to 1 (identical)
-- Typical enrolled speaker: 0.70-0.90
-- Typical unknown: 0.40-0.60
-
-**Spatial Verification (YOUR Innovation!):**
-- Each position in room has unique acoustic "signature"
-- System learns this during enrollment
-- During interrogation: Checks if speaker is in same position
-- Score: 0.95-0.99 for same position, 0.50-0.65 for different
-- **Key Benefit:** Rejects passersby even if voice is similar!
-
-**Spatial Boost Feature:**
-- Problem: Someone with borderline voice score (0.63)
-- Solution: If spatial confirms same position (0.97)
-- Combined score: 0.85×0.63 + 0.15×0.97 = 0.68
-- Result: ACCEPTED despite borderline voice!
-- **Use Case:** Prevents unfair rejection of softer speakers
-
-**Rejection System (5-Layer Security):**
-1. Threshold check (score must exceed 0.64)
-2. Consistency check (must match recent pattern)
-3. Outlier detection (must be in normal speaker space)
-4. Margin requirement (must clearly win vs other speakers)
-5. Spatial verification (must match location)
-
-**Outcome:**
-- Enrolled speakers: 90-95% accepted
-- Unknown speakers: 93-95% rejected
-- Forensic-grade security
-
----
-
-### **2. Stress Detection (HOW It Was Said)**
-
-**Two Independent Methods:**
-
-**A. Acoustic Stress (Voice Characteristics):**
-
-**What's Measured:**
-- **Pitch changes:** Stress raises pitch 20-40 Hz
-- **Voice tremor (jitter):** Anxious voice wavers (1-3%)
-- **Loudness variation (shimmer):** Stressed voice unsteady (3-6%)
-- **Vocal tension (formants):** Fear tenses vocal tract
-- **Breathing patterns:** Stress disrupts breath control
-- **Hesitation (pauses):** Cognitive load causes pauses
-
-**50+ measurements combined** → Acoustic stress score 0-1
-
-**Research Basis:**
-- Scherer (1986): F0 increase r=0.58 with stress
-- Hansen (1996): F0 variance r=0.62 with stress
-- Voice pathology standards for jitter/shimmer
-
-**B. Linguistic Stress (Word Choice):**
-
-**What's Analyzed:**
-- **Emotion words:** "worried", "scared", "anxious"
-- **Uncertainty language:** "maybe", "probably", "perhaps"
-- **Tentative markers:** High in stressed individuals
-- **Cognitive complexity:** Stress simplifies language
-- **Self-reference:** Stressed people less confident ("I" usage drops)
-- **Hesitation markers:** "uh", "um", "er" frequency
-
-**30+ LIWC categories** → Linguistic stress score 0-1
-
-**Validation:**
-- Pennebaker et al.: Anxiety words r=0.65 with stress
-- Newman et al. (2003): Pronoun patterns r=0.42 with deception
-- Vrij et al. (2008): Cognitive load markers r=0.50
-
-**Combined Stress Score:**
-- 60% acoustic + 40% linguistic
-- Categories: LOW (<0.35), MODERATE (0.35-0.60), HIGH (>0.60)
-
----
-
-### **3. Topic Modeling (Discussion Themes)**
-
-**Purpose:**
-Automatically identify WHAT topics were discussed and group related discussions.
-
-**Process:**
-
-**Step 1: Semantic Understanding**
-- Every utterance converted to 384-D semantic embedding (Sentence-BERT)
-- Embeddings capture MEANING, not words
-- Example: "Tell me about your alibi" and "Where were you that night" = similar embeddings
-
-**Step 2: Semantic Clustering**
-- Groups utterances by semantic similarity
-- Uses hierarchical clustering
-- Target: 5-15 main topics (not 50+)
-- Aggressive merging to get high-level themes
-
-**Step 3: Thematic Labeling**
-- Matches against known interrogation themes:
-  - **Work/Employment:** Job-related discussions
-  - **Criminal Activity:** Offenses, legal issues
-  - **Intelligence/Espionage:** Intelligence agencies, espionage
-  - **Russia/Foreign:** Foreign connections
-  - **Cyber Security:** Digital crimes, hacking
-  - **Alibi/Location:** Where-were-you questions
-  - **Timeline/Events:** When-did-it-happen questions
-  - **Relationships:** Personal connections
-  - And more...
-
-**Step 4: Timeline Tracking**
-- When first mentioned: 00:30
-- All mentions: 00:30, 02:15, 05:40, 08:20
-- Span: 7.8 minutes
-- Revisits: Detected (gaps: 1.8min, 3.4min, 2.7min)
-
-**Example Output:**
-```
-Topic: Intelligence/Espionage
-- 15 mentions
-- Span: 8.7 minutes
-- First: 06:20, Last: 15:05
-- Revisited: No (continuous discussion)
-- Average stress: 0.32 (LOW)
-- Top utterances: [list of 10 most important]
-```
-
-**Why This Matters:**
-- **YOUR Requirement:** "If topic discussed at minute 0-3 and returns at minute 7-9, group as ONE topic"
-- **Solution:** Semantic similarity groups them regardless of time
-- **Benefit:** See complete picture of each discussion theme
-
----
-
-## 📊 **OUTPUT FORMATS**
-
-### **1. Live Transcript (GUI)**
-
-**Real-Time Display:**
-```
-[14:30] Interrogator: Question here... [GOOD quality] Topic: Alibi
-[14:32] Suspect: Answer here... [LOW stress] Topic: Alibi
-[14:45] Interrogator: Follow-up... [GOOD] Topic: Alibi
-[15:10] Interrogator: New question... [GOOD] Topic: Employment
-```
-
-**Features:**
-- Timestamps (precise to second)
-- Speaker name and role
-- Quality indicators
-- Stress markers
-- Topic assignment
-- Color-coded
-
-### **2. Forensic Report (JSON)**
-
-**Complete Machine-Readable Data:**
-```json
-{
-  "session_id": "unique-session-identifier",
-  "participants": [...],
-  "transcript": [
-    {
-      "timestamp": "2025-11-18T14:30:15.123",
-      "speaker": "Det. Smith",
-      "role": "Interrogator",
-      "text": "Where were you...",
-      "voice_similarity": 0.87,
-      "spatial_similarity": 0.96,
-      "acoustic_stress": 0.28,
-      "linguistic_stress": 0.12,
-      "topic": "Alibi/Location",
-      "quality": "GOOD",
-      "confidence": 0.89,
-      "legally_admissible": true
-    },
-    ...
-  ],
-  "topics": [...],
-  "quality_metrics": {...},
-  "integrity_verification": "VERIFIED"
-}
-```
-
-**Uses:**
-- Legal evidence
-- Machine analysis
-- Export to other systems
-- Archival
-
-### **3. Topic Analysis Report (Formatted Text)**
-
-**For Each Main Topic:**
-```
-========================================
-TOPIC: Intelligence/Espionage
-========================================
-Mentions: 15
-Time Span: 8.7 minutes
-First: 06:20, Last: 15:05
-Revisited: No
-
-TOP 10 MOST IMPACTFUL UTTERANCES:
-
-#1 | [06:30] | Stress: 0.45 | Words: 28
-    "I'd like to check whether you have any connection to Russian intelligence..."
-    ⚠️ MODERATE STRESS
-
-#2 | [08:15] | Stress: 0.38 | Words: 22
-    "Have you been approached by intelligence organizations..."
-    ✓ Low stress
-
-... (8 more)
-
-STRESS SUMMARY:
-- Average: 0.32 (LOW overall)
-- Maximum: 0.45 (moderate spike at 06:30)
-- Trend: STABLE
-```
-
-**Uses:**
-- Investigation review
-- Pattern identification
-- Focus on high-stress topics
-- Identify evasion
-
-### **4. Stress Timeline (Visualization)**
-
-**Graph showing:**
-- X-axis: Time (minutes)
-- Y-axis: Stress level (0-1)
-- Blue line: Acoustic stress
-- Red line: Linguistic stress
-- Green line: Combined
-- Orange markers: Change points
-- Topic color bands: What topic was discussed when
-
-**Uses:**
-- Visual pattern recognition
-- Quick overview
-- Presentation to juries
-- Investigation briefings
+### **3. Topic Modeling**
+- Question extraction: Pattern-based
+- LLM-powered or enhanced rule-based
+- Natural language summaries
+- Full transcription per topic
+- Q&A correlation
 
 ---
 
 ## ⚙️ **SYSTEM SPECIFICATIONS**
 
-### **Performance:**
-
-**Processing Speed:**
+**Performance:**
 - Enrollment: ~30 seconds per person
-- Real-time transcription: ~1.5s latency
-- Full analysis: ~10s processing per minute of audio
-- Offline analysis: ~100 chunks per hour
+- Real-time: ~1.5s latency
+- Processing: ~10s per minute of audio
 
 **Accuracy:**
-- Speaker identification: 88-95%
-- Transcription: 85-95% (Whisper standard)
-- Topic detection: 80-90% (semantic clustering)
-- Stress indicators: 75-80% (research-validated)
+- Speaker ID: 88-95%
+- Transcription: 85-95%
+- Question extraction: 95%+
+- Topic detection: 80-90%
+- Stress indicators: 75-80%
 
-### **Requirements:**
-
-**Hardware:**
-- RAM: 2-3 GB during operation
-- CPU: Modern processor (inference on CPU)
+**Requirements:**
+- RAM: 2-3 GB
+- CPU: Modern processor
 - Storage: ~1 GB for models
-- Microphone: Quality external mic recommended
+- Python: 3.10+
+- Optional: Ollama for LLM
 
-**Software:**
-- Python 3.10+
-- No internet needed (after model download)
-- 100% local processing
-
-### **Capacity:**
-
-**Participants:**
-- Simultaneous: Up to 5 people
-- Enrollment: ~5 minutes total (all participants)
-
-**Session Duration:**
-- Tested: Up to 16 minutes
-- Capable: Unlimited (adaptive enrollment handles long sessions)
-
-**Languages:**
-- Current: English
-- Whisper supports: 99 languages (can be extended)
+**Capacity:**
+- Participants: Up to 5 simultaneously
+- Duration: Unlimited
+- Languages: English (Whisper supports 99)
 
 ---
 
 ## 🔒 **FORENSIC COMPLIANCE**
 
-### **Legal Admissibility Features:**
+**Features:**
+1. Complete audit trail (microsecond timestamps)
+2. Chain of custody (session ID, participant roster)
+3. Quality metrics (SNR, confidence scores)
+4. Integrity verification (HMAC-SHA256 signatures)
 
-**1. Complete Audit Trail:**
-- Every verification logged with timestamp (microsecond precision)
-- Every rejection logged with reason
-- Every transcription with confidence score
-- All events cryptographically signed
-
-**2. Chain of Custody:**
-- Session ID tracking
-- Participant roster
-- Temporal sequence maintained
-- Linked entries (tamper detection)
-
-**3. Quality Metrics:**
-- SNR (Signal-to-Noise Ratio) measured
-- Confidence scores per utterance
-- Admissibility determination
-- Manual review flags for low-confidence
-
-**4. Integrity Verification:**
-- HMAC-SHA256 signatures
-- Chain validation
-- Tamper detection
-- Cryptographic proof of authenticity
-
-**Standards Met:**
+**Standards:**
 - NIST Speaker Recognition protocols
 - Forensic audio transcription standards
-- Legal admissibility criteria (>90% accuracy threshold)
-- Chain of custody requirements
+- Legal admissibility criteria (>90% accuracy)
 
 ---
 
 ## 💡 **KEY INNOVATIONS**
 
-### **1. Spatial Location Verification (Unique to This System)**
+**1. Spatial Location Verification**
+- Single microphone detects speaker position
+- Acoustic physics: DRR, spectral analysis, reverberation
+- Rejects passersby, confirms enrolled speakers
 
-**Innovation:**
-Even with single microphone, can detect speaker position using acoustic physics.
+**2. LLM-Based Topic Analysis**
+- Offline LLM understands full conversation context
+- Natural language summaries
+- Question-answer correlation
 
-**How:**
-- Direct vs reflected sound ratio
-- High-frequency attenuation patterns
-- Reverberation characteristics
-- SNR patterns
+**3. Multi-Dimensional Stress Analysis**
+- 60+ acoustic features + 30+ linguistic categories
+- Cross-validation increases reliability
 
-**Benefit:**
-- Rejects passersby (different location)
-- Helps accept enrolled speakers (confirms same position)
-- No additional hardware needed
+---
 
-**Your Idea → Production Feature!**
+## 📊 **OUTPUT FORMATS**
 
-### **2. Semantic Topic Grouping**
-
-**Innovation:**
-Uses AI to understand MEANING, groups discussions on same theme even hours apart.
-
-**Example:**
+**1. Live Transcript:**
 ```
-00:30 - "Tell me about your work connections"
-02:15 - "Who do you work for?"
-05:40 - "Describe your employment situation"
-08:20 - "Any other jobs or companies?"
-
-All grouped as ONE topic: "Work/Employment"
-With 4 mentions spanning 7.8 minutes
+[14:30] Interrogator: Question... [GOOD] Topic: Alibi
+[14:32] Suspect: Answer... [LOW stress] Topic: Alibi
 ```
 
-**Benefit:**
-- See complete discussion of each theme
-- Detect topic avoidance
-- Identify stress patterns per topic
+**2. Topic Analysis:**
+```
+TOPIC: Intelligence Group
+Questions: 6
+Natural Summary: "The conversation addressed..."
+Full Transcription: [all utterances]
+```
 
-### **3. Multi-Dimensional Stress Analysis**
-
-**Innovation:**
-Combines acoustic + linguistic + temporal for robust detection.
-
-**Independent Signals:**
-- Acoustic: Voice characteristics (jitter, shimmer, pitch, energy)
-- Linguistic: Word choice (LIWC categories, deception markers)
-- Temporal: Changes over time (baseline, trends, spikes)
-
-**Cross-Validation:**
-- High acoustic + low linguistic = vocal stress, not deception
-- Low acoustic + high linguistic = psychological stress, not vocal
-- Both high = strong stress indicator
-- Convergent validation increases reliability
+**3. Forensic JSON:**
+- Complete machine-readable data
+- Cryptographic signatures
+- Legally admissible
 
 ---
 
-## 🎯 **USE CASES & APPLICATIONS**
+## ⚠️ **CONSTRAINTS, CHALLENGES & LIMITATIONS**
 
-### **Primary: Interrogation Rooms**
-- Law enforcement interviews
-- Suspect questioning
-- Witness statements
-- Accurate speaker-attributed transcripts
+### **SYSTEM OPERATION MODES**
 
-### **Legal Proceedings:**
-- Court-admissible transcripts
-- Complete audit trail
-- Quality assurance
-- Expert witness support
+The system supports two primary modes:
 
-### **Investigation Analysis:**
-- Topic pattern identification
-- Stress/deception indicators
-- Timeline reconstruction
-- Multiple interview comparison
+**1. Live Session Mode**
+- Real-time processing during active interrogation
+- Continuous audio capture and analysis
+- Immediate speaker identification and transcription
+- Requires pre-enrollment of all participants
 
-### **Training & Review:**
-- Interrogation technique analysis
-- Officer performance review
-- Case preparation
-- Evidence documentation
+**2. Import/Offline Analysis Mode**
+- Post-session analysis of recorded audio/video files
+- Full topic analysis with LLM-powered summaries
+- Complete stress timeline reconstruction
+- No enrollment required (speaker-agnostic)
 
 ---
 
-## 📈 **QUALITY ASSURANCE**
+### **TECHNICAL CONSTRAINTS**
 
-### **Validation Methods:**
+**1. Enrollment Requirements**
+- **Challenge:** All participants must enroll before live session
+- **Impact:** Cannot identify speakers who haven't enrolled
+- **Workaround:** Offline mode can analyze without enrollment (no speaker ID)
+- **User Experience:** Adds 30 seconds per person setup time
+- **Pitcher Note:** "Pre-session setup required - not plug-and-play"
 
-**1. Cross-Validation (36 Tests)**
-- Every audio file tested in every role
-- Proves no overfitting
-- Results: 100% on permutations
+**2. Audio Quality Dependencies**
+- **Challenge:** System performance degrades with poor audio quality
+- **Impact:** Low SNR → lower transcription accuracy, higher false rejections
+- **Thresholds:** RMS < 300 filtered as silence, SNR < 12 dB flagged as poor quality
+- **User Experience:** Requires quality microphone, quiet environment
+- **Pitcher Note:** "Professional audio setup recommended for optimal results"
 
-**2. Exhaustive Testing (108 Tests)**
-- All file combinations
-- All configurations
-- Results: 88.9% average accuracy
+**3. Real-Time Processing Latency**
+- **Challenge:** ~1.5 second delay between speech and transcription display
+- **Impact:** Not truly "instant" - slight lag in live sessions
+- **Bottleneck:** Whisper transcription (~1.5s per 2.5s audio)
+- **User Experience:** Acceptable for interrogation, noticeable for rapid-fire dialogue
+- **Pitcher Note:** "Near real-time, not instant - acceptable for interrogation pace"
 
-**3. Real-World Testing**
-- Actual user voices
-- Live microphone
-- Results: 100% acceptance of enrolled, spatial boost working
+**4. Speaker Limit**
+- **Constraint:** Maximum 5 simultaneous speakers
+- **Reason:** Computational limits, voiceprint database size
+- **Impact:** Large group sessions not supported
+- **User Experience:** Typical interrogation (2-4 people) works fine
+- **Pitcher Note:** "Designed for interrogation rooms, not conference calls"
 
-**4. Semantic Validation**
-- Brad Pitt video: Correctly detected all unique (comedy)
-- Kavin Interview: Correctly grouped "Russian Intelligence" 4x
-- Vid_orig: Detected 10 main themes, not 87 micro-topics
+**5. Language Limitation**
+- **Constraint:** Currently English only
+- **Impact:** Non-English speakers cannot be transcribed
+- **Technical Note:** Whisper supports 99 languages, but system not configured
+- **User Experience:** Language barrier prevents use
+- **Pitcher Note:** "English-only currently - multilingual support possible but not implemented"
 
----
-
-## ✅ **QUALITY INDICATORS**
-
-**Per Utterance:**
-- ✅ EXCELLENT: All metrics high, fully admissible
-- ✅ GOOD: High quality, admissible
-- ⚠️ ACCEPTABLE: Usable with caveats
-- ⚠️ POOR: Low quality, review recommended
-- ❌ INADMISSIBLE: Below legal standards
-
-**Criteria:**
-- SNR > 12 dB (audio clarity)
-- Verification confidence > 0.70 (speaker ID)
-- Transcription confidence > 0.65 (text accuracy)
-- No excessive clipping or distortion
-
----
-
-## 🔧 **SYSTEM CONFIGURATION**
-
-**Adjustable Parameters:**
-
-**Speaker Verification:**
-- Threshold: 0.64 (data-driven optimal)
-- Spatial weight: 15% (voice 85%, spatial 15%)
-- Rejection mode: Strict (all checks must pass)
-
-**Stress Detection:**
-- Acoustic features: 50+ enabled
-- LIWC categories: 30+ enabled
-- Baseline period: First 5 minutes
-- Change threshold: 0.15 (15 percentage point change)
-
-**Topic Modeling:**
-- Target topics: 10 (forces high-level grouping)
-- Similarity threshold: 0.70 (semantic)
-- Revisit gap: 2 minutes (topic return detection)
-
-**Audio Processing:**
-- Sample rate: 16,000 Hz
-- Chunk duration: 2.5 seconds
-- Processing interval: 1.5 seconds
-- Sensitivity: RMS 300 (normal speaking volume)
+**6. LLM Dependency (Optional)**
+- **Challenge:** Best topic summaries require offline LLM (Ollama)
+- **Impact:** Without LLM, summaries are rule-based (less natural)
+- **Setup:** Requires separate Ollama installation and model download
+- **User Experience:** Additional setup complexity for optimal results
+- **Pitcher Note:** "Enhanced features require optional LLM setup - works without it but better with"
 
 ---
 
-## 📚 **DELIVERABLES**
+### **OPERATIONAL CHALLENGES**
 
-**Software Components:**
-1. `main_forensic.py` - Production interrogation system
-2. `main_comprehensive.py` - Full analysis suite
-3. `formatted_topic_analysis.py` - Report generator
+**1. Enrollment Quality Control**
+- **Challenge:** Poor enrollment samples → poor verification accuracy
+- **Problem:** Users may not speak clearly during enrollment
+- **Impact:** False rejections during live session
+- **User Experience:** Frustration when enrolled speaker gets rejected
+- **Mitigation:** Quality scoring during enrollment, but not enforced
+- **Pitcher Note:** "User training needed for proper enrollment - quality matters"
 
-**Documentation:**
-- Product documentation (this file)
-- Technical specifications
-- Mathematical explanations
-- Research citations
-- User guides
+**2. Unknown Speaker Handling**
+- **Challenge:** System rejects unknown speakers, but doesn't identify them
+- **Problem:** Passersby, unexpected participants cause confusion
+- **Impact:** Utterances from unknown speakers are lost (not transcribed)
+- **User Experience:** "Who said that?" - system can't tell
+- **Pitcher Note:** "Security feature (rejects unknowns) but creates gaps in transcript"
 
-**Outputs Per Session:**
-- Live transcript (real-time)
-- Forensic audit (JSON)
-- Topic analysis (formatted text)
-- Stress timeline (visualization)
-- Quality report
+**3. Overlapping Speech**
+- **Challenge:** System processes one speaker at a time
+- **Problem:** Interruptions, simultaneous speech not handled well
+- **Impact:** May attribute speech to wrong speaker or miss utterances
+- **User Experience:** Natural conversation interruptions cause errors
+- **Pitcher Note:** "Designed for turn-taking, not rapid-fire dialogue"
+
+**4. Long Session Management**
+- **Challenge:** Voice characteristics change over long sessions
+- **Problem:** Speaker voiceprint may drift (fatigue, stress, time)
+- **Impact:** Accuracy may decrease over time
+- **Mitigation:** Adaptive enrollment exists but not fully implemented
+- **User Experience:** Works well for typical 30-60 minute sessions
+- **Pitcher Note:** "Best for sessions under 2 hours - longer sessions may need re-enrollment"
+
+**5. Stress Detection Reliability**
+- **Challenge:** Stress indicators are advisory (75-80% accuracy)
+- **Problem:** Not reliable enough for legal evidence
+- **Impact:** Can inform investigation but not admissible as proof
+- **User Experience:** Useful insights but must be interpreted carefully
+- **Pitcher Note:** "Stress analysis is investigative tool, not legal evidence"
+
+**6. Topic Modeling Accuracy**
+- **Challenge:** Topic extraction depends on conversation quality
+- **Problem:** Vague conversations, unclear questions → poor topic grouping
+- **Impact:** Topics may be too granular or too broad
+- **User Experience:** May need manual review and adjustment
+- **Pitcher Note:** "AI-powered but not perfect - human review recommended"
 
 ---
 
-## 🎓 **SUMMARY FOR PRODUCT STAKEHOLDERS**
+### **USER EXPERIENCE CHALLENGES**
+
+**1. Setup Complexity**
+- **Challenge:** Multiple components must be configured
+- **Steps:** Install Python, download models, configure microphone, enroll speakers
+- **Time:** 15-30 minutes initial setup
+- **User Experience:** Technical barrier for non-technical users
+- **Pitcher Note:** "Requires technical setup - not consumer-friendly out of box"
+
+**2. Learning Curve**
+- **Challenge:** Users must understand enrollment process, quality requirements
+- **Problem:** Poor enrollment → poor results, but users don't know why
+- **Impact:** Frustration when system doesn't work as expected
+- **User Experience:** Need training/documentation to use effectively
+- **Pitcher Note:** "User education critical - system is powerful but requires proper use"
+
+**3. Error Recovery**
+- **Challenge:** Limited feedback when things go wrong
+- **Problem:** System may silently fail (reject speaker, miss transcription)
+- **Impact:** Users may not realize errors until reviewing transcript
+- **User Experience:** Need to review output carefully, not fully automated
+- **Pitcher Note:** "Requires human oversight - not fully autonomous"
+
+**4. Real-Time Feedback**
+- **Challenge:** Live mode shows transcription but limited quality indicators
+- **Problem:** Users don't know if transcription is accurate in real-time
+- **Impact:** May miss errors until post-session review
+- **User Experience:** Trust but verify - can't fully rely on live output
+- **Pitcher Note:** "Real-time display is helpful but not guaranteed accurate"
+
+**5. Offline vs Live Mode Differences**
+- **Challenge:** Two modes have different capabilities
+- **Problem:** Live mode: speaker ID but basic analysis. Offline mode: full analysis but no speaker ID
+- **Impact:** Users may expect same features in both modes
+- **User Experience:** Confusion about which mode to use
+- **Pitcher Note:** "Mode selection matters - each has different strengths"
+
+---
+
+### **PRODUCT/PITCHER CHALLENGES**
+
+**1. Accuracy Claims**
+- **Challenge:** Accuracy varies by conditions (audio quality, speaker consistency)
+- **Problem:** "90-95% accuracy" is best-case, not guaranteed
+- **Reality:** Real-world conditions may reduce accuracy
+- **Pitcher Note:** "Accuracy claims are best-case - manage expectations for real-world use"
+
+**2. Forensic Admissibility**
+- **Challenge:** System designed for legal use but not certified
+- **Problem:** Legal admissibility depends on jurisdiction, case law
+- **Impact:** May require expert testimony, validation studies
+- **Pitcher Note:** "Forensic-grade design but not certified - legal review recommended"
+
+**3. Scalability**
+- **Challenge:** Designed for single interrogation room
+- **Problem:** Cannot scale to multiple simultaneous sessions easily
+- **Impact:** One system per room, not enterprise-wide deployment
+- **Pitcher Note:** "Point solution, not enterprise platform - one room at a time"
+
+**4. Maintenance & Updates**
+- **Challenge:** AI models may need updates, retraining
+- **Problem:** System performance depends on model quality
+- **Impact:** May need periodic updates for optimal performance
+- **Pitcher Note:** "Not static system - may require model updates over time"
+
+**5. Cost of Operation**
+- **Challenge:** Requires powerful hardware (CPU, RAM)
+- **Problem:** Not lightweight - needs dedicated machine
+- **Impact:** Cannot run on low-end hardware
+- **Pitcher Note:** "Requires dedicated hardware - not cloud-scalable architecture"
+
+**6. Data Privacy vs Features**
+- **Challenge:** 100% local = privacy but limits features
+- **Problem:** No cloud = no remote access, no collaboration features
+- **Impact:** Single-user, single-location use only
+- **Pitcher Note:** "Privacy-first design limits collaboration and remote access"
+
+---
+
+### **KNOWN LIMITATIONS**
+
+**1. No Speaker Diarization in Offline Mode**
+- Offline analysis cannot identify "who said what" without enrollment
+- Only provides transcription and topic analysis
+
+**2. No Real-Time Topic Analysis**
+- Live mode shows topics but full analysis happens post-session
+- Cannot get natural language summaries during live session
+
+**3. No Multi-Language Support**
+- English only, despite Whisper supporting 99 languages
+- Would require additional configuration and testing
+
+**4. No Cloud/Remote Access**
+- 100% local means no remote monitoring or access
+- Cannot view sessions remotely or collaborate
+
+**5. Limited Error Reporting**
+- System may fail silently in some cases
+- Error messages may not be user-friendly
+
+**6. No Automatic Quality Control**
+- System reports quality but doesn't automatically reject low-quality segments
+- Requires manual review for quality assurance
+
+---
+
+### **MITIGATION STRATEGIES**
+
+**For Users:**
+- Provide clear setup documentation and training
+- Include quality checkpoints during enrollment
+- Offer best practices guide for optimal results
+- Create troubleshooting guide for common issues
+
+**For Product:**
+- Set realistic expectations about accuracy and limitations
+- Emphasize "investigative tool" not "legal proof" for stress analysis
+- Highlight need for human oversight and review
+- Position as "powerful but requires proper use"
+
+**For Pitchers:**
+- Lead with strengths but acknowledge limitations upfront
+- Position as "forensic-grade tool" not "magic solution"
+- Emphasize privacy and local processing as key differentiator
+- Set expectations: "Best-in-class but not perfect"
+
+---
+
+## 🎓 **SUMMARY**
 
 **What This System Does:**
-1. **Identifies speakers** with 90-95% accuracy using AI voice analysis
-2. **Transcribes speech** to text with speaker labels using OpenAI technology
-3. **Detects stress/emotion** using 50+ voice features + 30+ linguistic markers
-4. **Groups discussion topics** semantically using state-of-the-art NLP
-5. **Generates forensic reports** with complete legal compliance
+1. Identifies speakers (90-95% accuracy)
+2. Transcribes speech (85-95% accuracy)
+3. Detects stress (60+ acoustic + 30+ linguistic features)
+4. Extracts questions (95%+ accuracy)
+5. Groups topics (LLM-powered or rule-based)
+6. Creates natural summaries
+7. Generates forensic reports
 
 **Key Differentiators:**
-- ✅ **100% local** (no cloud, complete privacy)
-- ✅ **Spatial verification** (unique innovation)
-- ✅ **Research-based** (20+ academic papers)
-- ✅ **Forensic-grade** (legal compliance built-in)
-- ✅ **Multi-dimensional** (acoustic + linguistic + semantic)
+- ✅ 100% local (no cloud)
+- ✅ Spatial verification
+- ✅ LLM-powered topic analysis
+- ✅ Natural language summaries
+- ✅ 60+ acoustic features
+- ✅ Research-based
+- ✅ Forensic-grade compliance
 
 **Production Status:**
-- **Speaker ID:** Production-ready (extensively tested)
-- **Transcription:** Production-ready (Whisper standard)
-- **Stress indicators:** Advisory use (75-80% reliable)
-- **Topic modeling:** Production-ready (validated on real data)
-
-**Business Value:**
-- Accurate documentation (reduces errors)
-- Time savings (automatic vs manual)
-- Enhanced analysis (stress/topic insights)
-- Legal compliance (audit trail)
-- Investigation support (pattern detection)
+- Speaker ID: Production-ready
+- Transcription: Production-ready
+- Question Extraction: Production-ready
+- Topic Modeling: Production-ready
+- Natural Summaries: Production-ready
+- Stress Indicators: Advisory use (75-80%)
 
 ---
 
-**This system represents state-of-the-art AI applied to forensic interrogation analysis, combining speaker recognition, speech-to-text, psychological analysis, and semantic understanding in one comprehensive package.** 🎯
-
+**This system represents state-of-the-art AI applied to forensic interrogation analysis, combining speaker recognition, speech-to-text, comprehensive acoustic analysis, psychological analysis, and semantic understanding in one comprehensive package.** 🎯

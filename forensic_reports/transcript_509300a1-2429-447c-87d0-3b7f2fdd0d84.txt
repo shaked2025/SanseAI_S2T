@@ -1,0 +1,106 @@
+================================================================================
+FORENSIC INTERROGATION TRANSCRIPT
+================================================================================
+Session ID: 509300a1-2429-447c-87d0-3b7f2fdd0d84
+Room: InterrogationRoom_A
+Case: INV-2025-001
+Date: 2025-11-19 13:21:09
+Duration: 50.3 minutes
+
+PARTICIPANTS:
+  - fgbfbfbfbvfb (Int) - 16 utterances
+  - sfdvdvfd (Sus) - 10 utterances
+
+================================================================================
+TRANSCRIPT:
+================================================================================
+
+[14:07:21] Int (fgbfbfbfbvfb) [LOW]:
+    And...
+
+[14:07:31] Sus (sfdvdvfd) [LOW]:
+    Shalom! Shalom!
+
+[14:07:44] Int (fgbfbfbfbvfb) [LOW]:
+    away
+
+[14:07:54] Int (fgbfbfbfbvfb) [LOW]:
+    Hey everyone how are you?
+
+[14:08:00] Sus (sfdvdvfd) [LOW]:
+    Everyone, how are you?
+
+[14:08:07] Sus (sfdvdvfd) [LOW]:
+    Shalom, my name is Yosusya.
+
+[14:08:17] Int (fgbfbfbfbvfb) [LOW]:
+    I will learn.
+
+[14:08:24] Sus (sfdvdvfd) [LOW]:
+    with culminating a story.
+
+[14:08:30] Sus (sfdvdvfd) [LOW]:
+    have, come in here, see what we'll gain.
+
+[14:08:45] Sus (sfdvdvfd) [LOW]:
+    I could not jump on the lumps.
+
+[14:09:11] Int (fgbfbfbfbvfb) [LOW]:
+    One, two, three, four.
+
+[14:09:15] Int (fgbfbfbfbvfb) [LOW]:
+    Hey everyone, how are you today?
+
+[14:09:20] Int (fgbfbfbfbvfb) [LOW]:
+    Though made by ANNP Stephen
+
+[14:09:24] Int (fgbfbfbfbvfb) [LOW]:
+    That. How did you do? Luma.
+
+[14:09:30] Int (fgbfbfbfbvfb) [LOW]:
+    Would you like this simply?
+
+[14:09:42] Int (fgbfbfbfbvfb) [LOW]:
+    You have no idea how strong you are.
+
+[14:09:48] Int (fgbfbfbfbvfb) [LOW]:
+    It's a very steep slats
+
+[14:09:54] Int (fgbfbfbfbvfb) [LOW]:
+    因為沒有達實都我的名字真的這樣
+
+[14:10:10] Sus (sfdvdvfd) [LOW]:
+    It's a kid, don't want a little turtle.
+
+[14:10:24] Int (fgbfbfbfbvfb) [LOW]:
+    Let's see... Let's just enjoy it.
+
+[14:10:34] Sus (sfdvdvfd) [LOW]:
+    I thought they should be someone.
+
+[14:10:46] Sus (sfdvdvfd) [LOW]:
+    See, those things were like, I'm not sure...
+
+[14:10:52] Int (fgbfbfbfbvfb) [LOW]:
+    And am going to put it on fire
+
+[14:11:01] Int (fgbfbfbfbvfb) [LOW]:
+    So Meravalia...
+
+[14:11:09] Int (fgbfbfbfbvfb) [LOW]:
+    and in family language.
+
+[14:11:18] Sus (sfdvdvfd) [LOW]:
+    Keyhole, Nicolás Azeroll.
+
+
+================================================================================
+QUALITY METRICS:
+================================================================================
+Total utterances: 26
+Average confidence: 61.2%
+Minimum confidence: 61.2%
+Rejected segments: 43
+Acceptance rate: 0.0%
+
+Integrity: COMPROMISED ✗

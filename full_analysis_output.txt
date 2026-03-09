@@ -1,0 +1,538 @@
+========================================================================================================================
+                                        FORMATTED TOPIC ANALYSIS REPORT
+========================================================================================================================
+
+Loading Kavin Interview77 (1).wav...
+Loading models...
+Loading Sentence-BERT model...
+Initializing BERTopic...
+Initializing semantic topic filter...
+[OK] Research-grade topic modeling ready
+[OK] Models loaded
+
+Processing 96 chunks...
+
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1824.84frames/s]100%|##########| 1000/1000 [00:00<00:00, 1824.84frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:02<00:00, 456.44frames/s]100%|##########| 1000/1000 [00:02<00:00, 456.44frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:02<00:00, 414.26frames/s]100%|##########| 1000/1000 [00:02<00:00, 414.26frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2150.72frames/s]100%|##########| 1000/1000 [00:00<00:00, 2150.72frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2155.21frames/s]100%|##########| 1000/1000 [00:00<00:00, 2155.21frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2228.61frames/s]100%|##########| 1000/1000 [00:00<00:00, 2228.61frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:01<00:00, 546.77frames/s]100%|##########| 1000/1000 [00:01<00:00, 546.17frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2146.19frames/s]100%|##########| 1000/1000 [00:00<00:00, 2146.19frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2084.59frames/s]100%|##########| 1000/1000 [00:00<00:00, 2084.59frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1938.57frames/s]100%|##########| 1000/1000 [00:00<00:00, 1938.57frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2187.03frames/s]100%|##########| 1000/1000 [00:00<00:00, 2187.03frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1998.38frames/s]100%|##########| 1000/1000 [00:00<00:00, 1998.38frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2261.15frames/s]100%|##########| 1000/1000 [00:00<00:00, 2261.15frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2510.19frames/s]100%|##########| 1000/1000 [00:00<00:00, 2510.19frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2613.28frames/s]100%|##########| 1000/1000 [00:00<00:00, 2613.28frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:02<00:00, 423.19frames/s]100%|##########| 1000/1000 [00:02<00:00, 423.19frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1615.54frames/s]100%|##########| 1000/1000 [00:00<00:00, 1615.54frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1754.64frames/s]100%|##########| 1000/1000 [00:00<00:00, 1754.64frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2118.78frames/s]100%|##########| 1000/1000 [00:00<00:00, 2118.78frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2100.38frames/s]100%|##########| 1000/1000 [00:00<00:00, 2100.38frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1878.85frames/s]100%|##########| 1000/1000 [00:00<00:00, 1878.85frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:02<00:00, 350.71frames/s]100%|##########| 1000/1000 [00:02<00:00, 350.71frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1694.51frames/s]100%|##########| 1000/1000 [00:00<00:00, 1694.51frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1791.39frames/s]100%|##########| 1000/1000 [00:00<00:00, 1791.39frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1059.15frames/s]100%|##########| 1000/1000 [00:00<00:00, 1058.03frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2313.70frames/s]100%|##########| 1000/1000 [00:00<00:00, 2313.70frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:05<00:00, 194.93frames/s]100%|##########| 1000/1000 [00:05<00:00, 194.93frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:05<00:00, 178.07frames/s]100%|##########| 1000/1000 [00:05<00:00, 178.07frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2360.84frames/s]100%|##########| 1000/1000 [00:00<00:00, 2355.27frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2093.02frames/s]100%|##########| 1000/1000 [00:00<00:00, 2093.02frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2214.69frames/s]100%|##########| 1000/1000 [00:00<00:00, 2214.69frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2541.95frames/s]100%|##########| 1000/1000 [00:00<00:00, 2541.95frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1148.00frames/s]100%|##########| 1000/1000 [00:00<00:00, 1148.00frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:03<00:00, 262.01frames/s]100%|##########| 1000/1000 [00:03<00:00, 262.01frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1263.50frames/s]100%|##########| 1000/1000 [00:00<00:00, 1263.50frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2035.17frames/s]100%|##########| 1000/1000 [00:00<00:00, 2035.17frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1193.17frames/s]100%|##########| 1000/1000 [00:00<00:00, 1193.17frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2001.71frames/s]100%|##########| 1000/1000 [00:00<00:00, 2001.71frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2505.67frames/s]100%|##########| 1000/1000 [00:00<00:00, 2505.67frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1876.94frames/s]100%|##########| 1000/1000 [00:00<00:00, 1876.94frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1811.95frames/s]100%|##########| 1000/1000 [00:00<00:00, 1811.95frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2224.49frames/s]100%|##########| 1000/1000 [00:00<00:00, 2224.49frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:07<00:00, 142.44frames/s]100%|##########| 1000/1000 [00:07<00:00, 142.44frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2696.45frames/s]100%|##########| 1000/1000 [00:00<00:00, 2696.45frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1968.50frames/s]100%|##########| 1000/1000 [00:00<00:00, 1968.50frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2280.01frames/s]100%|##########| 1000/1000 [00:00<00:00, 2280.01frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2515.26frames/s]100%|##########| 1000/1000 [00:00<00:00, 2515.26frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:04<00:00, 236.14frames/s]100%|##########| 1000/1000 [00:04<00:00, 236.14frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1981.68frames/s]100%|##########| 1000/1000 [00:00<00:00, 1944.99frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]  0%|          | 0/1000 [00:00<?, ?frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2140.43frames/s]100%|##########| 1000/1000 [00:00<00:00, 2140.43frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2987.12frames/s]100%|##########| 1000/1000 [00:00<00:00, 2987.12frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s] 57%|#####7    | 572/1000 [00:00<00:00, 1493.79frames/s]100%|##########| 1000/1000 [00:02<00:00, 365.19frames/s]100%|##########| 1000/1000 [00:02<00:00, 419.58frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2520.87frames/s]100%|##########| 1000/1000 [00:00<00:00, 2520.87frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1936.60frames/s]100%|##########| 1000/1000 [00:00<00:00, 1935.42frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1818.30frames/s]100%|##########| 1000/1000 [00:00<00:00, 1818.30frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1733.43frames/s]100%|##########| 1000/1000 [00:00<00:00, 1733.43frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2356.81frames/s]100%|##########| 1000/1000 [00:00<00:00, 2356.81frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2857.14frames/s]100%|##########| 1000/1000 [00:00<00:00, 2857.14frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2374.83frames/s]100%|##########| 1000/1000 [00:00<00:00, 2374.83frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2111.04frames/s]100%|##########| 1000/1000 [00:00<00:00, 2111.04frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2307.87frames/s]100%|##########| 1000/1000 [00:00<00:00, 2307.87frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1859.71frames/s]100%|##########| 1000/1000 [00:00<00:00, 1859.71frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2298.70frames/s]100%|##########| 1000/1000 [00:00<00:00, 2298.70frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2384.95frames/s]100%|##########| 1000/1000 [00:00<00:00, 2384.95frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2124.90frames/s]100%|##########| 1000/1000 [00:00<00:00, 2124.90frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:02<00:00, 447.51frames/s]100%|##########| 1000/1000 [00:02<00:00, 447.51frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:08<00:00, 122.90frames/s]100%|##########| 1000/1000 [00:08<00:00, 122.90frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1752.26frames/s]100%|##########| 1000/1000 [00:00<00:00, 1752.26frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1989.30frames/s]100%|##########| 1000/1000 [00:00<00:00, 1989.30frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1142.00frames/s]100%|##########| 1000/1000 [00:00<00:00, 1142.00frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:03<00:00, 306.17frames/s]100%|##########| 1000/1000 [00:03<00:00, 306.17frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1858.44frames/s]100%|##########| 1000/1000 [00:00<00:00, 1858.44frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:02<00:00, 341.20frames/s]100%|##########| 1000/1000 [00:02<00:00, 341.20frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1888.56frames/s]100%|##########| 1000/1000 [00:00<00:00, 1888.56frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:03<00:00, 293.51frames/s]100%|##########| 1000/1000 [00:03<00:00, 293.51frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2297.15frames/s]100%|##########| 1000/1000 [00:00<00:00, 2297.15frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1335.11frames/s]100%|##########| 1000/1000 [00:00<00:00, 1335.11frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1867.87frames/s]100%|##########| 1000/1000 [00:00<00:00, 1867.87frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1588.39frames/s]100%|##########| 1000/1000 [00:00<00:00, 1588.39frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1902.04frames/s]100%|##########| 1000/1000 [00:00<00:00, 1902.04frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1515.50frames/s]100%|##########| 1000/1000 [00:00<00:00, 1510.90frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2182.29frames/s]100%|##########| 1000/1000 [00:00<00:00, 2182.29frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 2323.86frames/s]100%|##########| 1000/1000 [00:00<00:00, 2323.86frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1765.02frames/s]100%|##########| 1000/1000 [00:00<00:00, 1765.02frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:03<00:00, 290.41frames/s]100%|##########| 1000/1000 [00:03<00:00, 290.41frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1968.44frames/s]100%|##########| 1000/1000 [00:00<00:00, 1960.69frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1958.86frames/s]100%|##########| 1000/1000 [00:00<00:00, 1958.86frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:01<00:00, 959.68frames/s]100%|##########| 1000/1000 [00:01<00:00, 959.68frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1636.96frames/s]100%|##########| 1000/1000 [00:00<00:00, 1636.96frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1252.38frames/s]100%|##########| 1000/1000 [00:00<00:00, 1252.38frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1167.66frames/s]100%|##########| 1000/1000 [00:00<00:00, 1167.66frames/s]
+  0%|          | 0/1000 [00:00<?, ?frames/s]100%|##########| 1000/1000 [00:00<00:00, 1535.80frames/s]100%|##########| 1000/1000 [00:00<00:00, 1535.80frames/s]
+[OK] Processed 92 utterances
+
+Performing semantic topic analysis...
+
+
+Analyzing 92 utterances...
+  Step 0: Filtering meta-discourse and conversation management...
+    Substantive utterances: 77
+    Meta-discourse filtered: 14
+  Step 1: Detecting question-answer structure...
+    Found 25 Q-A segments
+  Step 2: Computing semantic embeddings (SBERT)...
+    Generated 77 embeddings (384-D each)
+  Step 3: Clustering by semantic similarity...
+    Detected 10 semantic topic clusters (fixed target)
+  Step 4: Refining with Q-A structure...
+  Step 5: Generating semantic topic labels...
+  Step 6: Analyzing temporal patterns...
+
+[OK] Topic analysis complete: 10 topics
+
+========================================================================================================================
+                                             TOPIC ANALYSIS REPORT
+========================================================================================================================
+
+File: Kavin Interview77 (1).wav
+Duration: 16.0 minutes
+Utterances: 92
+Main Topics Identified: 10
+
+
+========================================================================================================================
+TOPIC #1: Cyber & Criminal
+========================================================================================================================
+  Total Mentions: 23
+  Time Span: 27.9 minutes
+  First mentioned: 14:48:10
+  Last mentioned: 15:16:04
+  [REVISITED] TOPIC REVISITED: 5 discussion periods
+  Gaps between discussions: ['2.2min', '3.2min', '6.2min', '3.1min']
+
+  TOP 10 MOST IMPACTFUL UTTERANCES:
+  --------------------------------------------------------------------------------------------------------------------
+
+  #1 | Time: [06:00] | Stress: 0.38 | Words: 34
+      How was your experience? Have you been involved in any of this blitz-up talk? I've been in the show for a long time and I've been thinking about it for a long time. Bye!
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #2 | Time: [13:00] | Stress: 0.38 | Words: 19
+      and under the NOC letter from an initial company. Okay, so if let's say you join this new company...
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #3 | Time: [01:10] | Stress: 0.38 | Words: 14
+      Okay, so in terms of cyber operators, if you've been involved in any cyber
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #4 | Time: [04:20] | Stress: 0.26 | Words: 26
+      Stay young this time. You are here to talk about live experience with God. Kiss me with your grace, and don't let me down to that.
+      [Low stress] (Acoustic: 0.30, Linguistic: 0.20)
+
+  #5 | Time: [00:00] | Stress: 0.38 | Words: 13
+      Cyber of friends can you share in terms of your understanding of what
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #6 | Time: [01:50] | Stress: 0.38 | Words: 14
+      It's illegal and it's a criminal. So no one wants to have a person.
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #7 | Time: [08:20] | Stress: 0.38 | Words: 13
+      Okay, the next stop we got knocking on the power grease in town.
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #8 | Time: [02:00] | Stress: 0.35 | Words: 12
+      and who are doing some criminal stuff in the company that's why.
+      [Low stress] (Acoustic: 0.58, Linguistic: 0.00)
+
+  #9 | Time: [03:00] | Stress: 0.38 | Words: 10
+      It involved in any criminal activity, criminal offenses. No, never.
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #10 | Time: [03:20] | Stress: 0.43 | Words: 8
+      speeding 20 kilometers per hour more than it.
+      [MODERATE STRESS] (Acoustic: 0.58, Linguistic: 0.20)
+
+  --------------------------------------------------------------------------------------------------------------------
+
+  [STRESS SUMMARY] TOPIC STRESS SUMMARY:
+      Average stress: 0.32
+      Maximum stress: 0.43
+      [LOW] Low stress on this topic
+
+========================================================================================================================
+TOPIC #2: Company & Other
+========================================================================================================================
+  Total Mentions: 21
+  Time Span: 26.0 minutes
+  First mentioned: 14:49:45
+  Last mentioned: 15:15:46
+  [REVISITED] TOPIC REVISITED: 4 discussion periods
+  Gaps between discussions: ['4.4min', '11.0min', '2.1min']
+
+  TOP 10 MOST IMPACTFUL UTTERANCES:
+  --------------------------------------------------------------------------------------------------------------------
+
+  #1 | Time: [10:50] | Stress: 0.55 | Words: 12
+      Okay, um, even a moment you'll move on to the next topic.
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.62)
+
+  #2 | Time: [10:20] | Stress: 0.30 | Words: 22
+      tell us and let us understand why this topic is important to the company and why are we asking you about it.
+      [Low stress] (Acoustic: 0.50, Linguistic: 0.00)
+
+  #3 | Time: [12:30] | Stress: 0.37 | Words: 16
+      If I can work to other people, other entities... Yes, I can work to other people.
+      [MODERATE STRESS] (Acoustic: 0.48, Linguistic: 0.20)
+
+  #4 | Time: [11:50] | Stress: 0.38 | Words: 16
+      show entity? yes correct I mean you are working for a company and you are working
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #5 | Time: [12:00] | Stress: 0.64 | Words: 2
+      er oh
+      [HIGH STRESS] (Acoustic: 0.40, Linguistic: 1.00)
+
+  #6 | Time: [11:30] | Stress: 0.32 | Words: 18
+      working on behalf of another commercial entity. Okay, so can you describe about this, or working on behalf?
+      [Low stress] (Acoustic: 0.40, Linguistic: 0.20)
+
+  #7 | Time: [01:30] | Stress: 0.30 | Words: 19
+      What do you think is important for us to know if you have been involved in any cyber offense?
+      [Low stress] (Acoustic: 0.50, Linguistic: 0.00)
+
+  #8 | Time: [12:10] | Stress: 0.38 | Words: 14
+      Yes, at the same time. Yes, I have experience. I work for another guy.
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #9 | Time: [10:40] | Stress: 0.49 | Words: 9
+      the Belgians person, it's possible problem in the future.
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.48)
+
+  #10 | Time: [00:30] | Stress: 0.31 | Words: 16
+      cyber offense is a part of my IT profession so I have to be aware of
+      [Low stress] (Acoustic: 0.38, Linguistic: 0.20)
+
+  --------------------------------------------------------------------------------------------------------------------
+
+  [STRESS SUMMARY] TOPIC STRESS SUMMARY:
+      Average stress: 0.36
+      Maximum stress: 0.64
+      [MODERATE] MODERATE stress on this topic
+
+========================================================================================================================
+TOPIC #3: Intelligence & Russian
+========================================================================================================================
+  Total Mentions: 12
+  Time Span: 8.4 minutes
+  First mentioned: 14:59:14
+  Last mentioned: 15:07:38
+  [REVISITED] TOPIC REVISITED: 2 discussion periods
+  Gaps between discussions: ['2.0min']
+
+  TOP 10 MOST IMPACTFUL UTTERANCES:
+  --------------------------------------------------------------------------------------------------------------------
+
+  #1 | Time: [05:20] | Stress: 0.34 | Words: 39
+      Let's move on to the next topic. I don't think it's going to be a good idea. I'm going to be able to do it in a minute. I'm going to be able to do it in a minute.
+      [Low stress] (Acoustic: 0.50, Linguistic: 0.10)
+
+  #2 | Time: [07:50] | Stress: 0.39 | Words: 23
+      I'm sorry if you are trying to be mischievous, maybe not my parents who gave you that I'm ready to say thank you
+      [MODERATE STRESS] (Acoustic: 0.40, Linguistic: 0.37)
+
+  #3 | Time: [04:30] | Stress: 0.39 | Words: 21
+      i feel that when it rains and when it rains videos from my side so eye when your wrong eye opens
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.22)
+
+  #4 | Time: [06:50] | Stress: 0.38 | Words: 13
+      As no one wants to have contacts with Russian intelligence due to the...
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #5 | Time: [05:00] | Stress: 0.37 | Words: 14
+      as criminal things for him like most of the time it might be from
+      [MODERATE STRESS] (Acoustic: 0.30, Linguistic: 0.49)
+
+  #6 | Time: [07:20] | Stress: 0.30 | Words: 16
+      Okay. Okay, so is there anything else important that you think you want to tell me?
+      [Low stress] (Acoustic: 0.50, Linguistic: 0.00)
+
+  #7 | Time: [07:30] | Stress: 0.26 | Words: 10
+      with regards to your involvement with Russian intelligence. I see.
+      [Low stress] (Acoustic: 0.30, Linguistic: 0.20)
+
+  #8 | Time: [07:00] | Stress: 0.26 | Words: 15
+      We've clubbed just about a thousandly around tight. They are our ^^ Nothank, corruption, etc.
+      [Low stress] (Acoustic: 0.30, Linguistic: 0.20)
+
+  #9 | Time: [08:50] | Stress: 0.26 | Words: 8
+      I don't have any information about intelligence circulation.
+      [Low stress] (Acoustic: 0.30, Linguistic: 0.20)
+
+  #10 | Time: [06:10] | Stress: 0.26 | Words: 9
+      Never been involved. I have no connection. And... No.
+      [Low stress] (Acoustic: 0.30, Linguistic: 0.20)
+
+  --------------------------------------------------------------------------------------------------------------------
+
+  [STRESS SUMMARY] TOPIC STRESS SUMMARY:
+      Average stress: 0.31
+      Maximum stress: 0.39
+      [LOW] Low stress on this topic
+
+========================================================================================================================
+TOPIC #4: Side. & Okay,
+========================================================================================================================
+  Total Mentions: 7
+  Time Span: 20.1 minutes
+  First mentioned: 14:54:42
+  Last mentioned: 15:14:50
+  [REVISITED] TOPIC REVISITED: 4 discussion periods
+  Gaps between discussions: ['6.7min', '5.4min', '4.4min']
+
+  TOP 7 MOST IMPACTFUL UTTERANCES:
+  --------------------------------------------------------------------------------------------------------------------
+
+  #1 | Time: [02:50] | Stress: 0.33 | Words: 21
+      So yes, from the point of when you know what is right and what is wrong you now Have you yourself
+      [Low stress] (Acoustic: 0.40, Linguistic: 0.22)
+
+  #2 | Time: [11:40] | Stress: 0.38 | Words: 15
+      of another commercial entity. Have you experienced this before in the past? Just regular commercial.
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #3 | Time: [06:30] | Stress: 0.30 | Words: 14
+      public information on news channels. Okay, so can you tell me why you're saying...
+      [Low stress] (Acoustic: 0.50, Linguistic: 0.00)
+
+  #4 | Time: [06:40] | Stress: 0.24 | Words: 19
+      We are asking about this Russian intelligence and why do you believe this issue is important to us? Okay
+      [Low stress] (Acoustic: 0.40, Linguistic: 0.00)
+
+  #5 | Time: [09:20] | Stress: 0.26 | Words: 16
+      intelligence organization? No, no. I was once contacted as many of my other students. They're nice.
+      [Low stress] (Acoustic: 0.30, Linguistic: 0.20)
+
+  #6 | Time: [05:40] | Stress: 0.38 | Words: 8
+      So the next topic we are talking about
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #7 | Time: [12:20] | Stress: 0.38 | Words: 6
+      company CTooling and legally I ask...
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  --------------------------------------------------------------------------------------------------------------------
+
+  [STRESS SUMMARY] TOPIC STRESS SUMMARY:
+      Average stress: 0.32
+      Maximum stress: 0.38
+      [LOW] Low stress on this topic
+
+========================================================================================================================
+TOPIC #5: I'Ve & Long
+========================================================================================================================
+  Total Mentions: 4
+  Time Span: 19.7 minutes
+  First mentioned: 14:50:05
+  Last mentioned: 15:09:44
+  [REVISITED] TOPIC REVISITED: 4 discussion periods
+  Gaps between discussions: ['7.3min', '2.2min', '10.2min']
+
+  TOP 4 MOST IMPACTFUL UTTERANCES:
+  --------------------------------------------------------------------------------------------------------------------
+
+  #1 | Time: [00:40] | Stress: 0.43 | Words: 15
+      cyber offense and cyber attacks how it is possible to be blind on a company's
+      [MODERATE STRESS] (Acoustic: 0.58, Linguistic: 0.20)
+
+  #2 | Time: [04:40] | Stress: 0.38 | Words: 9
+      and then we'll move on to the next topic.
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #3 | Time: [04:00] | Stress: 0.24 | Words: 15
+      Give me one reason why I should believe you that you'll call the police. Ken.
+      [Low stress] (Acoustic: 0.40, Linguistic: 0.00)
+
+  #4 | Time: [09:40] | Stress: 0.38 | Words: 5
+      was from Russian intelligence group.
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  --------------------------------------------------------------------------------------------------------------------
+
+  [STRESS SUMMARY] TOPIC STRESS SUMMARY:
+      Average stress: 0.36
+      Maximum stress: 0.43
+      [MODERATE] MODERATE stress on this topic
+
+========================================================================================================================
+TOPIC #6: General Discussion
+========================================================================================================================
+  Total Mentions: 3
+  Time Span: 6.0 minutes
+  First mentioned: 15:00:25
+  Last mentioned: 15:06:26
+  [REVISITED] TOPIC REVISITED: 2 discussion periods
+  Gaps between discussions: ['4.7min']
+
+  TOP 3 MOST IMPACTFUL UTTERANCES:
+  --------------------------------------------------------------------------------------------------------------------
+
+  #1 | Time: [08:00] | Stress: 0.38 | Words: 12
+      Okay, sorry, they wanted to go out, me out. No, you okay?
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #2 | Time: [05:50] | Stress: 0.26 | Words: 18
+      I would like to check whether you have any connection to the traffic or working for any Russian
+      [Low stress] (Acoustic: 0.30, Linguistic: 0.20)
+
+  #3 | Time: [05:10] | Stress: 0.38 | Words: 8
+      My only advice is to call the police.
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  --------------------------------------------------------------------------------------------------------------------
+
+  [STRESS SUMMARY] TOPIC STRESS SUMMARY:
+      Average stress: 0.34
+      Maximum stress: 0.38
+      [LOW] Low stress on this topic
+
+========================================================================================================================
+TOPIC #7: General Discussion
+========================================================================================================================
+  Total Mentions: 2
+  Time Span: 2.9 minutes
+  First mentioned: 14:53:26
+  Last mentioned: 14:56:22
+  [REVISITED] TOPIC REVISITED: 2 discussion periods
+  Gaps between discussions: ['2.9min']
+
+  TOP 2 MOST IMPACTFUL UTTERANCES:
+  --------------------------------------------------------------------------------------------------------------------
+
+  #1 | Time: [03:40] | Stress: 0.38 | Words: 22
+      to you and ask you to be part of that group to be involved in the criminal offense. How would you respond?
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #2 | Time: [02:10] | Stress: 0.26 | Words: 5
+      important for you. Okay, let's...
+      [Low stress] (Acoustic: 0.30, Linguistic: 0.20)
+
+  --------------------------------------------------------------------------------------------------------------------
+
+  [STRESS SUMMARY] TOPIC STRESS SUMMARY:
+      Average stress: 0.32
+      Maximum stress: 0.38
+      [LOW] Low stress on this topic
+
+========================================================================================================================
+TOPIC #8: General Discussion
+========================================================================================================================
+  Total Mentions: 2
+  Time Span: 13.6 minutes
+  First mentioned: 14:54:22
+  Last mentioned: 15:07:56
+  [REVISITED] TOPIC REVISITED: 2 discussion periods
+  Gaps between discussions: ['13.6min']
+
+  TOP 2 MOST IMPACTFUL UTTERANCES:
+  --------------------------------------------------------------------------------------------------------------------
+
+  #1 | Time: [02:40] | Stress: 0.38 | Words: 21
+      Okay, allion, we talked to the paper by yourself and you didn't mention that you are not about 44 years old.
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  #2 | Time: [09:00] | Stress: 0.38 | Words: 16
+      Mr. Ray, have you been approached by an intelligence organization to be part of their group?
+      [MODERATE STRESS] (Acoustic: 0.50, Linguistic: 0.20)
+
+  --------------------------------------------------------------------------------------------------------------------
+
+  [STRESS SUMMARY] TOPIC STRESS SUMMARY:
+      Average stress: 0.38
+      Maximum stress: 0.38
+      [MODERATE] MODERATE stress on this topic
+
+========================================================================================================================
+TOPIC #9: Rains Discussion
+========================================================================================================================
+  Total Mentions: 2
+  Time Span: 14.9 minutes
+  First mentioned: 14:56:45
+  Last mentioned: 15:11:41
+  [REVISITED] TOPIC REVISITED: 2 discussion periods
+  Gaps between discussions: ['14.9min']
+
+  TOP 2 MOST IMPACTFUL UTTERANCES:
+  --------------------------------------------------------------------------------------------------------------------
+
+  #1 | Time: [03:50] | Stress: 0.30 | Words: 15
+      will refuse and call the police. Okay so why do you just mention to me?
+      [Low stress] (Acoustic: 0.50, Linguistic: 0.00)
+
+  #2 | Time: [10:30] | Stress: 0.32 | Words: 11
+      intelligence of an island. No one wants to work with Russia.
+      [Low stress] (Acoustic: 0.40, Linguistic: 0.20)
+
+  --------------------------------------------------------------------------------------------------------------------
+
+  [STRESS SUMMARY] TOPIC STRESS SUMMARY:
+      Average stress: 0.31
+      Maximum stress: 0.32
+      [LOW] Low stress on this topic
+
+========================================================================================================================
+TOPIC #10: General Discussion
+========================================================================================================================
+  Total Mentions: 1
+  Time Span: 0.0 minutes
+  First mentioned: 15:08:33
+  Last mentioned: 15:08:33
+
+  TOP 1 MOST IMPACTFUL UTTERANCES:
+  --------------------------------------------------------------------------------------------------------------------
+
+  #1 | Time: [09:10] | Stress: 0.32 | Words: 15
+      It should be part of the group. Yes. What group do you mean? Intelligence group.
+      [Low stress] (Acoustic: 0.40, Linguistic: 0.20)
+
+  --------------------------------------------------------------------------------------------------------------------
+
+========================================================================================================================
+                                                  END OF REPORT
+========================================================================================================================

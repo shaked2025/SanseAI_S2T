@@ -1,0 +1,39 @@
+{
+  "timestamp": "2025-11-19T15:48:37.429899",
+  "male": {
+    "rms_stats": {
+      "mean": 1588.427754720052,
+      "median": 1554.8397216796875,
+      "min": 502.0908203125,
+      "max": 3160.71484375,
+      "std": 844.4165976485854
+    },
+    "sample_count": 6
+  },
+  "female": {
+    "rms_stats": {
+      "mean": 1895.2337341308594,
+      "median": 1759.340576171875,
+      "min": 809.8607177734375,
+      "max": 3252.39306640625,
+      "std": 916.9797486504768
+    },
+    "sample_count": 4
+  },
+  "combined": {
+    "rms_stats": {
+      "mean": 1711.150146484375,
+      "median": 1554.8397216796875,
+      "min": 502.0908203125,
+      "max": 3252.39306640625,
+      "std": 886.9924217067575
+    },
+    "total_samples": 10
+  },
+  "recommendations": {
+    "rms_threshold": 699,
+    "vad_threshold": 419,
+    "gender_difference_pct": 11.623721822931982,
+    "embedding_similarity": 0.9015582174301515
+  }
+}

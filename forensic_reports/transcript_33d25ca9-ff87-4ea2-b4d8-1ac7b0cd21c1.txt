@@ -1,0 +1,28 @@
+================================================================================
+FORENSIC INTERROGATION TRANSCRIPT
+================================================================================
+Session ID: 33d25ca9-ff87-4ea2-b4d8-1ac7b0cd21c1
+Room: InterrogationRoom_A
+Case: INV-2025-001
+Date: 2025-11-19 13:17:20
+Duration: 3.2 minutes
+
+PARTICIPANTS:
+  - adscscsc (Int) - 0 utterances
+  - wfdvdvdddv (Sus) - 0 utterances
+
+================================================================================
+TRANSCRIPT:
+================================================================================
+
+
+================================================================================
+QUALITY METRICS:
+================================================================================
+Total utterances: 0
+Average confidence: 0.0%
+Minimum confidence: 0.0%
+Rejected segments: 0
+Acceptance rate: 100.0%
+
+Integrity: VERIFIED ✓

@@ -332,7 +332,7 @@ class LocationAwareVerifier:
         Verify speaker using BOTH voice and location
         
         Args:
-            test_embedding: Voice embedding (256-D)
+            test_embedding: Voice embedding (192-D ECAPA-TDNN)
             test_audio: Raw audio for spatial analysis
             enrolled_speakers: Dict of enrolled speaker profiles
             
@@ -347,7 +347,7 @@ class LocationAwareVerifier:
         )
         
         # If voice strongly rejects, don't bother with spatial
-        if voice_similarity < 0.55:
+        if voice_similarity < 0.10:
             return False, speaker_key, speaker_name, voice_similarity, f"Voice rejected: {voice_reason}"
             
         # === SPATIAL VERIFICATION ===
@@ -387,8 +387,8 @@ class LocationAwareVerifier:
                 return False, speaker_key, speaker_name, combined_score, \
                        f"Spatial mismatch (voice:{voice_similarity:.2f}, spatial:{spatial_similarity:.2f}) - likely different location"
                        
-            # Voice passed basic check, spatial matches - combine scores
-            threshold = 0.62  # Slightly lower than voice-only (spatial helps)
+            # Voice passed basic check, spatial matches — combine scores
+            threshold = 0.25
             
             if combined_score >= threshold:
                 if voice_accept:
